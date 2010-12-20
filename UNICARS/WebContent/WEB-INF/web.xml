@@ -12,8 +12,7 @@
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
-  
-    <servlet>
+  <servlet>
     <description>Servlet che consente il login</description>
     <display-name>Login</display-name>
     <servlet-name>Login</servlet-name>
@@ -33,5 +32,134 @@
     <servlet-name>Logout</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <description>Servlet che permette l'inserimento di una nuova vendita</description>
+    <display-name>InserisciVendita</display-name>
+    <servlet-name>InserisciVendita</servlet-name>
+    <servlet-class>unicars.control.InserisciVendita</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InserisciVendita</servlet-name>
+    <url-pattern>/InserisciVendita</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet che permette la modifica di una vendita gia esistente</description>
+    <display-name>ModificaVendita</display-name>
+    <servlet-name>ModificaVendita</servlet-name>
+    <servlet-class>unicars.control.ModificaVendita</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModificaVendita</servlet-name>
+    <url-pattern>/ModificaVendita</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet che elimina una vendita </description>
+    <display-name>EliminaVendita</display-name>
+    <servlet-name>EliminaVendita</servlet-name>
+    <servlet-class>unicars.control.EliminaVendita</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EliminaVendita</servlet-name>
+    <url-pattern>/EliminaVendita</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet che ritorna l'elenco delle vendite per visualizzarle</description>
+    <display-name>VisualizzaVendite</display-name>
+    <servlet-name>VisualizzaVendite</servlet-name>
+    <servlet-class>unicars.control.VisualizzaVendite</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VisualizzaVendite</servlet-name>
+    <url-pattern>/VisualizzaVendite</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet che permette l'inserimento di un nuovo appuntamento</description>
+    <display-name>InserisciAppuntamento</display-name>
+    <servlet-name>InserisciAppuntamento</servlet-name>
+    <servlet-class>unicars.control.InserisciAppuntamento</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InserisciAppuntamento</servlet-name>
+    <url-pattern>/InserisciAppuntamento</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet che permette la modifica di un appuntamento</description>
+    <display-name>ModificaAppuntamento</display-name>
+    <servlet-name>ModificaAppuntamento</servlet-name>
+    <servlet-class>unicars.control.ModificaAppuntamento</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModificaAppuntamento</servlet-name>
+    <url-pattern>/ModificaAppuntamento</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet che permette l'eliminazione di un appuntamento</description>
+    <display-name>EliminaAppuntamento</display-name>
+    <servlet-name>EliminaAppuntamento</servlet-name>
+    <servlet-class>unicars.control.EliminaAppuntamento</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EliminaAppuntamento</servlet-name>
+    <url-pattern>/EliminaAppuntamento</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet che permette la restituzione e la visualizzazione della lista degli appuntamenti</description>
+    <display-name>VisualizzaAppuntamenti</display-name>
+    <servlet-name>VisualizzaAppuntamenti</servlet-name>
+    <servlet-class>unicars.control.VisualizzaAppuntamenti</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VisualizzaAppuntamenti</servlet-name>
+    <url-pattern>/VisualizzaAppuntamenti</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet che permette la segnalazione dell'interesse da parte di un utente</description>
+    <display-name>SegnalaInteresse</display-name>
+    <servlet-name>SegnalaInteresse</servlet-name>
+    <servlet-class>unicars.control.SegnalaInteresse</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SegnalaInteresse</servlet-name>
+    <url-pattern>/SegnalaInteresse</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet che permette la visualizzazione dei clienti</description>
+    <display-name>VisualizzaClienti</display-name>
+    <servlet-name>VisualizzaClienti</servlet-name>
+    <servlet-class>unicars.control.VisualizzaClienti</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VisualizzaClienti</servlet-name>
+    <url-pattern>/VisualizzaClienti</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet che permette la visualizzazione della lista operatori</description>
+    <display-name>VisualizzaOperatori</display-name>
+    <servlet-name>VisualizzaOperatori</servlet-name>
+    <servlet-class>unicars.control.VisualizzaOperatori</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VisualizzaOperatori</servlet-name>
+    <url-pattern>/VisualizzaOperatori</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet che permette la visualizzazione delle riparazioni</description>
+    <display-name>VisualizzaRiparazioni</display-name>
+    <servlet-name>VisualizzaRiparazioni</servlet-name>
+    <servlet-class>unicars.control.VisualizzaRiparazioni</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VisualizzaRiparazioni</servlet-name>
+    <url-pattern>/VisualizzaRiparazioni</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet che permette la visualizzazione dei veicoli</description>
+    <display-name>VisualizzaVeicoli</display-name>
+    <servlet-name>VisualizzaVeicoli</servlet-name>
+    <servlet-class>unicars.control.VisualizzaVeicoli</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VisualizzaVeicoli</servlet-name>
+    <url-pattern>/VisualizzaVeicoli</url-pattern>
+  </servlet-mapping>
 </web-app>
