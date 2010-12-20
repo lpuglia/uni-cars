@@ -8,6 +8,6 @@ public interface IAppuntamentoManager {
 	public Appuntamento cercaAppuntamento(String codice);
 	
 	public boolean inserisciAppuntamento(Appuntamento a);
-	public boolean modificaAppuntamento(String codice);
+	public boolean modificaAppuntamento(Appuntamento a);
 	public boolean eliminaAppuntamento(String codice);
 }

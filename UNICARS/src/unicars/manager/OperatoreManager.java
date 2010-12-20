@@ -1,0 +1,147 @@
+package unicars.manager;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import unicars.bean.Operatore;
+
+/** 
+ * Classe che gestisce le interazioni con il database riguardanti gli Operatori.
+ * Implementa l'interfaccia IOperatoreManager.
+ * 
+ * @author Michele Fratello
+ */
+
+public class OperatoreManager implements IOperatoreManager{
+
+	private Connection conn;
+	private boolean isConnected;
+	private static final Operatore OPERATORE_VUOTO = new Operatore(null, null, null, null, null, null); 
+	
+	/**Costruttore della classe.
+	 * 
+	 * @param c Oggetto DBConnection in cui sono memorizzati tutti i dati necessari
+	 * per stabilire una connessione con il database.
+	 */
+	public OperatoreManager(DBConnection c)
+	{
+		try {
+			conn = c.connetti();
+			isConnected = true;
+		}
+		catch(java.lang.ClassNotFoundException err) {
+			System.err.print("ClassNotFoundException: ");
+			System.err.println(err.getMessage());
+			isConnected = false;
+		} 
+		catch(SQLException e) {
+			System.err.print("SQLException: ");
+			System.err.println(e.getMessage());
+			isConnected = false;
+		}
+	}
+	
+	/**
+	 * Ricerca all'interno del database tutte gli Operatori memorizzati.
+	 * 
+	 * @return Un'ArrayList contenente tutte gli Operatori memorizzati nel database.
+	 */
+	public ArrayList<Operatore> listaOperatori() {
+		ArrayList<Operatore> lista = new ArrayList<Operatore>();
+		Statement stmt;
+		ResultSet rs;
+		String query = "SELECT * FROM operatore";
+		
+		if(!isConnected) return null;
+		
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(query);
+			while(rs.next()) {
+				lista.add(new Operatore(rs.getString("nome"), 
+										rs.getString("cognome"), 
+										rs.getString("username"), 
+										rs.getString("password"), 
+										rs.getString("email"),
+										rs.getString("gruppo")));
+			}
+		}
+		catch(SQLException ex) {
+			lista = null;
+			System.err.print("SQLException: ");
+			System.err.println(ex.getMessage());
+		}
+		return lista;
+	}
+
+	/**
+	 * Effettua una ricerca all'interno del database per uno specifico Operatore.
+	 * 
+	 * @param username Stringa contenete l'username dell'Operatore.
+	 * @return L'oggetto Operatore in caso di esito positivo, null altrimenti.
+	 */
+	public Operatore cercaOperatore(String username) {
+		Operatore o = OPERATORE_VUOTO;
+		Statement stmt;
+		ResultSet rs;
+		String query = "SELECT * FROM operatore WHERE username='" + username + "'";
+		
+		if(!isConnected) return null;
+		
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(query);
+			if(rs.next()) {
+				o = new Operatore(	rs.getString("nome"), 
+									rs.getString("cognome"), 
+									rs.getString("username"), 
+									rs.getString("password"), 
+									rs.getString("email"),
+									rs.getString("gruppo"));
+			}
+		}
+		catch(SQLException ex) {
+			o = null;
+			System.err.print("SQLException: ");
+			System.err.println(ex.getMessage());
+		}
+		return o;
+	}
+
+	/**
+	 * Effettua l'operazione di login per un Operatore.
+	 * 
+	 * @param username Username dell'Operatore che tenta il login
+	 * @param passowrd Password dell'Operatore che tenta il login
+	 */
+	public Operatore loginOperatore(String username, String password) {
+		Operatore o = OPERATORE_VUOTO;
+		Statement stmt;
+		ResultSet rs;
+		String query = "SELECT * FROM operatore WHERE username='" + username + "' AND password='" + password + "'";
+		
+		if(!isConnected) return null;
+		
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(query);
+			if(rs.next()) {
+				o = new Operatore(	rs.getString("nome"), 
+									rs.getString("cognome"), 
+									rs.getString("username"), 
+									rs.getString("password"), 
+									rs.getString("email"),
+									rs.getString("gruppo"));
+			}
+		}
+		catch(SQLException ex) {
+			o = null;
+			System.err.print("SQLException: ");
+			System.err.println(ex.getMessage());
+		}
+		return o;
+	}
+
+}

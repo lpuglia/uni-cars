@@ -4,11 +4,24 @@ import java.util.ArrayList;
 import unicars.bean.Vendita;
 import java.sql.*;
 
+/** 
+ * Classe che gestisce le interazioni con il database riguardanti le Vendite.
+ * Implementa l'interfaccia IVenditaManager.
+ * 
+ * @author Michele Fratello
+ */
+
 public class VenditaManager implements IVenditaManager{
 	
 	private Connection conn;
 	private boolean isConnected;
+	private static final Vendita VENDITA_VUOTO = new Vendita(null, null, null, null, null); 
 	
+	/**Costruttore della classe.
+	 * 
+	 * @param c Oggetto DBConnection in cui sono memorizzati tutti i dati necessari.
+	 * per stabilire una connessione con il database.
+	 */
 	public VenditaManager(DBConnection c)
 	{
 		try {
@@ -27,8 +40,13 @@ public class VenditaManager implements IVenditaManager{
 		}
 	}
 	
+	/**
+	 * Ricerca all'interno del database tutte le Vendite memorizzate.
+	 * 
+	 * @return Un'ArrayList contenente tutte le Vendite memorizzate nel database.
+	 */
 	public ArrayList<Vendita> listaVendite() {
-		ArrayList<Vendita> lista = null;
+		ArrayList<Vendita> lista = new ArrayList<Vendita>();
 		Statement stmt;
 		ResultSet rs;
 		String query = "SELECT * FROM vendita";
@@ -36,11 +54,10 @@ public class VenditaManager implements IVenditaManager{
 		if(!isConnected) return null;
 		
 		try {
-			lista = new ArrayList<Vendita>();
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(query);
 			while(rs.next()) {
-				lista.add(new Vendita(rs.getString("codice"), 
+				lista.add(new Vendita(	rs.getString("codice"), 
 										rs.getString("codFis"), 
 										rs.getString("telaio"), 
 										rs.getString("data"), 
@@ -48,17 +65,24 @@ public class VenditaManager implements IVenditaManager{
 			}
 		}
 		catch(SQLException ex) {
+			lista = null;
 			System.err.print("SQLException: ");
 			System.err.println(ex.getMessage());
 		}
 		return lista;
 	}
-
+	
+	/**
+	 * Effettua una ricerca all'interno del database per una specifica Vendita.
+	 * 
+	 * @param codice Stringa contenete il codice della Vendita.
+	 * @return L'oggetto Vendita in caso di esito positivo, null altrimenti.
+	 */
 	public Vendita cercaVendita(String codice) {
-		Vendita v = null;
+		Vendita v = VENDITA_VUOTO;
 		Statement stmt;
 		ResultSet rs;
-		String query = "SELECT * FROM vendita where codice='" + codice + "'";
+		String query = "SELECT * FROM vendita WHERE codice='" + codice + "'";
 		
 		if(!isConnected) return null;
 		
@@ -74,12 +98,19 @@ public class VenditaManager implements IVenditaManager{
 			}
 		}
 		catch(SQLException ex) {
+			v = null;
 			System.err.print("SQLException: ");
 			System.err.println(ex.getMessage());
 		}
 		return v;
 	}
 
+	/**
+	 * Inserisce una nuova Vendita all'interno del database.
+	 * 
+	 * @param v La Vendita da memorizzare nel database.
+	 * @return Restituisce true in caso di esito positivo, false altrimenti.
+	 */
 	public boolean inserisciVendita(Vendita v) {
 		boolean ret = false;
 		Statement stmt;
@@ -103,14 +134,20 @@ public class VenditaManager implements IVenditaManager{
 		return ret;
 	}
 
+	/**
+	 * Modifica i dati di una Vendita memorizzata nel database.
+	 * 
+	 * @param v La Vendita contenente i dati modificati.
+	 * @return Restituisce true in caso di esito positivo, false altrimenti.
+	 */
 	public boolean modificaVendita(Vendita v) {
 		boolean ret = false;
 		Statement stmt;
-		String query = "UPDATE vendita SET codFis='" + v.getCodFis() 
-						+ "', telaio='" + v.getTelaio()
-						+ "', data='" + v.getData() + 
-						"', note='" + v.getNote()+ "' WHERE codice='"
-						+ v.getCodice() + "'";
+		String query = 	"UPDATE vendita SET codFis='" + v.getCodFis() + 
+						"', telaio='" + v.getTelaio() + 
+						"', data='" + v.getData() + 
+						"', note='" + v.getNote()+ 
+						"' WHERE codice='" + v.getCodice() + "'";
 		
 		if(!isConnected) return false;
 		
@@ -125,7 +162,13 @@ public class VenditaManager implements IVenditaManager{
 		}
 		return ret;
 	}
-
+	
+	/**
+	 * Rimuove una Vendita dal database
+	 * 
+	 * @param codice Il codice della Vendita che deve essere eliminata.
+	 * @return Restituisce true in caso di esito positivo, false altrimenti.
+	 */
 	public boolean eliminaVendita(String codice) {
 		boolean ret = false;
 		Statement stmt;
