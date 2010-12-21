@@ -26,9 +26,14 @@
 		<br>
 		<img src="image/contents.png">
 		<br><br>
-		<%@ include file="/inserisciCliente.jsp"%>
-		</div>
-		<div id="login" class="celle" ><%@ include file="/accesso.jsp"%></div>
+		<%
+		
+		
+		if(request.getParameter("id")=="inserisciAppuntamento"){%>
+		<%@ include file="/modificaAppuntamento2.jsp"%>
+	    <%} %>
+	    </div>
+	<div id="login" class="celle" ><%@ include file="/accesso.jsp"%></div>
 	</div>
 </body>
 </html>

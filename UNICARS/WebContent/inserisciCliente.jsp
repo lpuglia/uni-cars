@@ -1,4 +1,5 @@
-<h2>Inserisci Cliente</h2>
+<div style="height:40px;"></div><h2>Inserisci Cliente</h2>
+In questa Schermata è possibile inserire un nuovo cliente nel database.<br><br>
 <form action="" method="post">
 	<table align="center">
 		<tr><td align="right">Nome:</td><td><input name="nome" type="text"></td>
@@ -10,8 +11,7 @@
 		<tr><td align="right">CAP:</td><td><input name="nome" type="text"></td>
 		<td align="right">Numero Civico:</td><td><input name="cognome" type="text"></td></tr>
 		
-		<tr><td colspan="2" align="right"><input value="LogIn" type="submit">
-		<input value="Cancella" type="reset"></td></tr>
+		<tr><td align="right" colspan="2"><input value="LogIn" type="submit">
+		<input value="Cancella" type="reset"><br><br><br><br><br><br></td></tr>
 	</table>
-</form>
-<br>
+</form><br></div>

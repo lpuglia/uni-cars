@@ -1,16 +1,13 @@
-<table
- style="width: 448px; height: 72px; text-align: center; margin-left: auto; margin-right: auto;"
- border="0" cellpadding="0" cellspacing="0">
-  <tbody>
-    <tr>
-      <td>
-	<form action="" method="post">
-	Nome: <input name="nome" type="text"><br>
-	Cognome: <input name="cognome" type="text"><br>
-	Recapito: <input name="recapito" type="text"><br>
-	<br>
-	<input value="Segnala" type="submit">
-      </td>
-    </tr>
-  </tbody>
+<div style="text-align:center; width:90%; margin-left:auto; margin-right:auto;">
+<h1>Segnala Interesse</h1>
+Inserisci i tuoi dati per segnalare il tuo interesse su questo modello.
+<br><br><form action="" method="post">
+<table align="center">
+      <tr><td>Nome:</td><td><input name="nome" type="text"></td></tr>
+      <tr><td>Cognome:</td><td><input name="cognome" type="text"></td></tr>
+      <tr><td>Recapito:</td><td><input name="recapito" type="text"></td></tr>
+	  <tr><td colspan="2"><input value="Segnala Interesse" type="submit"></td></tr>
 </table>
+</form>
+</div>
+<br><br><br>

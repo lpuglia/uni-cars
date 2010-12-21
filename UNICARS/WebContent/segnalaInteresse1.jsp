@@ -1,27 +1,21 @@
-<table
- style="width: 448px; height: 72px; text-align: left; margin-left: auto; margin-right: auto;"
- border="0" cellpadding="0" cellspacing="0">
-  <tbody>
+<div style="text-align:left; background-color:white; color: black; width:90%; margin-left:auto; margin-bottom:15px; margin-right:auto; -moz-border-radius: 15px; -webkit-border-radius: 15px; padding:10px">
+<table style="width: 100%;">
     <tr>
-      <td style="width: 222px;">
-      <div style="text-align: center;"><font size="+2">Scheda
-Tecnica<font size="-2"><br>
-      </font></font></div>
-      <table style="text-align: left; width: 100%;" border="0"
- cellpadding="0" cellspacing="0">
-        <tbody>
-          <tr>
-            <td style="width: 220px; text-align: center;"><img
- style="width: 189px; height: 189px;" alt="" src="aa">
-            </td>
-            <td style="width: 218px;">Tante:<br>
+      <td colspan="2">
+      <div align="center"><h1>Scheda Tecnica</h1></div>
+      </td>
+    </tr>
+    <tr>
+    <td><img src="aa"></td>
+    <td>Tante:<br>
             <br>
 Cose:<br>
             <br>
-Belle:</td>
-          </tr>
-        </tbody>
-      </table>
+Belle:
+	</td>
+    </tr>
+    <tr>
+    <td colspan="2">
 Tante:<br>
       <br>
 Altre:<br>
@@ -30,8 +24,8 @@ Cose:<br>
       <br>
 Belle<br>
       <br>
-      <div style="text-align: right;">Qui c'è bottone</div>
+      <div style="text-align:right;"><input type="button" value="Segnala Interesse"></div>
       </td>
     </tr>
-  </tbody>
 </table>
+</div>

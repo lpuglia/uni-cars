@@ -26,7 +26,7 @@
 </ul>
 <img src="image/label/gestioneAppuntamenti.png">
 <ul>
-	<li>Inserisci</li>
+	<li><a class="silver" href="/index.jsp?id=inserisciAppuntamento">Inserisci</a></li>
 	<li>Modifica</li>
 	<li>Elimina</li>
 </ul>

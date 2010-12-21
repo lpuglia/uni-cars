@@ -30,7 +30,6 @@ ul {
 	}
 
 .celle{
-	
 	background-color: #404040;
 	color: white;
 	-moz-border-radius: 15px;
@@ -55,8 +54,9 @@ ul {
 
 #container {
 	text-align: center;
-	font-size: 11px;
+	font-size: 12px;
 	width: 54%;
+	height: 100%;
 	float:left;
 	margin-left:2px;
 }
