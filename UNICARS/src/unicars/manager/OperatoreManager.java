@@ -5,6 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import unicars.bean.Operatore;
 
 /** 
@@ -28,7 +31,7 @@ public class OperatoreManager implements IOperatoreManager{
 	public OperatoreManager(DBConnection c)
 	{
 		try {
-			conn = c.connetti();
+			conn = DBConnection.connetti();
 			isConnected = true;
 		}
 		catch(java.lang.ClassNotFoundException err) {
@@ -87,7 +90,11 @@ public class OperatoreManager implements IOperatoreManager{
 		Statement stmt;
 		ResultSet rs;
 		String query = "SELECT * FROM operatore WHERE username='" + username + "'";
+		Pattern p = Pattern.compile("[a-z]{6,20}");
+		Matcher m;
 		
+		m = p.matcher(username);
+		if(!m.matches()) return null;
 		if(!isConnected) return null;
 		
 		try {
@@ -121,7 +128,13 @@ public class OperatoreManager implements IOperatoreManager{
 		Statement stmt;
 		ResultSet rs;
 		String query = "SELECT * FROM operatore WHERE username='" + username + "' AND password='" + password + "'";
+		Pattern userP = Pattern.compile("[a-zA-Z]{6,20}");
+		Pattern passP = Pattern.compile("[a-zA-Z0-9!_-]{6,10}");
+		Matcher userM, passM;
 		
+		userM = userP.matcher(username);
+		passM = passP.matcher(password);
+		if((!userM.matches()) || (!passM.matches())) return null;
 		if(!isConnected) return null;
 		
 		try {

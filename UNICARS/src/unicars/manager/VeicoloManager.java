@@ -5,6 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import unicars.bean.Veicolo;
 
 /** 
@@ -25,10 +28,10 @@ public class VeicoloManager implements IVeicoloManager{
 	 * @param c Oggetto DBConnection in cui sono memorizzati tutti i dati necessari
 	 * per stabilire una connessione con il database.
 	 */
-	public VeicoloManager(DBConnection c)
+	public VeicoloManager()
 	{
 		try {
-			conn = c.connetti();
+			conn = DBConnection.connetti();
 			isConnected = true;
 		}
 		catch(java.lang.ClassNotFoundException err) {
@@ -90,7 +93,11 @@ public class VeicoloManager implements IVeicoloManager{
 		Statement stmt;
 		ResultSet rs;
 		String query = "SELECT * FROM veicolo WHERE targa='" + targa + "'";
+		Pattern p = Pattern.compile("[A-Z0-9]{8}");
+		Matcher m;
 		
+		m = p.matcher(targa);
+		if(!m.matches()) return null;
 		if(!isConnected) return null;
 		
 		try {

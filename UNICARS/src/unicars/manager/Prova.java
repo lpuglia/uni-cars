@@ -6,7 +6,7 @@ public class Prova {
 
 	public static void main(String[] args) {
 		DBConnection db = new DBConnection();
-		VenditaManager vm = new VenditaManager(db);
+		VenditaManager vm = new VenditaManager();
 		Vendita v = new Vendita("asd123", "ASD1231234567890", "aSdD123", "21/12/2012", "DSA");
 		//vm.inserisciVendita(v); //ok
 		

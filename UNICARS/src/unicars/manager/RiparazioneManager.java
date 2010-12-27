@@ -5,6 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import unicars.bean.Riparazione;
 
 /** 
@@ -24,10 +27,10 @@ public class RiparazioneManager implements IRiparazioneManager{
 	 * @param c Oggetto DBConnection in cui sono memorizzati tutti i dati necessari
 	 * per stabilire una connessione con il database.
 	 */
-	public RiparazioneManager(DBConnection c)
+	public RiparazioneManager()
 	{
 		try {
-			conn = c.connetti();
+			conn = DBConnection.connetti();
 			isConnected = true;
 		}
 		catch(java.lang.ClassNotFoundException err) {
@@ -87,7 +90,11 @@ public class RiparazioneManager implements IRiparazioneManager{
 		Statement stmt;
 		ResultSet rs;
 		String query = "SELECT * FROM riparazione WHERE codice='" + codice + "'";
+		Pattern p = Pattern.compile("[a-zA-Z0-9]{1,10}");
+		Matcher m;
 		
+		m = p.matcher(codice);
+		if(!m.matches()) return null;
 		if(!isConnected) return null;
 		
 		try {

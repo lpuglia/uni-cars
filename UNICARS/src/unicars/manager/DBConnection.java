@@ -12,7 +12,7 @@ import java.sql.*;
 
 public class DBConnection {
 	
-	private String nome,path,utente,passwd,driver;
+	private static String nome,path,utente,passwd,driver;
 
 	/**
 	 * Costruttore della classe
@@ -33,7 +33,7 @@ public class DBConnection {
 	 * @throws ClassNotFoundException quando il driver scelto non è disponibile.
 	 * @throws SQLException quando la connessione non va a buon fine.
 	 */
-	public Connection connetti() throws ClassNotFoundException, SQLException {
+	public static Connection connetti() throws ClassNotFoundException, SQLException {
 		Connection connect = null;
 		Class.forName(driver);
 		connect = DriverManager.getConnection(path,utente,passwd);

@@ -1,6 +1,9 @@
 package unicars.manager;
 
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import unicars.bean.Vendita;
 import java.sql.*;
 
@@ -22,10 +25,10 @@ public class VenditaManager implements IVenditaManager{
 	 * @param c Oggetto DBConnection in cui sono memorizzati tutti i dati necessari.
 	 * per stabilire una connessione con il database.
 	 */
-	public VenditaManager(DBConnection c)
+	public VenditaManager()
 	{
 		try {
-			conn = c.connetti();
+			conn = DBConnection.connetti();
 			isConnected = true;
 		}
 		catch(java.lang.ClassNotFoundException err) {
@@ -83,7 +86,11 @@ public class VenditaManager implements IVenditaManager{
 		Statement stmt;
 		ResultSet rs;
 		String query = "SELECT * FROM vendita WHERE codice='" + codice + "'";
+		Pattern p = Pattern.compile("[a-zA-Z0-9]{1,10}");
+		Matcher m;
 		
+		m = p.matcher(codice);
+		if(!m.matches()) return null;
 		if(!isConnected) return null;
 		
 		try {
@@ -120,6 +127,7 @@ public class VenditaManager implements IVenditaManager{
 													"', '" + v.getData() + 
 													"', '" + v.getNote() + "')";
 		
+		if(v == null || v == VENDITA_VUOTO) return false;
 		if(!isConnected) return false;
 		
 		try {
@@ -149,6 +157,7 @@ public class VenditaManager implements IVenditaManager{
 						"', note='" + v.getNote()+ 
 						"' WHERE codice='" + v.getCodice() + "'";
 		
+		if(v == null || v == VENDITA_VUOTO) return false;
 		if(!isConnected) return false;
 		
 		try {
@@ -173,7 +182,11 @@ public class VenditaManager implements IVenditaManager{
 		boolean ret = false;
 		Statement stmt;
 		String query = "DELETE FROM vendita WHERE codice='" + codice + "'";
+		Pattern p = Pattern.compile("[a-zA-Z0-9]{1,10}");
+		Matcher m;
 		
+		m = p.matcher(codice);
+		if(!m.matches()) return false;
 		if(!isConnected) return false;
 		
 		try {

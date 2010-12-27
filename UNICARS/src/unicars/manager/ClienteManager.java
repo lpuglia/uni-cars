@@ -5,6 +5,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import unicars.bean.Cliente;
 
 /** 
@@ -26,10 +29,10 @@ public class ClienteManager implements IClienteManager{
 	 * @param c Oggetto DBConnection in cui sono memorizzati tutti i dati necessari
 	 * per stabilire una connessione con il database.
 	 */
-	public ClienteManager(DBConnection c)
+	public ClienteManager()
 	{
 		try {
-			conn = c.connetti();
+			conn = DBConnection.connetti();
 			isConnected = true;
 		}
 		catch(java.lang.ClassNotFoundException err) {
@@ -90,7 +93,11 @@ public class ClienteManager implements IClienteManager{
 		Statement stmt;
 		ResultSet rs;
 		String query = "SELECT * FROM cliente WHERE codFis='" + codFis + "'";
+		Pattern p = Pattern.compile("[A-Z0-9]{16}");
+		Matcher m;
 		
+		m = p.matcher(codFis);
+		if(!m.matches()) return null;
 		if(!isConnected) return null;
 		
 		try {

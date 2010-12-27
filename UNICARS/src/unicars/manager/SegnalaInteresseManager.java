@@ -3,6 +3,8 @@ package unicars.manager;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /** 
  * Classe che gestisce le interazioni con il database riguardanti le segnalazioni di Interesse.
@@ -21,10 +23,10 @@ public class SegnalaInteresseManager implements ISegnalaInteresseManager{
 	 * @param c Oggetto DBConnection in cui sono memorizzati tutti i dati necessari
 	 * per stabilire una connessione con il database.
 	 */
-	public SegnalaInteresseManager(DBConnection c)
+	public SegnalaInteresseManager()
 	{
 		try {
-			conn = c.connetti();
+			conn = DBConnection.connetti();
 			isConnected = true;
 		}
 		catch(java.lang.ClassNotFoundException err) {
@@ -63,7 +65,15 @@ public class SegnalaInteresseManager implements ISegnalaInteresseManager{
 													"'0', " +
 													"'0', " +
 													"'0'" + ")";
+		Pattern nomeP = Pattern.compile("[a-zA-Z]{1,30}");
+		Pattern cognomeP = Pattern.compile("[a-zA-Z]{1,30}");
+		Pattern contattoP = Pattern.compile("[a-zA-Z0-9]{1,40}");
+		Matcher nomeM, cognomeM, contattoM;
 		
+		nomeM = nomeP.matcher(nome);
+		cognomeM = cognomeP.matcher(cognome);
+		contattoM = contattoP.matcher(contatto);
+		if((!nomeM.matches()) || (!cognomeM.matches()) || (!contattoM.matches())) return false;
 		if(!isConnected) return false;
 		
 		try {

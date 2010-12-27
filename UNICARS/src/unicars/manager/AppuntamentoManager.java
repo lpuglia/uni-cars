@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import unicars.bean.Appuntamento;
 
 /** 
@@ -27,10 +29,10 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 	 * @param c Oggetto DBConnection in cui sono memorizzati tutti i dati necessari
 	 * per stabilire una connessione con il database.
 	 */
-	public AppuntamentoManager(DBConnection c)
+	public AppuntamentoManager()
 	{
 		try {
-			conn = c.connetti();
+			conn = DBConnection.connetti();
 			isConnected = true;
 		}
 		catch(java.lang.ClassNotFoundException err) {
@@ -91,6 +93,11 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 		Statement stmt;
 		ResultSet rs;
 		String query = "SELECT * FROM appuntamento WHERE codice='" + codice + "'";
+		Pattern p = Pattern.compile("[a-zA-Z]{1,10}");
+		Matcher m;
+		
+		m = p.matcher(codice);
+		if(!m.find()) return null;
 		
 		if(!isConnected) return null;
 		
@@ -134,6 +141,7 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 															"', '" + a.getContatto() +
 															"', '" + a.getStato() + "')";
 		
+		if(a == null || a == APPUNTAMENTO_VUOTO) return false;
 		if(!isConnected) return false;
 		
 		try {
@@ -166,6 +174,7 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 						"', stato='" + a.getStato() + 
 						"' WHERE codice='" + a.getCodice() + "'";
 		
+		if(a == null || a == APPUNTAMENTO_VUOTO) return false;
 		if(!isConnected) return false;
 		
 		try {
@@ -190,7 +199,11 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 		boolean ret = false;
 		Statement stmt;
 		String query = "DELETE FROM appuntamento WHERE codice='" + codice + "'";
+		Pattern p = Pattern.compile("[a-zA-Z0-9]{1,10}");
+		Matcher m;
 		
+		m = p.matcher(codice);
+		if(!m.matches()) return false;
 		if(!isConnected) return false;
 		
 		try {
