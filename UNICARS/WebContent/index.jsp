@@ -7,7 +7,7 @@
 	<title>UniCars</title>
 	<link rel="stylesheet" href="css/stile.css" type="text/css">
 	
-	<script language=""JavaScript"">
+	<script language="JavaScript">
 	function cambia(ImageName,ImageFile){
 	ImageName.src = ImageFile;
 	}
@@ -24,15 +24,48 @@
 		<%@ include file="/opzioniOperatore.jsp"%>
 		</div><div id="container" class="celle">
 		<br>
-		<img src="image/contents.png">
+		<img src="image/contenuti.png">
 		<br><br>
-		<%
-		
-		
-		if(request.getParameter("id")=="inserisciAppuntamento"){%>
-		<%@ include file="/modificaAppuntamento2.jsp"%>
-	    <%} %>
-	    </div>
+		<% 
+		String id = request.getParameter("id");
+		if(id!=null){
+			if(id.equals("inserisciVeicolo")){ %>
+				<%@ include file="notImplementedYet.jsp" %>
+		<%	}else if (id.equals("modificaVeicolo")){ %>
+				<%@ include file="notImplementedYet.jsp" %>
+		<%	}else if (id.equals("eliminaVeicolo")){ %>
+				<%@ include file="notImplementedYet.jsp" %>
+		<%	}else if (id.equals("visualizzaParcoVeicoli")){ %>
+				<%@ include file="notImplementedYet.jsp" %>
+		<%	}else if (id.equals("inserisciRiparazione")){ %>
+				<%@ include file="notImplementedYet.jsp" %>
+		<%	}else if (id.equals("modificaRiparazione")){ %>
+				<%@ include file="notImplementedYet.jsp" %>
+		<%	}else if (id.equals("eliminaRiparazione")){ %>
+				<%@ include file="notImplementedYet.jsp" %>
+		<%	}else if (id.equals("visualizzaStatoRiparazioni")){ %>
+				<%@ include file="riparazioni/visualizzaRiparazioni.jsp" %>
+		<%	}else if (id.equals("inserisciCliente")){ %>
+				<%@ include file="notImplementedYet.jsp" %>
+		<%	}else if (id.equals("modificaCliente")){ %>
+				<%@ include file="notImplementedYet.jsp" %>
+		<%	}else if (id.equals("eliminaCliente")){ %>
+				<%@ include file="notImplementedYet.jsp" %>
+		<%	}else if (id.equals("inserisciVendita")){ %>
+				<%@ include file="vendite/inserisciVendita.jsp" %>
+		<%	}else if (id.equals("modificaVendita1")){ %>
+				<%@ include file="vendite/modificaVendita1.jsp" %>
+		<%	}else if (id.equals("eliminaVendita1")){ %>
+				<%@ include file="vendite/eliminaVendita1.jsp" %>
+		<%	}else if (id.equals("inserisciAppuntamento")){ %>
+				<%@ include file="appuntamenti/inserisciAppuntamento.jsp" %>
+		<%	}else if (id.equals("modificaAppuntamento1")){ %>
+				<%@ include file="appuntamenti/modificaAppuntamento1.jsp" %>
+		<%	}else if (id.equals("eliminaAppuntamento1")){ %>
+				<%@ include file="appuntamenti/eliminaAppuntamento1.jsp" %>
+		<%	}
+		} %>
+		</div>
 	<div id="login" class="celle" ><%@ include file="/accesso.jsp"%></div>
 	</div>
 </body>

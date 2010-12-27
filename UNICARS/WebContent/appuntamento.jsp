@@ -1,7 +1,0 @@
-<a href="http://www.google.com">
-<div style="text-align:left; background-color:white; color: black; width:90%; margin-left:auto; margin-bottom:15px; margin-right:auto; -moz-border-radius: 15px; -webkit-border-radius: 15px; padding:5px">
-<table width="100%"><tr>
-<td width="48%">Nome Cognome</td><td width="33%">Data: gg/mm/aaaa</td><td width="25%">Orario: hh:mm</td>
-</tr></table>
-</div>
-</a>
