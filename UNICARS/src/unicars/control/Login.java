@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import unicars.bean.Operatore;
+import unicars.manager.OperatoreManager;
 import unicars.utility.Messaggio;
 
 
@@ -25,7 +26,8 @@ public class Login extends HttpServlet {
 		String login = request.getParameter("login");
 		String password = request.getParameter("password");
 		
-		Operatore operatore = null; //inserire al posto di null la chiamata al db appena pronta
+		OperatoreManager op = new OperatoreManager();
+		Operatore operatore = op.loginOperatore(login, password);
 		String address;
 		String not_found ="Utente non riconosciuto.";
 		String found ="Benvenuto ";
