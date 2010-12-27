@@ -141,7 +141,7 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 															"', '" + a.getContatto() +
 															"', '" + a.getStato() + "')";
 		
-		if(a == null || a == APPUNTAMENTO_VUOTO) return false;
+		if(a == null || a == APPUNTAMENTO_VUOTO || !verificaAppuntamento(a)) return false;
 		if(!isConnected) return false;
 		
 		try {
@@ -174,7 +174,7 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 						"', stato='" + a.getStato() + 
 						"' WHERE codice='" + a.getCodice() + "'";
 		
-		if(a == null || a == APPUNTAMENTO_VUOTO) return false;
+		if(a == null || a == APPUNTAMENTO_VUOTO || !verificaAppuntamento(a)) return false;
 		if(!isConnected) return false;
 		
 		try {
@@ -218,4 +218,40 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 		return ret;
 	}
 
+	private boolean verificaAppuntamento(Appuntamento a) {
+		Pattern p;
+		Matcher m;
+		
+		p = Pattern.compile("[a-zA-Z0-9]{1,10}");
+		m = p.matcher(a.getCodice());
+		if(!m.matches()) return false;
+		
+		p = Pattern.compile("[a-zA-Z]{3,30}");
+		m = p.matcher(a.getNome());
+		if(!m.matches()) return false;
+		
+		p = Pattern.compile("[a-zA-Z]{3,30}");
+		m = p.matcher(a.getCognome());
+		if(!m.matches()) return false;
+		
+		p = Pattern.compile("(((0[1-9]|[12][0-9]|3[01])([/])(0[13578]|10|12)([/])([0-9]{4}))|(([0][1-9]|[12][0-9]|30)([/])(0[469]|11)([/])([0-9]{4}))|((0[1-9]|1[0-9]|2[0-8])([/])(02)([/])([0-9]{4}))|((29)(/)(02)([/])([02468][048]00))|((29)([/])(02)([/])([13579][26]00))|((29)([/])(02)([/])([0-9][0-9][0][48]))|((29)([/])(02)([/])([0-9][0-9][2468][048]))|((29)([/])(02)([/])([0-9][0-9][13579][26])))");
+		m = p.matcher(a.getData());
+		if(!m.matches()) return false;
+		
+		p = Pattern.compile("^(([0-1]?[0-9])|(2[0-4]))(:)[0-6]?[0-9](:)[0-6]?[0-9]$");
+		m = p.matcher(a.getOra());
+		if(!m.matches()) return false;
+		
+		p = Pattern.compile("[a-zA-Z0-9]*");
+		m = p.matcher(a.getDescrizione());
+		if(!m.matches()) return false;
+		
+		p = Pattern.compile("[a-zA-Z0-9]*");
+		m = p.matcher(a.getContatto());
+		if(!m.matches()) return false;
+		
+		if((a.getStato() < 0) || (a.getStato() > 2)) return false;
+		
+		return true;
+	}
 }

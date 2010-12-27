@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import unicars.bean.Appuntamento;
 import unicars.bean.Vendita;
 import java.sql.*;
 
@@ -127,7 +128,7 @@ public class VenditaManager implements IVenditaManager{
 													"', '" + v.getData() + 
 													"', '" + v.getNote() + "')";
 		
-		if(v == null || v == VENDITA_VUOTO) return false;
+		if(v == null || v == VENDITA_VUOTO || !verificaVendita(v)) return false;
 		if(!isConnected) return false;
 		
 		try {
@@ -157,7 +158,7 @@ public class VenditaManager implements IVenditaManager{
 						"', note='" + v.getNote()+ 
 						"' WHERE codice='" + v.getCodice() + "'";
 		
-		if(v == null || v == VENDITA_VUOTO) return false;
+		if(v == null || v == VENDITA_VUOTO || !verificaVendita(v)) return false;
 		if(!isConnected) return false;
 		
 		try {
@@ -199,5 +200,32 @@ public class VenditaManager implements IVenditaManager{
 			System.err.println(ex.getMessage());
 		}
 		return ret;
+	}
+	
+	private boolean verificaVendita(Vendita v) {
+		Pattern p;
+		Matcher m;
+		
+		p = Pattern.compile("[a-zA-Z0-9]{1,10}");
+		m = p.matcher(v.getCodice());
+		if(!m.matches()) return false;
+		
+		p = Pattern.compile("[A-Z0-9]{16}");
+		m = p.matcher(v.getCodFis());
+		if(!m.matches()) return false;
+		
+		p = Pattern.compile("[A-Z0-9]{25}");
+		m = p.matcher(v.getTelaio());
+		if(!m.matches()) return false;
+		
+		p = Pattern.compile("(((0[1-9]|[12][0-9]|3[01])([/])(0[13578]|10|12)([/])([0-9]{4}))|(([0][1-9]|[12][0-9]|30)([/])(0[469]|11)([/])([0-9]{4}))|((0[1-9]|1[0-9]|2[0-8])([/])(02)([/])([0-9]{4}))|((29)(/)(02)([/])([02468][048]00))|((29)([/])(02)([/])([13579][26]00))|((29)([/])(02)([/])([0-9][0-9][0][48]))|((29)([/])(02)([/])([0-9][0-9][2468][048]))|((29)([/])(02)([/])([0-9][0-9][13579][26])))");
+		m = p.matcher(v.getData());
+		if(!m.matches()) return false;
+		
+		p = Pattern.compile("[a-zA-Z0-9]*");
+		m = p.matcher(v.getNote());
+		if(!m.matches()) return false;
+		
+		return true;
 	}
 }
