@@ -28,7 +28,7 @@ public class OperatoreManager implements IOperatoreManager{
 	 * @param c Oggetto DBConnection in cui sono memorizzati tutti i dati necessari
 	 * per stabilire una connessione con il database.
 	 */
-	public OperatoreManager(DBConnection c)
+	public OperatoreManager()
 	{
 		try {
 			conn = DBConnection.connetti();
