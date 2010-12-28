@@ -10,7 +10,7 @@ public class Appuntamento {
 	
 	private String nome = "";
 	private String cognome = "";
-	private String codice = "";
+	private int codice = -1;
 	private String data = "";
 	private String ora = "";
 	private String descrizione = "";
@@ -24,7 +24,7 @@ public class Appuntamento {
 	}
 
 
-	public Appuntamento(String nome, String cognome, String codice,
+	public Appuntamento(String nome, String cognome, int codice,
 			String data, String ora, String descrizione, String contatto,
 			int stato) {
 		super();
@@ -59,12 +59,12 @@ public class Appuntamento {
 	}
 
 
-	public String getCodice() {
+	public int getCodice() {
 		return codice;
 	}
 
 
-	public void setCodice(String codice) {
+	public void setCodice(int codice) {
 		this.codice = codice;
 	}
 
