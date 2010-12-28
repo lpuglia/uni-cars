@@ -1,5 +1,11 @@
 package unicars.manager;
 
+/**
+ * Caso di test per la classe VenditaManager
+ * 
+ * @author Michele Fratello
+ */
+
 import static org.junit.Assert.*;
 import java.util.ArrayList;
 import org.junit.After;
