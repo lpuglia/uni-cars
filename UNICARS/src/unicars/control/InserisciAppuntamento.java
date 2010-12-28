@@ -22,19 +22,19 @@ public class InserisciAppuntamento extends HttpServlet {
 		
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
-		String codice = request.getParameter("codice");
-		String data = request.getParameter("data");
-		String ora = request.getParameter("ora");
-		String descrizione = request.getParameter("descrizione");
+		String codice = "";
+		String data = "";
+		String ora = "";
+		String descrizione = "";
 		String contatto = request.getParameter("contatto");
 		int stato = 0;
 		
 		Appuntamento appuntamento = new Appuntamento(nome, cognome, codice, data, ora, descrizione, contatto, stato);
 		AppuntamentoManager ap = new AppuntamentoManager();
-		boolean inserito = ap.inserisciAppuntamento(appuntamento);;
+		boolean inserito = ap.inserisciAppuntamento(appuntamento);
 		String address;
-		String not_found ="Appuntamento non inserito.";
-		String found ="Appuntamento inserito.";
+		String not_found ="Errore nella segnalazione interesse.";
+		String found ="Interesse segnalato.";
 		
 		
 		if(!inserito){

@@ -1,10 +1,16 @@
 package unicars.control;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import unicars.bean.Appuntamento;
+import unicars.manager.AppuntamentoManager;
+import unicars.utility.Messaggio;
 
 /**
  * Servlet implementation class ModificaAppuntamento
@@ -12,26 +18,43 @@ import javax.servlet.http.HttpServletResponse;
 public class ModificaAppuntamento extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ModificaAppuntamento() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
+		String nome = request.getParameter("nome");
+		String cognome = request.getParameter("cognome");
+		String codice = request.getParameter("codice");
+		String data = request.getParameter("data");
+		String ora = request.getParameter("ora");
+		String descrizione = request.getParameter("descrizione");
+		String contatto = request.getParameter("contatto");
+		int stato = 0;
+		
+		Appuntamento appuntamento = new Appuntamento(nome, cognome, codice, data, ora, descrizione, contatto, stato);
+		AppuntamentoManager ap = new AppuntamentoManager();
+		boolean modificato = ap.modificaAppuntamento(appuntamento);;
+		String address;
+		String not_found ="Appuntamento non modificato.";
+		String found ="Appuntamento modificato.";
+		
+		
+		if(!modificato){
+			Messaggio messaggio = new Messaggio(not_found);
+			request.setAttribute("msg", messaggio);
+			address = "index.jsp";
+		} else {
+			Messaggio messaggio = new Messaggio(found);
+			request.setAttribute("msg", messaggio);
+			address = "index.jsp";
+		}
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
+			dispatcher.forward(request, response);
+		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
