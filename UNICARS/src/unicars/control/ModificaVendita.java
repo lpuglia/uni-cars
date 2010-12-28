@@ -20,7 +20,7 @@ public class ModificaVendita extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String codice = request.getParameter("codice");
+		int codice = Integer.parseInt(request.getParameter("codice"));
 		String codFis = request.getParameter("codFis");
 		String telaio = request.getParameter("telaio");
 		String data = request.getParameter("data");

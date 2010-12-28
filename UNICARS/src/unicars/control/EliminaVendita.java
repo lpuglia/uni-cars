@@ -19,7 +19,7 @@ public class EliminaVendita extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String codice = request.getParameter("codice");
+		int codice = Integer.parseInt(request.getParameter("codice"));
 		
 		VenditaManager ve = new VenditaManager();
 		boolean eliminato = ve.eliminaVendita(codice);

@@ -19,7 +19,7 @@ public class EliminaAppuntamento extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String codice = request.getParameter("codice");
+		int codice = Integer.parseInt(request.getParameter("codice"));
 		
 		AppuntamentoManager ap = new AppuntamentoManager();
 		boolean eliminato = ap.eliminaAppuntamento(codice);

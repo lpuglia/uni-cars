@@ -22,7 +22,7 @@ public class InserisciAppuntamento extends HttpServlet {
 		
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
-		String codice = "";
+		int codice = 0;
 		String data = "";
 		String ora = "";
 		String descrizione = "";

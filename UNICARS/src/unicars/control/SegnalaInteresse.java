@@ -22,7 +22,7 @@ public class SegnalaInteresse extends HttpServlet {
 		
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
-		String codice = request.getParameter("codice");
+		int codice = 0;
 		String data = request.getParameter("data");
 		String ora = request.getParameter("ora");
 		String descrizione = request.getParameter("descrizione");

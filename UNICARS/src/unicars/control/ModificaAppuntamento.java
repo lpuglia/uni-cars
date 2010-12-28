@@ -22,7 +22,7 @@ public class ModificaAppuntamento extends HttpServlet {
 		
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
-		String codice = request.getParameter("codice");
+		int codice = Integer.parseInt(request.getParameter("codice"));
 		String data = request.getParameter("data");
 		String ora = request.getParameter("ora");
 		String descrizione = request.getParameter("descrizione");

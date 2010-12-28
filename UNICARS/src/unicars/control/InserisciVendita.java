@@ -20,7 +20,7 @@ public class InserisciVendita extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String codice = request.getParameter("codice");
+		int codice = 0;
 		String codFis = request.getParameter("codFis");
 		String telaio = request.getParameter("telaio");
 		String data = request.getParameter("data");
