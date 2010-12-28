@@ -118,7 +118,4 @@ public class Appuntamento {
 		this.stato = stato;
 	}
 	
-
-	
-
 }
