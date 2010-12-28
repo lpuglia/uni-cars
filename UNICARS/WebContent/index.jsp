@@ -29,7 +29,15 @@
 		<% 
 		String id = request.getParameter("id");
 		if(id!=null){
-			if(id.equals("inserisciVeicolo")){ %>
+			if(id.equals("home")){ %>
+				<%@ include file="home.jsp" %>
+		<%	}else if (id.equals("chiSiamo")){ %>
+				<%@ include file="chiSiamo.jsp" %>
+		<%	}else if (id.equals("doveSiamo")){ %>
+				<%@ include file="doveSiamo.jsp" %>
+		<%	}else if (id.equals("ilGruppo")){ %>
+				<%@ include file="ilGruppo.jsp" %>
+		<%	}else if (id.equals("inserisciVeicolo")){ %>
 				<%@ include file="notImplementedYet.jsp" %>
 		<%	}else if (id.equals("modificaVeicolo")){ %>
 				<%@ include file="notImplementedYet.jsp" %>
@@ -55,14 +63,22 @@
 				<%@ include file="vendite/inserisciVendita.jsp" %>
 		<%	}else if (id.equals("modificaVendita1")){ %>
 				<%@ include file="vendite/modificaVendita1.jsp" %>
+		<%	}else if (id.equals("modificaVendita2")){ %>
+				<%@ include file="vendite/modificaVendita2.jsp" %>
 		<%	}else if (id.equals("eliminaVendita1")){ %>
 				<%@ include file="vendite/eliminaVendita1.jsp" %>
+		<%	}else if (id.equals("eliminaVendita2")){ %>
+				<%@ include file="vendite/eliminaVendita2.jsp" %>
 		<%	}else if (id.equals("inserisciAppuntamento")){ %>
 				<%@ include file="appuntamenti/inserisciAppuntamento.jsp" %>
 		<%	}else if (id.equals("modificaAppuntamento1")){ %>
 				<%@ include file="appuntamenti/modificaAppuntamento1.jsp" %>
+		<%	}else if (id.equals("modificaAppuntamento2")){ %>
+				<%@ include file="appuntamenti/modificaAppuntamento2.jsp" %>
 		<%	}else if (id.equals("eliminaAppuntamento1")){ %>
 				<%@ include file="appuntamenti/eliminaAppuntamento1.jsp" %>
+		<%	}else if (id.equals("eliminaAppuntamento2")){ %>
+				<%@ include file="appuntamenti/eliminaAppuntamento2.jsp" %>
 		<%	}
 		} %>
 		</div>
