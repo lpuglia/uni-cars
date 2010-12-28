@@ -8,7 +8,7 @@ package unicars.bean;
 
 public class Vendita {
 	
-	private String codice = "";
+	private int codice = -1;
 	private String codFis = "";
 	private String telaio = "";
 	private String data = "";
@@ -18,7 +18,7 @@ public class Vendita {
 		super();
 	}
 
-	public Vendita(String codice, String codFis, String telaio,
+	public Vendita(int codice, String codFis, String telaio,
 			String data, String note) {
 		super();
 		this.codice = codice;
@@ -28,11 +28,11 @@ public class Vendita {
 		this.note = note;
 	}
 
-	public String getCodice() {
+	public int getCodice() {
 		return codice;
 	}
 
-	public void setCodice(String codice) {
+	public void setCodice(int codice) {
 		this.codice = codice;
 	}
 

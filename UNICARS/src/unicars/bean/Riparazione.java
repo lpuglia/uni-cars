@@ -8,7 +8,7 @@ package unicars.bean;
 
 public class Riparazione {
 	
-	private String codice = "";
+	private int codice = -1;
 	private String telaio = "";
 	private String descrizione = "";
 	private int stato = -1;
@@ -21,7 +21,7 @@ public class Riparazione {
 	}
 
 
-	public Riparazione(String codice, String telaio, String descrizione,
+	public Riparazione(int codice, String telaio, String descrizione,
 			int stato, String dataInizio, String dataFine) {
 		super();
 		this.codice = codice;
@@ -33,12 +33,12 @@ public class Riparazione {
 	}
 
 
-	public String getCodice() {
+	public int getCodice() {
 		return codice;
 	}
 
 
-	public void setCodice(String codice) {
+	public void setCodice(int codice) {
 		this.codice = codice;
 	}
 
