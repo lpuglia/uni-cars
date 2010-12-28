@@ -1,7 +1,7 @@
 <div style="padding-bottom:20px; margin:10px">
 <h1>Modifica Appuntamento</h1>
 Da questa schermata &egrave possibile modificare i campi che costituiscono l'appuntamento<br><br>
-
+<!-- 
 <form action="" method="post">
 	<table align="center">
 		<tr><td align="right">Nome:</td><td><input name="nome" type="text" value="${ app.getNome() }" ></td>
@@ -15,5 +15,6 @@ Da questa schermata &egrave possibile modificare i campi che costituiscono l'app
 		<input value="Reset" type="reset"></td></tr>
 	</table>
 </form>
+ -->
 
 </div>
