@@ -19,9 +19,10 @@ import unicars.bean.Cliente;
 
 public class ClienteManager implements IClienteManager{
 
+	private DBConnection db;
 	private Connection conn;
 	private boolean isConnected;
-	private static final Cliente CLIENTE_VUOTO = new Cliente(null, null, null, null, null, null, null, null); 
+	public static final Cliente CLIENTE_VUOTO = new Cliente(null, null, null, null, null, null, null, null); 
 
 	
 	/**Costruttore della classe.
@@ -32,7 +33,8 @@ public class ClienteManager implements IClienteManager{
 	public ClienteManager()
 	{
 		try {
-			conn = DBConnection.connetti();
+			db = new DBConnection();
+			conn = db.connetti();
 			isConnected = true;
 		}
 		catch(java.lang.ClassNotFoundException err) {

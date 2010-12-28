@@ -5,5 +5,5 @@ import java.util.ArrayList;
 
 public interface IRiparazioneManager {
 	public ArrayList<Riparazione> listaRiparazioni();
-	public Riparazione cercaRiparazione(String codice);
+	public Riparazione cercaRiparazione(int codice);
 }

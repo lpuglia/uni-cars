@@ -5,8 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import unicars.bean.Appuntamento;
 
 /** 
@@ -18,9 +16,10 @@ import unicars.bean.Appuntamento;
 
 public class AppuntamentoManager implements IAppuntamentoManager{
 
+	private DBConnection db;
 	private Connection conn;
 	private boolean isConnected;
-	private static final Appuntamento APPUNTAMENTO_VUOTO = new Appuntamento(null, null, null, null, null, null, null, -1); 
+	public static final Appuntamento APPUNTAMENTO_VUOTO = new Appuntamento(null, null, -1, null, null, null, null, -1); 
 
 	
 	/**
@@ -32,7 +31,8 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 	public AppuntamentoManager()
 	{
 		try {
-			conn = DBConnection.connetti();
+			db = new DBConnection();
+			conn = db.connetti();
 			isConnected = true;
 		}
 		catch(java.lang.ClassNotFoundException err) {
@@ -66,7 +66,7 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 			while(rs.next()) {
 				lista.add(new Appuntamento(	rs.getString("nome"), 
 											rs.getString("cognome"), 
-											rs.getString("codice"), 
+											rs.getInt("codice"), 
 											rs.getString("data"), 
 											rs.getString("ora"),
 											rs.getString("descrizione"),
@@ -88,16 +88,13 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 	 * @param codice Stringa contenete il codice dell'Appuntamento.
 	 * @return L'oggetto Appuntamento in caso di esito positivo, null altrimenti.
 	 */
-	public Appuntamento cercaAppuntamento(String codice) {
+	public Appuntamento cercaAppuntamento(int codice) {
 		Appuntamento a = APPUNTAMENTO_VUOTO;
 		Statement stmt;
 		ResultSet rs;
 		String query = "SELECT * FROM appuntamento WHERE codice='" + codice + "'";
-		Pattern p = Pattern.compile("[a-zA-Z]{1,10}");
-		Matcher m;
 		
-		m = p.matcher(codice);
-		if(!m.find()) return null;
+		if((codice < 0) || (codice > 10e10)) return null;
 		
 		if(!isConnected) return null;
 		
@@ -107,7 +104,7 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 			if(rs.next()) {
 				a = new Appuntamento(	rs.getString("nome"), 
 										rs.getString("cognome"), 
-										rs.getString("codice"), 
+										rs.getInt("codice"), 
 										rs.getString("data"), 
 										rs.getString("ora"),
 										rs.getString("descrizione"),
@@ -132,8 +129,14 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 	public boolean inserisciAppuntamento(Appuntamento a) {
 		boolean ret = false;
 		Statement stmt;
-		String query = "INSERT INTO appuntamento VALUES (	'" + a.getCodice() + 
-															"', '" + a.getNome() +
+		String query = "INSERT INTO appuntamento(	nome, " +
+													"cognome, " +
+													"data, " +
+													"ora, " +
+													"descrizione, " +
+													"contatto, " +
+													"stato) " +
+													"VALUES (	'" + a.getNome() +
 															"', '" + a.getCognome() +
 															"', '" + a.getData() +
 															"', '" + a.getOra() +
@@ -195,15 +198,12 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 	 * @param codice Il codice dell'Appuntamento che deve essere eliminato.
 	 * @return Restituisce true in caso di esito positivo, false altrimenti.
 	 */
-	public boolean eliminaAppuntamento(String codice) {
+	public boolean eliminaAppuntamento(int codice) {
 		boolean ret = false;
 		Statement stmt;
 		String query = "DELETE FROM appuntamento WHERE codice='" + codice + "'";
-		Pattern p = Pattern.compile("[a-zA-Z0-9]{1,10}");
-		Matcher m;
 		
-		m = p.matcher(codice);
-		if(!m.matches()) return false;
+		if((codice < 0) || (codice > 10e10)) return false;
 		if(!isConnected) return false;
 		
 		try {
@@ -219,7 +219,7 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 	}
 
 	private boolean verificaAppuntamento(Appuntamento a) {
-		Pattern p;
+		/*Pattern p;
 		Matcher m;
 		
 		p = Pattern.compile("[a-zA-Z0-9]{1,10}");
@@ -234,15 +234,15 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 		m = p.matcher(a.getCognome());
 		if(!m.matches()) return false;
 		
-		p = Pattern.compile("(((0[1-9]|[12][0-9]|3[01])([/])(0[13578]|10|12)([/])([0-9]{4}))|(([0][1-9]|[12][0-9]|30)([/])(0[469]|11)([/])([0-9]{4}))|((0[1-9]|1[0-9]|2[0-8])([/])(02)([/])([0-9]{4}))|((29)(/)(02)([/])([02468][048]00))|((29)([/])(02)([/])([13579][26]00))|((29)([/])(02)([/])([0-9][0-9][0][48]))|((29)([/])(02)([/])([0-9][0-9][2468][048]))|((29)([/])(02)([/])([0-9][0-9][13579][26])))");
+		/*p = Pattern.compile("(((0[1-9]|[12][0-9]|3[01])([/])(0[13578]|10|12)([/])([0-9]{4}))|(([0][1-9]|[12][0-9]|30)([/])(0[469]|11)([/])([0-9]{4}))|((0[1-9]|1[0-9]|2[0-8])([/])(02)([/])([0-9]{4}))|((29)(/)(02)([/])([02468][048]00))|((29)([/])(02)([/])([13579][26]00))|((29)([/])(02)([/])([0-9][0-9][0][48]))|((29)([/])(02)([/])([0-9][0-9][2468][048]))|((29)([/])(02)([/])([0-9][0-9][13579][26])))");
 		m = p.matcher(a.getData());
 		if(!m.matches()) return false;
 		
 		p = Pattern.compile("^(([0-1]?[0-9])|(2[0-4]))(:)[0-6]?[0-9](:)[0-6]?[0-9]$");
 		m = p.matcher(a.getOra());
-		if(!m.matches()) return false;
+		if(!m.matches()) return false;*/
 		
-		p = Pattern.compile("[a-zA-Z0-9]*");
+		/*p = Pattern.compile("[a-zA-Z0-9]*");
 		m = p.matcher(a.getDescrizione());
 		if(!m.matches()) return false;
 		
@@ -250,7 +250,7 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 		m = p.matcher(a.getContatto());
 		if(!m.matches()) return false;
 		
-		if((a.getStato() < 0) || (a.getStato() > 2)) return false;
+		if((a.getStato() < 0) || (a.getStato() > 2)) return false;*/
 		
 		return true;
 	}

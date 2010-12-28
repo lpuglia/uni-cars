@@ -19,9 +19,10 @@ import unicars.bean.Operatore;
 
 public class OperatoreManager implements IOperatoreManager{
 
+	private DBConnection db;
 	private Connection conn;
 	private boolean isConnected;
-	private static final Operatore OPERATORE_VUOTO = new Operatore(null, null, null, null, null, null); 
+	public static final Operatore OPERATORE_VUOTO = new Operatore(null, null, null, null, null, null); 
 	
 	/**Costruttore della classe.
 	 * 
@@ -31,7 +32,8 @@ public class OperatoreManager implements IOperatoreManager{
 	public OperatoreManager()
 	{
 		try {
-			conn = DBConnection.connetti();
+			db = new DBConnection();
+			conn = db.connetti();
 			isConnected = true;
 		}
 		catch(java.lang.ClassNotFoundException err) {

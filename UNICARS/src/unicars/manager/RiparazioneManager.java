@@ -5,9 +5,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import unicars.bean.Riparazione;
 
 /** 
@@ -19,8 +16,10 @@ import unicars.bean.Riparazione;
 
 public class RiparazioneManager implements IRiparazioneManager{
 
+	private DBConnection db;
 	private Connection conn;
 	private boolean isConnected;
+	public static final Riparazione RIPARAZIONE_VUOTO = new Riparazione(-1, null, null, -1, null, null);
 	
 	/**Costruttore della classe.
 	 * 
@@ -30,7 +29,8 @@ public class RiparazioneManager implements IRiparazioneManager{
 	public RiparazioneManager()
 	{
 		try {
-			conn = DBConnection.connetti();
+			db = new DBConnection();
+			conn = db.connetti();
 			isConnected = true;
 		}
 		catch(java.lang.ClassNotFoundException err) {
@@ -63,7 +63,7 @@ public class RiparazioneManager implements IRiparazioneManager{
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(query);
 			while(rs.next()) {
-				lista.add(new Riparazione(	rs.getString("codice"), 
+				lista.add(new Riparazione(	rs.getInt("codice"), 
 											rs.getString("telaio"), 
 											rs.getString("descrizione"), 
 											rs.getInt("stato"), 
@@ -85,23 +85,20 @@ public class RiparazioneManager implements IRiparazioneManager{
 	 * @param codice Stringa contenete il codice della Riparazione.
 	 * @return L'oggetto Riparazione in caso di esito positivo, null altrimenti.
 	 */
-	public Riparazione cercaRiparazione(String codice) {
+	public Riparazione cercaRiparazione(int codice) {
 		Riparazione r = null;
 		Statement stmt;
 		ResultSet rs;
 		String query = "SELECT * FROM riparazione WHERE codice='" + codice + "'";
-		Pattern p = Pattern.compile("[a-zA-Z0-9]{1,10}");
-		Matcher m;
 		
-		m = p.matcher(codice);
-		if(!m.matches()) return null;
+		if((codice < 0) || (codice > 10e10)) return null;
 		if(!isConnected) return null;
 		
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(query);
 			if(rs.next()) {
-				r = new Riparazione(rs.getString("codice"), 
+				r = new Riparazione(rs.getInt("codice"), 
 									rs.getString("telaio"), 
 									rs.getString("descrizione"), 
 									rs.getInt("stato"), 

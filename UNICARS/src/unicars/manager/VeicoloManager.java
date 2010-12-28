@@ -19,9 +19,10 @@ import unicars.bean.Veicolo;
 
 public class VeicoloManager implements IVeicoloManager{
 
+	private DBConnection db;
 	private Connection conn;
 	private boolean isConnected;
-	private static final Veicolo VEICOLO_VUOTO = new Veicolo(null, null, null, null, null, null, null, null, null); 
+	public static final Veicolo VEICOLO_VUOTO = new Veicolo(null, null, null, null, null, null, null, null, null); 
 	
 	/**Costruttore della classe.
 	 * 
@@ -31,7 +32,8 @@ public class VeicoloManager implements IVeicoloManager{
 	public VeicoloManager()
 	{
 		try {
-			conn = DBConnection.connetti();
+			db = new DBConnection();
+			conn = db.connetti();
 			isConnected = true;
 		}
 		catch(java.lang.ClassNotFoundException err) {

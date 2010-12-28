@@ -1,10 +1,6 @@
 package unicars.manager;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import unicars.bean.Appuntamento;
 import unicars.bean.Vendita;
 import java.sql.*;
 
@@ -17,9 +13,10 @@ import java.sql.*;
 
 public class VenditaManager implements IVenditaManager{
 	
+	private DBConnection db;
 	private Connection conn;
 	private boolean isConnected;
-	private static final Vendita VENDITA_VUOTO = new Vendita(null, null, null, null, null); 
+	public static final Vendita VENDITA_VUOTO = new Vendita(-1, null, null, null, null); 
 	
 	/**Costruttore della classe.
 	 * 
@@ -29,7 +26,8 @@ public class VenditaManager implements IVenditaManager{
 	public VenditaManager()
 	{
 		try {
-			conn = DBConnection.connetti();
+			db = new DBConnection();
+			conn = db.connetti();
 			isConnected = true;
 		}
 		catch(java.lang.ClassNotFoundException err) {
@@ -61,7 +59,7 @@ public class VenditaManager implements IVenditaManager{
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(query);
 			while(rs.next()) {
-				lista.add(new Vendita(	rs.getString("codice"), 
+				lista.add(new Vendita(	rs.getInt("codice"), 
 										rs.getString("codFis"), 
 										rs.getString("telaio"), 
 										rs.getString("data"), 
@@ -82,23 +80,20 @@ public class VenditaManager implements IVenditaManager{
 	 * @param codice Stringa contenete il codice della Vendita.
 	 * @return L'oggetto Vendita in caso di esito positivo, null altrimenti.
 	 */
-	public Vendita cercaVendita(String codice) {
+	public Vendita cercaVendita(int codice) {
 		Vendita v = VENDITA_VUOTO;
 		Statement stmt;
 		ResultSet rs;
 		String query = "SELECT * FROM vendita WHERE codice='" + codice + "'";
-		Pattern p = Pattern.compile("[a-zA-Z0-9]{1,10}");
-		Matcher m;
-		
-		m = p.matcher(codice);
-		if(!m.matches()) return null;
+
+		if((codice < 0) || (codice > 10e10)) return null;
 		if(!isConnected) return null;
 		
 		try {
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(query);
 			if(rs.next()) {
-				v = new Vendita(rs.getString("codice"), 
+				v = new Vendita(rs.getInt("codice"), 
 								rs.getString("codFis"), 
 								rs.getString("telaio"), 
 								rs.getString("data"), 
@@ -169,6 +164,7 @@ public class VenditaManager implements IVenditaManager{
 		catch(SQLException ex) {
 			System.err.print("SQLException: ");
 			System.err.println(ex.getMessage());
+			return false;
 		}
 		return ret;
 	}
@@ -179,15 +175,12 @@ public class VenditaManager implements IVenditaManager{
 	 * @param codice Il codice della Vendita che deve essere eliminata.
 	 * @return Restituisce true in caso di esito positivo, false altrimenti.
 	 */
-	public boolean eliminaVendita(String codice) {
+	public boolean eliminaVendita(int codice) {
 		boolean ret = false;
 		Statement stmt;
 		String query = "DELETE FROM vendita WHERE codice='" + codice + "'";
-		Pattern p = Pattern.compile("[a-zA-Z0-9]{1,10}");
-		Matcher m;
-		
-		m = p.matcher(codice);
-		if(!m.matches()) return false;
+
+		if((codice < 0) || (codice > 10e10)) return false;
 		if(!isConnected) return false;
 		
 		try {
@@ -203,7 +196,7 @@ public class VenditaManager implements IVenditaManager{
 	}
 	
 	private boolean verificaVendita(Vendita v) {
-		Pattern p;
+		/* p;
 		Matcher m;
 		
 		p = Pattern.compile("[a-zA-Z0-9]{1,10}");
@@ -225,7 +218,7 @@ public class VenditaManager implements IVenditaManager{
 		p = Pattern.compile("[a-zA-Z0-9]*");
 		m = p.matcher(v.getNote());
 		if(!m.matches()) return false;
-		
+		*/
 		return true;
 	}
 }

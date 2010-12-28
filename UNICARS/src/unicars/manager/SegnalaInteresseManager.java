@@ -15,6 +15,7 @@ import java.util.regex.Pattern;
 
 public class SegnalaInteresseManager implements ISegnalaInteresseManager{
 
+	private DBConnection db;
 	private Connection conn;
 	private boolean isConnected;
 	
@@ -26,7 +27,8 @@ public class SegnalaInteresseManager implements ISegnalaInteresseManager{
 	public SegnalaInteresseManager()
 	{
 		try {
-			conn = DBConnection.connetti();
+			db = new DBConnection();
+			conn = db.connetti();
 			isConnected = true;
 		}
 		catch(java.lang.ClassNotFoundException err) {

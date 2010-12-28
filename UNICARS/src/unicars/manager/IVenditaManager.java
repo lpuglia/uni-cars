@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public interface IVenditaManager {
 	public ArrayList<Vendita> listaVendite();
-	public Vendita cercaVendita(String codice);
+	public Vendita cercaVendita(int codice);
 	
 	public boolean inserisciVendita(Vendita v);
 	public boolean modificaVendita(Vendita v);
-	public boolean eliminaVendita(String codice);
+	public boolean eliminaVendita(int codice);
 }
