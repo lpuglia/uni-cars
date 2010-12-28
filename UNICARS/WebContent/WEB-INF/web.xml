@@ -162,4 +162,24 @@
     <servlet-name>VisualizzaVeicoli</servlet-name>
     <url-pattern>/VisualizzaVeicoli</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>Servlet che permette la ricerca di un appuntamento e ne restituisce i campi</description>
+    <display-name>CercaAppuntamento</display-name>
+    <servlet-name>CercaAppuntamento</servlet-name>
+    <servlet-class>unicars.control.CercaAppuntamento</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CercaAppuntamento</servlet-name>
+    <url-pattern>/CercaAppuntamento</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description>Servlet che permette la ricerca di una vendita e ne restituisce i campi</description>
+    <display-name>CercaVendita</display-name>
+    <servlet-name>CercaVendita</servlet-name>
+    <servlet-class>unicars.control.CercaVendita</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CercaVendita</servlet-name>
+    <url-pattern>/CercaVendita</url-pattern>
+  </servlet-mapping>
 </web-app>
