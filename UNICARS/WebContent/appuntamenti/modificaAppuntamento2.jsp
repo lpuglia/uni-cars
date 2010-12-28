@@ -16,5 +16,4 @@ Da questa schermata &egrave possibile modificare i campi che costituiscono l'app
 	</table>
 </form>
 
-
 </div>

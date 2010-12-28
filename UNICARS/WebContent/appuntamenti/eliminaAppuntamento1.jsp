@@ -1,4 +1,3 @@
-<%@page import="unicars.utility.appuntamento" %>
 <%@page import="java.util.ArrayList" %>
 
 <h1>Elimina Appuntamento</h1>
