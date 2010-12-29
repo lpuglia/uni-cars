@@ -42,7 +42,7 @@ public class VisualizzaVeicoli extends HttpServlet {
 			Messaggio messaggio = new Messaggio(found);
 			request.setAttribute("msg", messaggio);
 			request.setAttribute("lista", lista);
-			address = "index.jsp";
+			address = "index.jsp?id=visualizzaVeicoli";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);

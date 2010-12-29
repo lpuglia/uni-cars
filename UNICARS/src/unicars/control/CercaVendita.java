@@ -21,11 +21,12 @@ public class CercaVendita extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int codice = Integer.parseInt(request.getParameter("codice"));
+		String azione = request.getParameter("azione");
 		
 		VenditaManager ve = new VenditaManager();
 		Vendita vendita = ve.cercaVendita(codice);
 		
-		String address;
+		String address = "index.jsp";
 		String not_found ="Vendita non trovata.";
 		String found ="Vendita trovata.";
 		
@@ -43,7 +44,10 @@ public class CercaVendita extends HttpServlet {
 			Messaggio messaggio = new Messaggio(found);
 			request.setAttribute("msg", messaggio);
 			request.setAttribute("vendita", vendita);
-			address = "index.jsp";
+			if(azione.equals("modifica"))
+				address = "index.jsp?id=modificaVendita2";
+			if(azione.equals("elimina"))
+				address = "index.jsp?id=eliminaVendita2";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);

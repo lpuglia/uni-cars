@@ -24,7 +24,8 @@ public class VisualizzaVendite extends HttpServlet {
 		VenditaManager ap = new VenditaManager();
 		ArrayList<Vendita> lista = ap.listaVendite();
 				
-		String address;
+		String azione = request.getParameter("azione");
+		String address = "index.jsp";
 		String not_found ="Vendite non trovate.";
 		String found ="Lista Vendite";
 		
@@ -42,7 +43,12 @@ public class VisualizzaVendite extends HttpServlet {
 			Messaggio messaggio = new Messaggio(found);
 			request.setAttribute("msg", messaggio);
 			request.setAttribute("lista", lista);
-			address = "index.jsp";
+			if(azione.equals("modifica"))
+				address = "index.jsp?id=modificaVendita1";
+			if(azione.equals("elimina"))
+				address = "index.jsp?id=eliminaVendita1";
+			if(azione.equals("visualizza"))
+				address = "index.jsp?id=visualizzaVendite";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);

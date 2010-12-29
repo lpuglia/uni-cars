@@ -23,9 +23,9 @@ public class SegnalaInteresse extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
 		int codice = 0;
-		String data = request.getParameter("data");
-		String ora = request.getParameter("ora");
-		String descrizione = request.getParameter("descrizione");
+		String data = "";
+		String ora = "";
+		String descrizione = "";
 		String contatto = request.getParameter("contatto");
 		int stato = 0;
 		
@@ -44,7 +44,7 @@ public class SegnalaInteresse extends HttpServlet {
 		} else {
 			Messaggio messaggio = new Messaggio(found);
 			request.setAttribute("msg", messaggio);
-			address = "index.jsp";
+			address = "redirect.jsp";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);

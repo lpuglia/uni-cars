@@ -42,7 +42,7 @@ public class VisualizzaOperatori extends HttpServlet {
 			Messaggio messaggio = new Messaggio(found);
 			request.setAttribute("msg", messaggio);
 			request.setAttribute("lista", lista);
-			address = "index.jsp";
+			address = "index.jsp?id=visualizzaOperatori";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);

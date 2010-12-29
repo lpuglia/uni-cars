@@ -21,11 +21,12 @@ public class CercaAppuntamento extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		int codice = Integer.parseInt(request.getParameter("codice"));
+		String azione = request.getParameter("azione");
 		
 		AppuntamentoManager ap = new AppuntamentoManager();
 		Appuntamento appuntamento = ap.cercaAppuntamento(codice);
 		
-		String address;
+		String address = "index.jsp";
 		String not_found ="Appuntamento non trovato.";
 		String found ="Appuntamento trovato.";
 		
@@ -43,7 +44,10 @@ public class CercaAppuntamento extends HttpServlet {
 			Messaggio messaggio = new Messaggio(found);
 			request.setAttribute("msg", messaggio);
 			request.setAttribute("appuntamento", appuntamento);
-			address = "index.jsp";
+			if(azione.equals("modifica"))
+				address = "index.jsp?id=modificaAppuntamento2";
+			if(azione.equals("elimina"))
+				address = "index.jsp?id=eliminaAppuntamento2";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);

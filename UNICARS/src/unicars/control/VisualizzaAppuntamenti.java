@@ -23,8 +23,10 @@ public class VisualizzaAppuntamenti extends HttpServlet {
 		
 		AppuntamentoManager ap = new AppuntamentoManager();
 		ArrayList<Appuntamento> lista = ap.listaAppuntamenti();
+		
+		String azione = request.getParameter("azione");
 				
-		String address;
+		String address = "index.jsp";
 		String not_found ="Appuntamenti non trovati.";
 		String found ="Lista Appuntamenti";
 		
@@ -42,7 +44,12 @@ public class VisualizzaAppuntamenti extends HttpServlet {
 			Messaggio messaggio = new Messaggio(found);
 			request.setAttribute("msg", messaggio);
 			request.setAttribute("lista", lista);
-			address = "index.jsp";
+			if(azione.equals("modifica"))
+				address = "index.jsp?id=modificaAppuntamento1";
+			if(azione.equals("elimina"))
+				address = "index.jsp?id=eliminaAppuntamento1";
+			if(azione.equals("visualizza"))
+				address = "index.jsp?id=visualizzaAppuntamenti";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);

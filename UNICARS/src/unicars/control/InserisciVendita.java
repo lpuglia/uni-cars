@@ -41,7 +41,7 @@ public class InserisciVendita extends HttpServlet {
 		} else {
 			Messaggio messaggio = new Messaggio(found);
 			request.setAttribute("msg", messaggio);
-			address = "index.jsp";
+			address = "redirect.jsp";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
