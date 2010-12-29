@@ -1,3 +1,4 @@
+<%@page import="unicars.utility.StampaAppuntamento" %>
 <%@page import="java.util.ArrayList" %>
 
 <h1>Elimina Appuntamento</h1>
@@ -7,8 +8,8 @@ Seleziona un appuntamento per eliminarlo. N.B. verrà richiesta una successiva co
 	//ArrayList<Appuntamento> appuntamenti = null; /*chiamata a funzione di ginalugi*/
 	//for(Appuntamento x: appuntamenti){
 	
-	//out.print(appuntamento.stampa(app,"eliminaAppuntamento2&code="));
-	
+	out.print(StampaAppuntamento.stampa("eliminaAppuntamento2","codice","nome","cognome","gg/mm/aaaa","hh:mm"));
+
 	//}
 	
 %>

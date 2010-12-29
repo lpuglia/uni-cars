@@ -29,9 +29,7 @@
 		<% 
 		String id = request.getParameter("id");
 		if(id!=null){
-			if(id.equals("home")){ %>
-				<%@ include file="home.jsp" %>
-		<%	}else if (id.equals("chiSiamo")){ %>
+			if (id.equals("chiSiamo")){ %>
 				<%@ include file="chiSiamo.jsp" %>
 		<%	}else if (id.equals("doveSiamo")){ %>
 				<%@ include file="doveSiamo.jsp" %>
@@ -79,6 +77,8 @@
 				<%@ include file="appuntamenti/eliminaAppuntamento1.jsp" %>
 		<%	}else if (id.equals("eliminaAppuntamento2")){ %>
 				<%@ include file="appuntamenti/eliminaAppuntamento2.jsp" %>
+		<%	}else{ %>
+				<%@ include file="home.jsp" %>
 		<%	}
 		} %>
 		</div>
