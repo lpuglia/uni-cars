@@ -1,7 +1,7 @@
 <div style="padding-bottom:20px; margin:10px">
 <h1>Inserisci Appuntamento</h1>
 In questa Schermata è possibile inserire un nuovo appuntamento nel database.<br><br>
-<form action="InserisciAppuntamento" method="get">
+<form action="InserisciAppuntamento" method="POST">
 	<table align="center">
 		<tr><td align="right">Nome(*):</td><td><input name="nome" type="text"></td>
 		<td align="right">Cognome(*):</td><td><input name="cognome" type="text"></td></tr>
