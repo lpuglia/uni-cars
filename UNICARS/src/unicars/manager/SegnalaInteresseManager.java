@@ -54,7 +54,7 @@ public class SegnalaInteresseManager implements ISegnalaInteresseManager{
 	public boolean segnalaInteresse(String nome, String cognome, String contatto) {
 		boolean ret = false;
 		Statement stmt;
-		String query = "INSERT INTO appuntamento (nome, " +
+		String query = "INSERT INTO appuntamento (	nome, " +
 													"cognome, " +
 													"contatto, " +
 													"data, " +
@@ -90,5 +90,4 @@ public class SegnalaInteresseManager implements ISegnalaInteresseManager{
 		}
 		return ret;
 	}
-
 }

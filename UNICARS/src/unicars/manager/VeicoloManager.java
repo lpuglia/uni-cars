@@ -95,7 +95,7 @@ public class VeicoloManager implements IVeicoloManager{
 		Statement stmt;
 		ResultSet rs;
 		String query = "SELECT * FROM veicolo WHERE targa='" + targa + "'";
-		Pattern p = Pattern.compile("[A-Z0-9]{8}");
+		Pattern p = Pattern.compile("[A-Z0-9]{1,8}");
 		Matcher m;
 		
 		m = p.matcher(targa);
