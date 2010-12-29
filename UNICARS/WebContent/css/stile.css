@@ -55,6 +55,7 @@ ul {
 #container {
 	text-align: center;
 	font-size: 12px;
+	padding-bottom: 10px;
 	width: 54%;
 	height: 100%;
 	float:left;

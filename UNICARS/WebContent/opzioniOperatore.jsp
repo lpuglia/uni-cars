@@ -21,7 +21,7 @@
 <img src="image/label/gestioneVendite.png">
 <ul>
 	<li><a class="silver" href="index.jsp?id=inserisciVendita">Inserisci</a></li>
-	<li><a class="silver" href="index.jsp?id=modificaVendita1">Modifica</a></li>
+	<li><a class="silver" href="VisualizzaVendite?azione=modifica">Modifica</a></li>
 	<li><a class="silver" href="index.jsp?id=eliminaVendita1">Elimina</a></li>
 </ul>
 <img src="image/label/gestioneAppuntamenti.png">

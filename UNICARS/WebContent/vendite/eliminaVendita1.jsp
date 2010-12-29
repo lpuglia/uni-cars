@@ -7,7 +7,7 @@ Seleziona una vendita per eliminarla. N.B. verrà richiesta una successiva confer
 	//ArrayList<Appuntamento> appuntamenti = null; /*chiamata a funzione di ginalugi*/
 	//for(Appuntamento x: appuntamenti){
 	
-	out.print(StampaVendita.stampa("eliminaVendita2","codice","PGLLUC89L01H703I","WAU ZZZ 8L Z W A 000001","gg/mm/aaaa"));
+	out.print(StampaVendita.stampa("eliminaVendita2",1234567,"PGLLUC89L01H703I","WAU ZZZ 8L Z W A 000001","gg/mm/aaaa"));
 
 	//}
 	
