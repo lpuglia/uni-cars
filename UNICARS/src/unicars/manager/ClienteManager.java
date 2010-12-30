@@ -95,7 +95,7 @@ public class ClienteManager implements IClienteManager{
 		Statement stmt;
 		ResultSet rs;
 		String query = "SELECT * FROM cliente WHERE codFis='" + codFis + "'";
-		Pattern p = Pattern.compile("[A-Z0-9]{16}");
+		Pattern p = Pattern.compile("^[A-Z]{6}[0-9]{2}[ABCDEHLMPRST]{1}[0-9]{2}([A-Z]{1}[0-9]{3})[A-Z]{1}$");
 		Matcher m;
 		
 		m = p.matcher(codFis);
