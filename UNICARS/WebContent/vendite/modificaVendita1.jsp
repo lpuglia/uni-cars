@@ -5,6 +5,8 @@
 <h1>Modifica Vendita</h1>
 Seleziona una vendita per modificarla.<br><br>
 <%
+System.out.println("ciao");
+
 	ArrayList<Vendita> lista = (ArrayList<Vendita>) request.getAttribute("lista");
 	for(Vendita x: lista){
 		out.print(StampaVendita.stampa("modifica",x.getCodice(),x.getCodFis(),x.getTelaio(),x.getData()));

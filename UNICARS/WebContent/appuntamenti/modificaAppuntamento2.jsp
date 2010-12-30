@@ -1,5 +1,4 @@
 <%@page import="unicars.bean.Appuntamento" %>
-<%@page import="unicars.utility.StampaAppuntamento" %>
 
 <%	Appuntamento appuntamento = (Appuntamento) request.getAttribute("appuntamento"); %>
 
@@ -15,7 +14,7 @@ Da questa schermata &egrave possibile modificare i campi che costituiscono l'app
 		<td align="right">Ora:</td><td><input name="ora" type="text" value="<%=appuntamento.getOra()%>"></td></tr>
 		<tr><td align="right">Contatto:</td><td><input name="nome" type="text" value="<%=appuntamento.getContatto()%>"></td>
 		<td></td><td></td></tr>
-		<tr><td colspan="4">Descrizione:<br><textarea name='descrizione' cols='40' rows='4'><%=appuntamento.getDescrizione()%></textarea></td></tr>
+		<tr><td colspan="4">Descrizione:<br><textarea name='descrizione' cols='40' rows='4'><%=appuntamento.getDescrizione()%></textarea><input name="codice" type="hidden" value="<%=appuntamento.getCodice()%>"></td></tr>
 		<tr><td align="center" colspan="4"><input value="Modifica" type="submit">
 		<input value="Reset" type="reset"></td></tr>
 	</table>

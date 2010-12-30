@@ -1,3 +1,4 @@
+<%@page import="unicars.utility.Messaggio" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -17,15 +18,21 @@
 <body>
 	<div class="mainT">
 		<img src="image/banner.jpg">
+		
 		<%@ include file="/tasti.jsp" %>
 	</div>
 	<div class="site">
 		<div id="menu" class="celle">
-		<%@ include file="/opzioniOperatore.jsp"%>
+		<% if(session.getAttribute("opeartore")!=null){%>
+			<%@ include file="/opzioniOperatore.jsp"%>
+		<%}else{%>
+			<%@ include file="/opzioniUtente.jsp"%>
+		<%}%>
 		</div><div id="container" class="celle">
 		<br>
 		<img src="image/contenuti.png">
 		<br><br>
+		${msg.messaggio}
 		<% 
 		String id = request.getParameter("id");
 		if(id!=null){
@@ -49,7 +56,7 @@
 				<%@ include file="notImplementedYet.jsp" %>
 		<%	}else if (id.equals("eliminaRiparazione")){ %>
 				<%@ include file="notImplementedYet.jsp" %>
-		<%	}else if (id.equals("visualizzaStatoRiparazioni")){ %>
+		<%	}else if (id.equals("visualizzaRiparazioni")){ %>
 				<%@ include file="riparazioni/visualizzaRiparazioni.jsp" %>
 		<%	}else if (id.equals("inserisciCliente")){ %>
 				<%@ include file="notImplementedYet.jsp" %>
@@ -81,6 +88,16 @@
 				<%@ include file="appuntamenti/eliminaAppuntamento2.jsp" %>
 		<%	}else if (id.equals("visualizzaAppuntamenti")){ %>
 				<%@ include file="appuntamenti/visualizzaAppuntamenti.jsp" %>
+		<%	}else if (id.equals("accessoAreaWeb")){ %>
+				<%@ include file="notImplementedYet.jsp" %>
+		<%	}else if (id.equals("accessoUtenti")){ %>
+				<%@ include file="notImplementedYet.jsp" %>
+		<%	}else if (id.equals("visualizzaVeicoli")){ %>
+				<%@ include file="segnalaInteresse.jsp" %>
+		<%	}else if (id.equals("segnalaInteresse1")){ %>
+				<%@ include file="segnalaInteresse1.jsp" %>
+		<%	}else if (id.equals("segnalaInteresse2")){ %>
+				<%@ include file="segnalaInteresse2.jsp" %>
 		<%	}else{ %>
 				<%@ include file="home.jsp" %>
 		<%	}

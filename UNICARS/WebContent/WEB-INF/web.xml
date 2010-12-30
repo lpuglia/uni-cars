@@ -182,4 +182,14 @@
     <servlet-name>CercaVendita</servlet-name>
     <url-pattern>/CercaVendita</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>Servlet che permette la ricerca di un veicolo e ne restituisce i campi</description>
+    <display-name>CercaVeicolo</display-name>
+    <servlet-name>CercaVeicolo</servlet-name>
+    <servlet-class>unicars.control.CercaVeicolo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CercaVeicolo</servlet-name>
+    <url-pattern>/CercaVeicolo</url-pattern>
+  </servlet-mapping>
 </web-app>

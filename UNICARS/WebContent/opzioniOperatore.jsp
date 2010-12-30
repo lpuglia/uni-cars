@@ -10,7 +10,7 @@
 	<li><a class="silver" href="index.jsp?id=inserisciRiparazione">Inserisci</a></li>
 	<li><a class="silver" href="index.jsp?id=modificaRiparazione">Modifica</a></li>
 	<li><a class="silver" href="index.jsp?id=eliminaRiparazione">Elimina</a></li>
-	<li><a class="silver" href="index.jsp?id=visualizzaStatoRiparazioni">Visualizza Stato</a></li>
+	<li><a class="silver" href="VisualizzaRiparazioni?azione=visualizza">Visualizza</a></li>
 </ul>
 <img src="image/label/gestioneClienti.png">
 <ul>
