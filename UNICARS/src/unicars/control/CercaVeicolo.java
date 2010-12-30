@@ -8,43 +8,48 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import unicars.bean.Appuntamento;
-import unicars.manager.AppuntamentoManager;
+import unicars.bean.Veicolo;
+import unicars.manager.VeicoloManager;
 import unicars.utility.Messaggio;
 
 /**
- * Servlet implementation class SegnalaInteresse
+ * Servlet implementation class CercaAppuntamento
  */
-public class SegnalaInteresse extends HttpServlet {
+public class CercaVeicolo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String nome = request.getParameter("nome");
-		String cognome = request.getParameter("cognome");
-		int codice = 0;
-		String data = "";
-		String ora = "";
-		String descrizione = request.getParameter("descrizione");
-		String contatto = request.getParameter("contatto");
-		int stato = 0;
+		String codice = request.getParameter("codice");
+		String azione = request.getParameter("azione");
 		
-		Appuntamento appuntamento = new Appuntamento(nome, cognome, codice, data, ora, descrizione, contatto, stato);
-		AppuntamentoManager ap = new AppuntamentoManager();
-		boolean inserito = ap.inserisciAppuntamento(appuntamento);
-		String address;
-		String not_found ="Impossibile segnalare interesse";
-		String found ="Interesse segnalato";
+		VeicoloManager ve = new VeicoloManager();
+		Veicolo veicolo = ve.cercaVeicolo(codice);
+
+		String address = "index.jsp";
+		String not_found ="Veicolo non trovato.";
+		String found ="Veicolo trovato.";
 		
 		
-		if(!inserito){
+		if(veicolo == null ) {
+			Messaggio messaggio = new Messaggio("Problemi col DB!");
+			request.setAttribute("msg", messaggio);
+			address = "index.jsp";
+		}else
+		if(veicolo.getMarca() == null){
 			Messaggio messaggio = new Messaggio(not_found);
 			request.setAttribute("msg", messaggio);
 			address = "index.jsp";
 		} else {
 			Messaggio messaggio = new Messaggio(found);
 			request.setAttribute("msg", messaggio);
-			address = "redirect.jsp";
+			request.setAttribute("veicolo", veicolo);
+			if(azione.equals("modifica"))
+				address = "index.jsp?id=modificaVeicolo2";
+			if(azione.equals("elimina"))
+				address = "index.jsp?id=eliminaVeicolo2";
+			if(azione.equals("visualizza"))
+				address = "index.jsp?id=segnalaInteresse1";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
