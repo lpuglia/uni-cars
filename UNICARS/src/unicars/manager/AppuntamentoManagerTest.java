@@ -8,25 +8,10 @@ package unicars.manager;
 
 import static org.junit.Assert.*;
 import java.util.ArrayList;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import unicars.bean.Appuntamento;
 
 public class AppuntamentoManagerTest {
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void testAppuntamentoManager() {
-		
-	}
 
 	@Test
 	public void testListaAppuntamenti() {
@@ -34,13 +19,13 @@ public class AppuntamentoManagerTest {
 		ArrayList<Appuntamento> lista = am.listaAppuntamenti();
 		
 		int contatore = 0;
-		int i = 0;
+		int i = 1;
 		for(Appuntamento a : lista)
 		{
 			assertTrue(a.getCodice() == i++);
 			contatore++;
 		}
-		assertEquals(contatore, 4);
+		assertEquals(contatore, 3);
 	}
 
 	@Test

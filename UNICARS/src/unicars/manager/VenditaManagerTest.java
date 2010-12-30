@@ -8,25 +8,10 @@ package unicars.manager;
 
 import static org.junit.Assert.*;
 import java.util.ArrayList;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import unicars.bean.Vendita;
 
 public class VenditaManagerTest {
-
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void testVenditaManager() {
-		
-	}
 
 	@Test
 	public void testListaVendite() {
@@ -54,7 +39,7 @@ public class VenditaManagerTest {
 	@Test
 	public void testInserisciVendita() {
 		VenditaManager vm = new VenditaManager();
-		Vendita v = new Vendita(4, "MARTRAD16T145J", "W", "18/01/2011", "");
+		Vendita v = new Vendita(4, "MARTRA89C14T123F", "W", "18/01/2011", "");
 		assertEquals(vm.cercaVendita(4), VenditaManager.VENDITA_VUOTO);
 		assertTrue(vm.inserisciVendita(v));
 		assertTrue(vm.cercaVendita(4).getCodice() == v.getCodice());
