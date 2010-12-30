@@ -227,29 +227,29 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 		
 		p = Pattern.compile("[a-zA-Z]{3,30}");
 		m = p.matcher(a.getNome());
-		if(!m.matches()) return false;
+		if(!m.matches()) {System.out.println("AppuntamentoManager.verificaAppuntamento - fallita validazione nome: " + a.getNome());return false;} 
 		
 		p = Pattern.compile("[a-zA-Z]{3,30}");
 		m = p.matcher(a.getCognome());
-		if(!m.matches()) return false;
+		if(!m.matches()) {System.out.println("AppuntamentoManager.verificaAppuntamento - fallita validazione cognome: " + a.getCognome());return false;}
 		
-		p = Pattern.compile("^[0-9]{2}/[0-9]{2}/[0-9]{4}$");
+		p = Pattern.compile("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)[0-9]{2}$");
 		m = p.matcher(a.getData());
-		if(!m.matches()) return false;
+		if(!m.matches()) {System.out.println("AppuntamentoManager.verificaAppuntamento - fallita validazione data: " + a.getData());return false;}
 		
-		p = Pattern.compile("^[0-9]{2}:[0-9]{2}$");
+		p = Pattern.compile("^([0-1][0-9]|2[0-3]):([0-5][0-9])$");
 		m = p.matcher(a.getOra());
-		if(!m.matches()) return false;
+		if(!m.matches()) {System.out.println("AppuntamentoManager.verificaAppuntamento - fallita validazione ora: " + a.getOra());return false;}
 		
-		p = Pattern.compile("[a-zA-Z0-9]*");
+		p = Pattern.compile("[a-zA-Z0-9 ]*");
 		m = p.matcher(a.getDescrizione());
-		if(!m.matches()) return false;
+		if(!m.matches()) {System.out.println("AppuntamentoManager.verificaAppuntamento - fallita validazione descrizione: " + a.getDescrizione());return false;}
 		
-		p = Pattern.compile("[a-zA-Z0-9]*");
+		p = Pattern.compile("[a-zA-Z0-9 ]*");
 		m = p.matcher(a.getContatto());
-		if(!m.matches()) return false;
+		if(!m.matches()) {System.out.println("AppuntamentoManager.verificaAppuntamento - fallita validazione contatto: " + a.getContatto());return false;}
 		
-		if((a.getStato() < 0) || (a.getStato() > 2)) return false;
+		if((a.getStato() < 0) || (a.getStato() > 2)) {System.out.println("AppuntamentoManager.verificaAppuntamento - fallita validazione stato: " + a.getStato());return false;}
 		
 		return true;
 	}
