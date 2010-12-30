@@ -26,8 +26,7 @@ public class VenditaManager implements IVenditaManager{
 	 * @param c Oggetto DBConnection in cui sono memorizzati tutti i dati necessari.
 	 * per stabilire una connessione con il database.
 	 */
-	public VenditaManager()
-	{
+	public VenditaManager() {
 		try {
 			db = new DBConnection();
 			conn = db.connetti();
