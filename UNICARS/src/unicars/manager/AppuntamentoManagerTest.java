@@ -1,7 +1,7 @@
 package unicars.manager;
 
 /**
- * Caso di test per la classe AppuntamentoManager
+ * Classe di test per la classe AppuntamentoManager
  * 
  * @author Michele Fratello
  */
@@ -32,8 +32,22 @@ public class AppuntamentoManagerTest {
 	public void testCercaAppuntamento() {
 		AppuntamentoManager am = new AppuntamentoManager();
 		Appuntamento a = null;
+		//3 classi di equivalenza per l'input:
+		//valori minori di 0
+		//valori compresi tra 0 e 999999
+		//valori maggiori di 999999
+		
+		//prima classe di equivalenza
+		a = am.cercaAppuntamento(-1);
+		assertEquals(a, null);
+		
+		//seconda classe di equivalenza
 		a = am.cercaAppuntamento(1);
-		assertTrue(a.getCodice() == 1);
+		assertEquals(a.getCodice(), 1);
+		
+		//terza classe di equivalenza
+		a = am.cercaAppuntamento(10000000);
+		assertEquals(a, null);
 	}
 
 	@Test
