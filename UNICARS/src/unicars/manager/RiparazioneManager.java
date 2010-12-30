@@ -91,7 +91,7 @@ public class RiparazioneManager implements IRiparazioneManager{
 		ResultSet rs;
 		String query = "SELECT * FROM riparazione WHERE codice='" + codice + "'";
 		
-		if((codice < 0) || (codice > 10e10)) return null;
+		if((codice < 0) || (codice > 1e10)) return null;
 		if(!isConnected) return null;
 		
 		try {
