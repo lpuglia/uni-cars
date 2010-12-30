@@ -33,8 +33,9 @@ public class InserisciAppuntamento extends HttpServlet {
 		AppuntamentoManager ap = new AppuntamentoManager();
 		boolean inserito = ap.inserisciAppuntamento(appuntamento);
 		String address;
-		String not_found ="Errore nella segnalazione interesse.";
-		String found ="Interesse segnalato.";
+		String not_found ="Errore nell'inserimento dell'appuntamento";
+		String found ="Appuntamento inserito con successo.";
+		
 		
 		
 		if(!inserito){
