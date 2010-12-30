@@ -11,4 +11,3 @@ Seleziona una vendita per visualizzarne i dettagli relativi.<br><br>
 	}
 	
 %>
-

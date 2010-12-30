@@ -1,3 +1,7 @@
+<%@page import="unicars.bean.Veicolo" %>
+
+<%	Veicolo veicolo = (Veicolo) request.getAttribute("veicolo"); %>
+
 <div style="text-align:left; background-color:white; color: black; width:90%; margin-left:auto; margin-bottom:15px; margin-right:auto; -moz-border-radius: 15px; -webkit-border-radius: 15px; padding:10px">
 <table style="width: 100%;">
     <tr>
@@ -6,25 +10,21 @@
       </td>
     </tr>
     <tr>
-    <td><img src="aa"></td>
-    <td>Tante:<br>
-            <br>
-Cose:<br>
-            <br>
-Belle:
+    <td><img src="aa" width="250px"></td>
+    <td>
+    Numero di Telaio: <%=veicolo.getTelaio()%><br>
+    Numero di Targa: <%=veicolo.getTarga()%><br>
+    Tipo: <%=veicolo.getTipo()%><br>
+    Marca: <%=veicolo.getMarca()%><br>
+    Modello: <%=veicolo.getModello()%><br>
+    Prezzo Vendita: <%=veicolo.getPrezzoV()%><br>
+    Allestimento: <%=veicolo.getAllestimento()%><br>
+    Colore: <%=veicolo.getColore()%><br>
 	</td>
     </tr>
     <tr>
     <td colspan="2">
-Tante:<br>
-      <br>
-Altre:<br>
-      <br>
-Cose:<br>
-      <br>
-Belle<br>
-      <br>
-      <div style="text-align:right;"><input type="button" value="Segnala Interesse"></div>
+    	<div style="text-align:center;"><a class="black" href="index.jsp?id=segnalaInteresse2&code=<%=veicolo.getTarga()%>">Segnala Interesse</a></div>
       </td>
     </tr>
 </table>

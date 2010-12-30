@@ -9,5 +9,5 @@ Seleziona un appuntamento per modificarlo.<br><br>
 	for(Appuntamento x: lista){
 		out.print(StampaAppuntamento.stampa("modifica",x.getCodice(),x.getNome(),x.getCognome(),x.getData(),x.getOra()));
 	}
-	
+
 %>
