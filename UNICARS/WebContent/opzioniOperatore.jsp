@@ -22,11 +22,13 @@
 <ul>
 	<li><a class="silver" href="index.jsp?id=inserisciVendita">Inserisci</a></li>
 	<li><a class="silver" href="VisualizzaVendite?azione=modifica">Modifica</a></li>
-	<li><a class="silver" href="index.jsp?id=eliminaVendita1">Elimina</a></li>
+	<li><a class="silver" href="VisualizzaVendite?azione=elimina">Elimina</a></li>
+	<li><a class="silver" href="VisualizzaVendite?azione=visualizza">Visualizza</a></li>
 </ul>
 <img src="image/label/gestioneAppuntamenti.png">
 <ul>
 	<li><a class="silver" href="index.jsp?id=inserisciAppuntamento">Inserisci</a></li>
-	<li><a class="silver" href="index.jsp?id=modificaAppuntamento1">Modifica</a></li>
-	<li><a class="silver" href="index.jsp?id=eliminaAppuntamento1">Elimina</a></li>
+	<li><a class="silver" href="VisualizzaAppuntamenti?azione=modifica">Modifica</a></li>
+	<li><a class="silver" href="VisualizzaAppuntamenti?azione=elimina">Elimina</a></li>
+	<li><a class="silver" href="VisualizzaAppuntamenti?azione=visualizza">Visualizza</a></li>
 </ul>

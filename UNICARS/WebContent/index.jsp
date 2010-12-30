@@ -67,6 +67,8 @@
 				<%@ include file="vendite/eliminaVendita1.jsp" %>
 		<%	}else if (id.equals("eliminaVendita2")){ %>
 				<%@ include file="vendite/eliminaVendita2.jsp" %>
+		<%	}else if (id.equals("visualizzaVendite")){ %>
+				<%@ include file="vendite/visualizzaVendite.jsp" %>
 		<%	}else if (id.equals("inserisciAppuntamento")){ %>
 				<%@ include file="appuntamenti/inserisciAppuntamento.jsp" %>
 		<%	}else if (id.equals("modificaAppuntamento1")){ %>
@@ -77,6 +79,8 @@
 				<%@ include file="appuntamenti/eliminaAppuntamento1.jsp" %>
 		<%	}else if (id.equals("eliminaAppuntamento2")){ %>
 				<%@ include file="appuntamenti/eliminaAppuntamento2.jsp" %>
+		<%	}else if (id.equals("visualizzaAppuntamenti")){ %>
+				<%@ include file="appuntamenti/visualizzaAppuntamenti.jsp" %>
 		<%	}else{ %>
 				<%@ include file="home.jsp" %>
 		<%	}

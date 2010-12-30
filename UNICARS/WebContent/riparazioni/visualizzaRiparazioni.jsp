@@ -6,7 +6,7 @@ Seleziona una riparazione per visualizzarne i dettagli relativi.<br><br>
 <%
 	//ArrayList<Appuntamento> appuntamenti = null; /*chiamata a funzione di ginalugi*/
 	//for(Appuntamento x: appuntamenti){
-	out.print(StampaRiparazione.stampa("VisualizzaRiparazione2","codice","telaio","gg/mm/aaaa","in corso"));
+	out.print(StampaRiparazione.stampa("VisualizzaRiparazione2",123456,"telaio","gg/mm/aaaa","in corso"));
 	//}
 	
 %>
