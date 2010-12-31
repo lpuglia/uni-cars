@@ -55,7 +55,10 @@ public class VenditaManager implements IVenditaManager{
 		ResultSet rs;
 		String query = "SELECT * FROM vendita";
 		
-		if(!isConnected) return null;
+		if(!isConnected) {
+			System.err.println("VenditaManager.listaVendite() - nessuna connessione al db attiva!");
+			return null;
+		}
 		
 		try {
 			stmt = conn.createStatement();
@@ -88,8 +91,15 @@ public class VenditaManager implements IVenditaManager{
 		ResultSet rs;
 		String query = "SELECT * FROM vendita WHERE codice='" + codice + "'";
 
-		if((codice < 0) || (codice > 999999)) return null;
-		if(!isConnected) return null;
+		if(!isConnected) {
+			System.err.println("VenditaManager.cercaVendita() - nessuna connessione al db attiva!");
+			return null;
+		}
+
+		if((codice < 0) || (codice > 999999)) {
+			System.err.println("VenditaManager.cercaVendita() - codice non valido: \"" + codice + "\"");
+			return null;
+		}
 		
 		try {
 			stmt = conn.createStatement();
@@ -125,8 +135,15 @@ public class VenditaManager implements IVenditaManager{
 													"', '" + v.getData() + 
 													"', '" + v.getNote() + "')";
 		
-		if(v == null || v == VENDITA_VUOTO || !verificaVendita(v)) return false;
-		if(!isConnected) return false;
+		if(!isConnected) {
+			System.err.println("VenditaManager.inserisciVendita() - nessuna connessione al db attiva!");
+			return false;
+		}
+		
+		if(v == null || v == VENDITA_VUOTO || !verificaVendita(v)) {
+			System.err.println("VenditaManager.inserisciVendita() - la Vendita passata non è valida");
+			return false;
+		}
 		
 		try {
 			stmt = conn.createStatement();
@@ -155,8 +172,15 @@ public class VenditaManager implements IVenditaManager{
 						"', note='" + v.getNote()+ 
 						"' WHERE codice='" + v.getCodice() + "'";
 		
-		if(v == null || v == VENDITA_VUOTO || !verificaVendita(v)) return false;
-		if(!isConnected) return false;
+		if(!isConnected) {
+			System.err.println("VenditaManager.modificaVendita() - nessuna connessione al db attiva!");
+			return false;
+		}
+
+		if(v == null || v == VENDITA_VUOTO || !verificaVendita(v)) {
+			System.err.println("VenditaManager.modificaVendita() - la Vendita passata non è valida");
+			return false;
+		}
 		
 		try {
 			stmt = conn.createStatement();
@@ -182,8 +206,15 @@ public class VenditaManager implements IVenditaManager{
 		Statement stmt;
 		String query = "DELETE FROM vendita WHERE codice='" + codice + "'";
 
-		if((codice < 0) || (codice > 999999)) return false;
-		if(!isConnected) return false;
+		if(!isConnected) {
+			System.err.println("VenditaManager.eliminaVendita() - nessuna connessione al db attiva!");
+			return false;
+		}
+		
+		if((codice < 0) || (codice > 999999)){
+			System.err.println("VenditaManager.eliminaVendita() - codice non valido: \"" + codice + "\"");
+			return false;
+		}
 		
 		try {
 			stmt = conn.createStatement();
@@ -203,19 +234,31 @@ public class VenditaManager implements IVenditaManager{
 				
 		p = Pattern.compile("^[A-Z]{6}[0-9]{2}[ABCDEHLMPRST]{1}[0-9]{2}([A-Z]{1}[0-9]{3})[A-Z]{1}$");
 		m = p.matcher(v.getCodFis());
-		if(!m.matches()) {System.out.println("VenditaManager.verificaVendita - fallita validazione Codice Fiscale: " + v.getCodFis());return false;}
+		if(!m.matches()) {
+			System.err.println("VenditaManager.verificaVendita - fallita validazione Codice Fiscale: " + v.getCodFis());
+			return false;
+		}
 		
 		p = Pattern.compile("[A-Z0-9]{1,17}");
 		m = p.matcher(v.getTelaio());
-		if(!m.matches()) {System.out.println("VenditaManager.verificaVendita - fallita validazione Telaio: " + v.getTelaio());return false;}
+		if(!m.matches()) {
+			System.err.println("VenditaManager.verificaVendita - fallita validazione Telaio: " + v.getTelaio());
+			return false;
+		}
 		
 		p = Pattern.compile("^(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/(19|20)[0-9]{2}$");
 		m = p.matcher(v.getData());
-		if(!m.matches()) {System.out.println("VenditaManager.verificaVendita - fallita validazione Data: " + v.getData());return false;}
+		if(!m.matches()) {
+			System.err.println("VenditaManager.verificaVendita - fallita validazione Data: " + v.getData());
+			return false;
+		}
 		
 		p = Pattern.compile("[a-zA-Z0-9 ]*");
 		m = p.matcher(v.getNote());
-		if(!m.matches()) {System.out.println("VenditaManager.verificaVendita - fallita validazione Note: " + v.getNote());return false;}
+		if(!m.matches()) {
+			System.err.println("VenditaManager.verificaVendita - fallita validazione Note: " + v.getNote());
+			return false;
+		}
 		
 		return true;
 	}

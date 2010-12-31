@@ -1,44 +1,30 @@
 package unicars.manager;
 
 import static org.junit.Assert.*;
-
 import java.util.ArrayList;
-
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import unicars.bean.Cliente;
 
 public class ClienteManagerTest {
 
-	@Before
-	public void setUp() throws Exception {
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void testClienteManager() {
-	}
-
 	@Test
 	public void testListaClienti() {
+		//Dato che questo metodo non richiede dati di input in questo test 
+		//si verifica il solo corretto funzionamento del metodo 
 		ClienteManager cm = new ClienteManager();
 		ArrayList<Cliente> lista = cm.listaClienti();
 		String array[] = new String[5];
-		array[0] = "DANGRI89I19F654H";
+		array[0] = "DANGRI89A19F654H";
 		array[1] = "GIAAVE88H15O159P";
-		array[2] = "LUCPUG89G01E357T";
-		array[3] = "MARTRAD16T145J";
+		array[2] = "LUCPUG89B01E357T";
+		array[3] = "MARTRA89C14T123F";
 		array[4] = "MICFRA89D02A587G";
 		
 		int contatore = 0;
 		int i = 0;
 		for(Cliente c : lista)
 		{
-			assertTrue(c.getCodFis().equals(array[i++]));
+			assertEquals(c.getCodFis(), array[i++]);
 			contatore++;
 		}
 		assertEquals(contatore, 5);
@@ -48,8 +34,22 @@ public class ClienteManagerTest {
 	public void testCercaCliente() {
 		ClienteManager cm = new ClienteManager();
 		Cliente c = null;
-		c = cm.cercaCliente("DANGRI89I19F654H");
-		assertTrue(c.getCodFis().equals("DANGRI89I19F654H"));
+		//Classi di Equivalenza del Codice Fiscale
+		//EC023 - Stringa di 16 caratteri alfanumerici definita secondo determinati criteri (maggiori info!!!)
+		//EC024 - Qualsiasi altro tipo di stringa
+		//EC025 - null
+		
+		//test EC023
+		c = cm.cercaCliente("MICFRA89D02A587G");
+		assertEquals(c.getCodFis(), "MICFRA89D02A587G");
+		
+		//test EC024
+		c = cm.cercaCliente("non è un codice fiscale valido !!!");
+		assertEquals(c, null);
+		
+		//test EC025
+		c = cm.cercaCliente(null);
+		assertEquals(c, null);
 	}
 
 }

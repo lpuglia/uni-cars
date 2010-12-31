@@ -60,7 +60,10 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 		ResultSet rs;
 		String query = "SELECT * FROM appuntamento";
 		
-		if(!isConnected) return null;
+		if(!isConnected) {
+			System.err.println("AppuntamentoManager.listaAppuntamenti() - nessuna connessione al db attiva!");
+			return null;
+		}
 		
 		try {
 			stmt = conn.createStatement();
@@ -96,9 +99,16 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 		ResultSet rs;
 		String query = "SELECT * FROM appuntamento WHERE codice='" + codice + "'";
 		
-		if((codice < 0) || (codice > 999999)) return null;
+		if(!isConnected) {
+			System.err.println("AppuntamentoManager.cercaAppuntamento() - nessuna connessione al db attiva!");
+			return null;
+		}
 		
-		if(!isConnected) return null;
+		if((codice < 0) || (codice > 999999)) {
+			System.err.println("AppuntamentoManager.cercaAppuntamento() - codice non valido: \"" + codice + "\"");
+			return null;
+		}
+		
 		
 		try {
 			stmt = conn.createStatement();
@@ -146,8 +156,15 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 															"', '" + a.getContatto() +
 															"', '" + a.getStato() + "')";
 		
-		if(a == null || a == APPUNTAMENTO_VUOTO || !verificaAppuntamento(a)) return false;
-		if(!isConnected) return false;
+		if(!isConnected) {
+			System.err.println("AppuntamentoManager.inserisciAppuntamento() - nessuna connessione al db attiva!");
+			return false;
+		}
+		
+		if(a == null || a == APPUNTAMENTO_VUOTO || !verificaAppuntamento(a)) {
+			System.err.println("AppuntamentoManager.inserisciAppuntamento() - l'Appuntamento passato non è valido.");
+			return false;
+		}
 		
 		try {
 			stmt = conn.createStatement();
@@ -179,8 +196,15 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 						"', stato='" + a.getStato() + 
 						"' WHERE codice='" + a.getCodice() + "'";
 		
-		if(a == null || a == APPUNTAMENTO_VUOTO || !verificaAppuntamento(a)) return false;
-		if(!isConnected) return false;
+		if(!isConnected) {
+			System.err.println("AppuntamentoManager.modificaAppuntamento() - nessuna connessione al db attiva!");
+			return false;
+		}
+
+		if(a == null || a == APPUNTAMENTO_VUOTO || !verificaAppuntamento(a)) {
+			System.err.println("AppuntamentoManager.ModificaAppuntamento() - l'Appuntamento passato non è valido.");
+			return false;
+		}
 		
 		try {
 			stmt = conn.createStatement();
@@ -205,8 +229,15 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 		Statement stmt;
 		String query = "DELETE FROM appuntamento WHERE codice='" + codice + "'";
 		
-		if((codice < 0) || (codice > 999999)) return false;
-		if(!isConnected) return false;
+		if(!isConnected)  {
+			System.err.println("AppuntamentoManager.eliminaAppuntamento() - nessuna connessione al db attiva!");
+			return false;
+		}
+		
+		if((codice < 0) || (codice > 999999)) {
+			System.err.println("AppuntamentoManager.eliminaAppuntamento() - codice non valido: \"" + codice + "\"");
+			return false;
+		}
 		
 		try {
 			stmt = conn.createStatement();

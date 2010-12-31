@@ -15,14 +15,16 @@ public class VenditaManagerTest {
 
 	@Test
 	public void testListaVendite() {
+		//Dato che questo metodo non richiede dati di input in questo test 
+		//si verifica il solo corretto funzionamento del metodo 
 		VenditaManager vm = new VenditaManager();
 		ArrayList<Vendita> lista = vm.listaVendite();
 		
 		int contatore = 0;
-		int i = 1;
+		int i = 0;
 		for(Vendita v : lista)
 		{
-			assertTrue(v.getCodice() == i++);
+			assertEquals(v.getCodice(), i++);
 			contatore++;
 		}
 		assertEquals(contatore, 3);

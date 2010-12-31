@@ -60,7 +60,10 @@ public class ClienteManager implements IClienteManager{
 		ResultSet rs;
 		String query = "SELECT * FROM cliente";
 		
-		if(!isConnected) return null;
+		if(!isConnected) {
+			System.err.println("ClienteManager.listaClienti() - nessuna connessione al db attiva!");
+			return null;
+		}
 		
 		try {
 			stmt = conn.createStatement();
@@ -98,9 +101,21 @@ public class ClienteManager implements IClienteManager{
 		Pattern p = Pattern.compile("^[A-Z]{6}[0-9]{2}[ABCDEHLMPRST]{1}[0-9]{2}([A-Z]{1}[0-9]{3})[A-Z]{1}$");
 		Matcher m;
 		
+		if(!isConnected) {
+			System.err.println("ClienteManager.cercaCliente() - nessuna connessione al db attiva!");
+			return null;
+		}
+		
+		if(codFis == null) {
+			System.err.println("ClienteManager.cercaAppuntamento() - Codice Fiscale null non valido!");
+			return null;
+		}
+		
 		m = p.matcher(codFis);
-		if(!m.matches()) return null;
-		if(!isConnected) return null;
+		if(!m.matches()) {
+			System.err.println("ClienteManager.cercaAppuntamento() - Codice Fiscale non valido: \"" + codFis + "\"");
+			return null;
+		}
 		
 		try {
 			stmt = conn.createStatement();
