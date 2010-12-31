@@ -34,12 +34,12 @@ public class CercaVeicolo extends HttpServlet {
 		if(veicolo == null ) {
 			Messaggio messaggio = new Messaggio("Problemi col DB!");
 			request.setAttribute("msg", messaggio);
-			address = "index.jsp";
+			address = "redirect.jsp";
 		}else
 		if(veicolo.getMarca() == null){
 			Messaggio messaggio = new Messaggio(not_found);
 			request.setAttribute("msg", messaggio);
-			address = "index.jsp";
+			address = "redirect.jsp";
 		} else {
 			Messaggio messaggio = new Messaggio(found);
 			request.setAttribute("msg", messaggio);

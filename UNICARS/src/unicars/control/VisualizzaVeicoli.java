@@ -32,12 +32,12 @@ public class VisualizzaVeicoli extends HttpServlet {
 		if(lista == null ) {
 			Messaggio messaggio = new Messaggio("Problemi col DB!");
 			request.setAttribute("msg", messaggio);
-			address = "index.jsp";
+			address = "redirect.jsp";
 		}else
 		if(lista.isEmpty()){
 			Messaggio messaggio = new Messaggio(not_found);
 			request.setAttribute("msg", messaggio);
-			address = "index.jsp";
+			address = "redirect.jsp";
 		} else {
 			Messaggio messaggio = new Messaggio(found);
 			request.setAttribute("msg", messaggio);

@@ -40,7 +40,7 @@ public class ModificaAppuntamento extends HttpServlet {
 		if(!modificato){
 			Messaggio messaggio = new Messaggio(not_found);
 			request.setAttribute("msg", messaggio);
-			address = "index.jsp";
+			address = "redirect.jsp";
 		} else {
 			Messaggio messaggio = new Messaggio(found);
 			request.setAttribute("msg", messaggio);
