@@ -17,7 +17,7 @@
 </head>
 <body onload="timer=setTimeout('move()',5000)">
 <div class="corniceRedirect">
-	<div class="redirect"><%=session.getAttribute("operatore")%>
+	<div class="redirect">
 		<br><h1>${msg.messaggio}</h1><br><br>
 		Tra 5 secondi sarai<br>reindirizzato alla index del sito.<br>
 		Se nn vuoi attendere oltre clicca <a class="black" href="index.jsp">qui</a>.
