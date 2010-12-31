@@ -41,7 +41,7 @@ public class InserisciAppuntamento extends HttpServlet {
 		if(!inserito){
 			Messaggio messaggio = new Messaggio(not_found);
 			request.setAttribute("msg", messaggio);
-			address = "index.jsp";
+			address = "redirect.jsp";
 		} else {
 			Messaggio messaggio = new Messaggio(found);
 			request.setAttribute("msg", messaggio);
