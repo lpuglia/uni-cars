@@ -103,7 +103,13 @@
 		<%	}
 		} %>
 		</div>
-	<div id="login" class="celle" ><%@ include file="/accesso.jsp"%></div>
+	<div id="login" class="celle" >
+		<% if(session.getAttribute("opeartore")!=null){%>
+			<img src="image/accessoOperatore.png">
+		<%}else{%>
+			<img src="image/accessoClienti.png">
+		<%}%>
+		<%@ include file="/accesso.jsp"%></div>
 	</div>
 </body>
 </html>
