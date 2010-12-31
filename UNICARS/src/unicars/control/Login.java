@@ -30,23 +30,23 @@ public class Login extends HttpServlet {
 		Operatore operatore = op.loginOperatore(login, password);
 		String address;
 		String not_found ="Utente non riconosciuto.";
-		String found ="Benvenuto ";
+		String found ="Benvenuto " + login;
 		
 		if(operatore == null ) {
 			Messaggio messaggio = new Messaggio("Problemi col DB!");
 			request.setAttribute("msg", messaggio);
-			address = "index.jsp";
+			address = "redirect.jsp";
 		}else
 		if(operatore.getUsername() == null){
 			Messaggio messaggio = new Messaggio(not_found);
 			request.setAttribute("msg", messaggio);
-			address = "index.jsp";
+			address = "redirect.jsp";
 		} else {
 			Messaggio messaggio = new Messaggio(found);
 			request.setAttribute("msg", messaggio);
 			HttpSession session = request.getSession();
 			session.setAttribute("operatore", operatore);
-			address = "index.jsp";
+			address = "redirect.jsp";
 		}
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
