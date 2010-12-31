@@ -88,6 +88,7 @@ public class OperatoreManager implements IOperatoreManager{
 	 * @return L'oggetto Operatore in caso di esito positivo, null altrimenti.
 	 */
 	public Operatore cercaOperatore(String username) {
+		
 		Operatore o = OPERATORE_VUOTO;
 		Statement stmt;
 		ResultSet rs;
@@ -136,7 +137,8 @@ public class OperatoreManager implements IOperatoreManager{
 		
 		userM = userP.matcher(username);
 		passM = passP.matcher(password);
-		if((!userM.matches()) || (!passM.matches())) return null;
+		
+		if((!userM.matches()) || (!passM.matches())) return o;
 		if(!isConnected) return null;
 		
 		try {
