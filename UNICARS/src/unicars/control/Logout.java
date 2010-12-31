@@ -25,7 +25,7 @@ public class Logout extends HttpServlet {
 		Messaggio messaggio = new Messaggio(goodbye);
 		request.setAttribute("msg", messaggio);
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("redirect.jsp");
 		dispatcher.forward(request, response);
 	}
 
