@@ -1,6 +1,5 @@
 <%
 String id1 = request.getParameter("id");
-
 if(id1!=null){
 	if (id1.equals("chiSiamo")){ %>Chi Siamo
 <%	}else if (id1.equals("doveSiamo")){ %>Dove Siamo
@@ -33,4 +32,6 @@ if(id1!=null){
 <%	}else if (id1.equals("eliminaAppuntamento1")){ %>Elimina Appuntamneto
 <%	}else if (id1.equals("eliminaAppuntamento2")){ %>Elimina Appuntamento
 <%	}else if (id1.equals("visualizzaAppuntamenti")){ %>Visualizza Appuntamenti
-<%	} }%> - Unicars
+<%	} 
+%> - <%
+}%>Unicars

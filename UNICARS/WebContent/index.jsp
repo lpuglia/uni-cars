@@ -23,15 +23,14 @@
 		<%@ include file="/tasti.jsp" %>
 	</div>
 	<div class="site">
-		<%
-			if(session.getAttribute("operatore")!=null){%>
+		<% if(session.getAttribute("operatore")!=null){%>
 			<div class="corniceMenu" style="height:436px">
 			<div id="menu" class="celle">
 			<%@ include file="/opzioniOperatore.jsp"%>
 			</div></div>
 		<%}else{%>
 			<div class="corniceMenu" style="height:310px">
-			<div id="menu" class="celle">
+			<div id="menu" class="celle" style="padding-left:20px;">
 			<br><br><br><br>
 			<%@ include file="/opzioniUtente.jsp"%>
 			</div></div>

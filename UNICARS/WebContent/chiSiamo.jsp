@@ -8,4 +8,6 @@ Nel 2010 abbiamo deciso di informatizzare la nostra attivit&agrave; per rimanere
 <br><br>
 La gamma automobilistica tra le pi&ugrave; ampie, un servizio accurato e competente, i prezzi tra i pi&ugrave; bassi disponibili sul mercato, il mercato dell'usato garantito hanno fatto dell'Autosalone UNICARS un'azienda di riferimento.
 <br><br>
-Un'azienda che <b>si evolve continuamente alla ricerca della totale soddisfazione dei clienti</b>, perch&egrave; come ci piace ricordare, la gioia del nostro cliente &egrave; anche la nostra.</div>
+Un'azienda che <b>si evolve continuamente alla ricerca della totale soddisfazione dei clienti</b>, perch&egrave; come ci piace ricordare, la gioia del nostro cliente &egrave; anche la nostra.
+<br><br><div style="text-align:right">La Direzione</div>
+</div>
