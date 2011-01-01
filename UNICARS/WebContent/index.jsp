@@ -5,8 +5,9 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<title>UniCars</title>
+	<title><%@ include file="/titolo.jsp"%></title>
 	<link rel="stylesheet" href="css/stile.css" type="text/css">
+	<link rel="shortcut icon" href="image/ico.png" type="image/x-icon"> 
 	
 	<script language="JavaScript">
 	function cambia(ImageName,ImageFile){
@@ -38,7 +39,6 @@
 		<br>
 		<img src="image/contenuti.png">
 		<br><br>
-		
 		<%@ include file="/contenuti.jsp"%>
 		</div>
 		<div class="corniceLogin">
