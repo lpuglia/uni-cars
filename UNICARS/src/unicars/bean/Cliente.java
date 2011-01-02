@@ -1,9 +1,10 @@
 package unicars.bean;
 
 /**
- * @author Gianluigi Avella
  * Classe Bean che gestisce i dati relativi all'entità Cliente
  * I metodi get e set servono per avere il valore e settare un nuovo valore per le variabili indicate
+ *
+ * @author Gianluigi Avella
  */
 
 public class Cliente {
