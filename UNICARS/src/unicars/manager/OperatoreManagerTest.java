@@ -34,19 +34,19 @@ public class OperatoreManagerTest {
 		OperatoreManager om = new OperatoreManager();
 		Operatore o = OperatoreManager.OPERATORE_VUOTO;
 		//Classi di equivalenza per il campo username:
-		//EC026 - stringa alfanumerica con in aggiunta i caratteri "!", "-", "_" di lunghezza compresa tra 3 e 20 caratteri
-		//EC027 - qualsiasi altro tipo di stringa
-		//EC028 - null
+		//EC028 - stringa alfanumerica con in aggiunta i caratteri "!", "-", "_" di lunghezza compresa tra 3 e 20 caratteri
+		//EC029 - qualsiasi altro tipo di stringa
+		//EC030 - null
 		
-		//test EC026
+		//test EC028
 		o = om.cercaOperatore("janus");
 		assertEquals(o.getUsername(), "janus");
 		
-		//test EC027
+		//test EC029
 		o = om.cercaOperatore("stringa non valid@");
 		assertEquals(o, OperatoreManager.OPERATORE_VUOTO);
 		
-		//test EC028
+		//test EC030
 		o = om.cercaOperatore(null);
 		assertEquals(o, OperatoreManager.OPERATORE_VUOTO);
 	}
@@ -56,20 +56,20 @@ public class OperatoreManagerTest {
 		OperatoreManager om = new OperatoreManager();
 		Operatore o = OperatoreManager.OPERATORE_VUOTO;
 		//Dato che i controlli sull'username sono gli stessi verranno testate solo le classi di equivalenza per la password:
-		//EC029 - stringa alfanumerica con in aggiunta i caratteri "!", "-", "_" di lunghezza compresa tra 6 e 20 caratteri
-		//EC030 - qualsiasi altro tipo di stringa
-		//EC031 - null
+		//EC031 - stringa alfanumerica con in aggiunta i caratteri "!", "-", "_" di lunghezza compresa tra 6 e 20 caratteri
+		//EC032 - qualsiasi altro tipo di stringa
+		//EC033 - null
 		
-		//test EC029
+		//test EC031
 		o = om.loginOperatore("janus", "unicars");
 		assertEquals("janus", o.getUsername());
 		assertEquals("unicars", o.getPassword());
 		
-		//test EC030
+		//test EC032
 		o = om.loginOperatore("janus", "123");
 		assertEquals(o, OperatoreManager.OPERATORE_VUOTO);
 		
-		//test EC031
+		//test EC033
 		o = om.loginOperatore("janus", null);
 		assertEquals(o, OperatoreManager.OPERATORE_VUOTO);
 	}

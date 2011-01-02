@@ -34,19 +34,19 @@ public class VeicoloManagerTest {
 		VeicoloManager vm = new VeicoloManager();
 		Veicolo v = VeicoloManager.VEICOLO_VUOTO;
 		//Classi di equivalenza per il campo targa:
-		//EC043 - Stringa alfanumerica di 8 caratteri
-		//EC044 - Qualsiasi altro tipo di stringa
-		//EC045 - null
+		//EC048 - Stringa alfanumerica di 8 caratteri
+		//EC049 - Qualsiasi altro tipo di stringa
+		//EC050 - null
 		
-		//test EC043
+		//test EC048
 		v = vm.cercaVeicolo("GH004TY");
 		assertEquals(v.getTelaio(), "W");
 		
-		//test EC044
+		//test EC049
 		v = vm.cercaVeicolo("stringa non valid@");
 		assertEquals(v, VeicoloManager.VEICOLO_VUOTO);
 		
-		//test EC045
+		//test EC050
 		v = vm.cercaVeicolo(null);
 		assertEquals(v, VeicoloManager.VEICOLO_VUOTO);
 	}
