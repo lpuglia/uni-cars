@@ -106,7 +106,7 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 		
 		if((codice < 0) || (codice > 999999)) {
 			System.err.println("AppuntamentoManager.cercaAppuntamento() - codice non valido: \"" + codice + "\"");
-			return null;
+			return APPUNTAMENTO_VUOTO;
 		}
 		
 		
@@ -202,7 +202,12 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 		}
 
 		if(a == null || a == APPUNTAMENTO_VUOTO || !verificaAppuntamento(a)) {
-			System.err.println("AppuntamentoManager.ModificaAppuntamento() - l'Appuntamento passato non è valido.");
+			System.err.println("AppuntamentoManager.modificaAppuntamento() - l'Appuntamento passato non è valido.");
+			return false;
+		}
+		
+		if((a.getCodice() < 0) || a.getCodice() > 999999) {
+			System.err.println("AppuntamentoManager.modificaAppuntamento() - codice non valido: \"" + a.getCodice() + "\"");
 			return false;
 		}
 		
@@ -260,7 +265,10 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 			a.getData() 		== null ||
 			a.getOra() 			== null ||
 			a.getDescrizione() 	== null ||
-			a.getContatto() 	== null) return false;
+			a.getContatto() 	== null) {
+			System.err.println("AppuntamentoManager.verificaAppuntmanto() - campi nulli non ammessi");
+			return false;
+		}
 		
 		p = Pattern.compile("[a-zA-Z]{3,30}");
 		m = p.matcher(a.getNome());
