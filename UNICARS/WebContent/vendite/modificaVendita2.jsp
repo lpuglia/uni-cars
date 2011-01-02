@@ -6,7 +6,7 @@
 <div style="padding-bottom:20px; margin:10px">
 <h1>Modifica Vendita</h1>
 Da questa schermata &egrave possibile modificare i campi che costituiscono la vendita<br><br>
-<form nome="vendita" method="POST">
+<form name="vendita" method="POST">
 	<table align="center">
 		<tr><td align="right">Codice Fiscale: </td><td><input name="codFis" type="text" value="<%=vendita.getCodFis()%>"></td>
 		<td align="right">Telaio: </td><td><input name="telaio" type="text" value="<%=vendita.getTelaio()%>"></td></tr>
