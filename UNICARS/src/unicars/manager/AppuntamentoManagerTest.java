@@ -41,7 +41,7 @@ public class AppuntamentoManagerTest {
 		
 		//test EC001
 		a = am.cercaAppuntamento(-1);
-		assertEquals(a, null);
+		assertEquals(a, AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		
 		//test EC002
 		a = am.cercaAppuntamento(1);
@@ -92,8 +92,8 @@ public class AppuntamentoManagerTest {
 		
 		//classi equivalenza per data:
 		//EC009 - stringa con formato gg/mm/aaaa
-		//EC0010 - qualsiasi altro tipo di stringa
-		//EC0011 - null
+		//EC010 - qualsiasi altro tipo di stringa
+		//EC011 - null
 		
 		//il test per EC009 è stato già effettuato nel test EC003
 		
@@ -173,10 +173,22 @@ public class AppuntamentoManagerTest {
 	@Test
 	public void testModificaAppuntamento() {
 		//Dato che le classi di equivalenza degli input di questo metodo sono esattamente le stesse
-		//del metodo inserisciAppuntamento in questo test si verifica il solo corretto funzionamento del metodo 
-		//nel caso di input validi
+		//del metodo inserisciAppuntamento ad eccezione del codice che in questo caso deve essere validato
+		//in questo test si verificano solo tali classi
 		AppuntamentoManager am = new AppuntamentoManager();
-		Appuntamento a = am.cercaAppuntamento(1);
+		Appuntamento a;
+		
+		//classi di equivalenza per il codice:
+		//EC023 - valori interi non appartenenti a [0, 999999]
+		//EC024 - valori interi appartenenti a [0, 999999]
+		
+		//test EC023
+		a = am.cercaAppuntamento(0);
+		a.setCodice(-1);//assegno all'appuntamento valido un codice non valido
+		assertFalse(am.modificaAppuntamento(a));
+		
+		//test EC024
+		a = am.cercaAppuntamento(1);
 		assertEquals(a.getStato(), 0);
 		a.setStato(2);
 		assertTrue(am.modificaAppuntamento(a));

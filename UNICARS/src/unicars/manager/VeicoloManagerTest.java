@@ -9,6 +9,8 @@ public class VeicoloManagerTest {
 
 	@Test
 	public void testListaVeicoli() {
+		//Dato che questo metodo non richiede dati di input in questo test 
+		//si verifica il solo corretto funzionamento del metodo 
 		VeicoloManager vm = new VeicoloManager();
 		ArrayList<Veicolo> lista = vm.listaVeicoli();
 		String array[] = new String[4];
@@ -31,7 +33,21 @@ public class VeicoloManagerTest {
 	public void testCercaVeicolo() {
 		VeicoloManager vm = new VeicoloManager();
 		Veicolo v = VeicoloManager.VEICOLO_VUOTO;
+		//Classi di equivalenza per il campo targa:
+		//EC043 - Stringa alfanumerica di 8 caratteri
+		//EC044 - Qualsiasi altro tipo di stringa
+		//EC045 - null
+		
+		//test EC043
 		v = vm.cercaVeicolo("GH004TY");
 		assertEquals(v.getTelaio(), "W");
+		
+		//test EC044
+		v = vm.cercaVeicolo("stringa non valid@");
+		assertEquals(v, VeicoloManager.VEICOLO_VUOTO);
+		
+		//test EC045
+		v = vm.cercaVeicolo(null);
+		assertEquals(v, VeicoloManager.VEICOLO_VUOTO);
 	}
 }

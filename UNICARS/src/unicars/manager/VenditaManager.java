@@ -98,7 +98,7 @@ public class VenditaManager implements IVenditaManager{
 
 		if((codice < 0) || (codice > 999999)) {
 			System.err.println("VenditaManager.cercaVendita() - codice non valido: \"" + codice + "\"");
-			return null;
+			return VENDITA_VUOTO;
 		}
 		
 		try {
@@ -129,11 +129,14 @@ public class VenditaManager implements IVenditaManager{
 	public boolean inserisciVendita(Vendita v) {
 		boolean ret = false;
 		Statement stmt;
-		String query = "INSERT INTO vendita VALUES ('" + v.getCodice() + 
-													"', '" + v.getCodFis() +
-													"', '" + v.getTelaio() +
-													"', '" + v.getData() + 
-													"', '" + v.getNote() + "')";
+		String query = "INSERT INTO vendita(codFis, " +
+											"telaio, " +
+											"data, " +
+											"note) " +
+											"VALUES (	'" + v.getCodFis() +
+														"', '" + v.getTelaio() +
+														"', '" + v.getData() + 
+														"', '" + v.getNote() + "')";
 		
 		if(!isConnected) {
 			System.err.println("VenditaManager.inserisciVendita() - nessuna connessione al db attiva!");
@@ -179,6 +182,11 @@ public class VenditaManager implements IVenditaManager{
 
 		if(v == null || v == VENDITA_VUOTO || !verificaVendita(v)) {
 			System.err.println("VenditaManager.modificaVendita() - la Vendita passata non è valida");
+			return false;
+		}
+		
+		if((v.getCodice() < 0) || v.getCodice() > 999999) {
+			System.err.println("VenditaManager.modificaVendita() - codice non valido: \"" + v.getCodice() + "\"");
 			return false;
 		}
 		
@@ -231,7 +239,15 @@ public class VenditaManager implements IVenditaManager{
 	private boolean verificaVendita(Vendita v) {
 		Pattern p;
 		Matcher m;
-				
+		
+		if(	v.getCodFis() 	== null ||
+			v.getTelaio() 	== null ||
+			v.getData() 	== null ||
+			v.getNote() 	== null) {
+			System.err.println("VenditaManager.verificaVendita - campi nulli non ammessi");
+			return false;
+		}
+		
 		p = Pattern.compile("^[A-Z]{6}[0-9]{2}[ABCDEHLMPRST]{1}[0-9]{2}([A-Z]{1}[0-9]{3})[A-Z]{1}$");
 		m = p.matcher(v.getCodFis());
 		if(!m.matches()) {
