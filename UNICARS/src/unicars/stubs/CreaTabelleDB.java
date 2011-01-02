@@ -93,7 +93,7 @@ public class CreaTabelleDB {
 			"  telaio varchar(25) NOT NULL," +
 			"  PRIMARY KEY (codice)," +
 			"  KEY telaior_constr (telaio)," +
-			"  CONSTRAINT telaior_constr FOREIGN KEY (telaio) REFERENCES veicolo (telaio)" +
+			"  CONSTRAINT telaior_constr FOREIGN KEY (telaio) REFERENCES veicolo (telaio) ON UPDATE CASCADE" +
 			") ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 			stmt.executeUpdate(query);
 
@@ -126,8 +126,8 @@ public class CreaTabelleDB {
 			"  PRIMARY KEY (codice)," +
 			"  KEY codFis_constr (codFis)," +
 			"  KEY telaio_constr (telaio)," +
-			"  CONSTRAINT codFis_constr FOREIGN KEY (codFis) REFERENCES cliente (codFis)," +
-			"  CONSTRAINT telaio_constr FOREIGN KEY (telaio) REFERENCES veicolo (telaio)" +
+			"  CONSTRAINT codFis_constr FOREIGN KEY (codFis) REFERENCES cliente (codFis) ON UPDATE CASCADE," +
+			"  CONSTRAINT telaio_constr FOREIGN KEY (telaio) REFERENCES veicolo (telaio) ON UPDATE CASCADE" +
 			") ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;";
 			stmt.executeUpdate(query);
 		}
