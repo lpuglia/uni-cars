@@ -35,19 +35,19 @@ public class ClienteManagerTest {
 		ClienteManager cm = new ClienteManager();
 		Cliente c = null;
 		//Classi di Equivalenza del Codice Fiscale
-		//EC023 - Stringa di 16 caratteri alfanumerici definita secondo determinati criteri (maggiori info!!!)
-		//EC024 - Qualsiasi altro tipo di stringa
-		//EC025 - null
+		//EC025 - Stringa di 16 caratteri alfanumerici definita secondo determinati criteri (maggiori info!!!)
+		//EC026 - Qualsiasi altro tipo di stringa
+		//EC027 - null
 		
-		//test EC023
+		//test EC025
 		c = cm.cercaCliente("MICFRA89D02A587G");
 		assertEquals(c.getCodFis(), "MICFRA89D02A587G");
 		
-		//test EC024
+		//test EC026
 		c = cm.cercaCliente("non è un codice fiscale valido !!!");
 		assertEquals(c, ClienteManager.CLIENTE_VUOTO);
 		
-		//test EC025
+		//test EC027
 		c = cm.cercaCliente(null);
 		assertEquals(c, ClienteManager.CLIENTE_VUOTO);
 	}

@@ -33,14 +33,14 @@ public class RiparazioneManagerTest {
 		RiparazioneManager rm = new RiparazioneManager();
 		Riparazione r = RiparazioneManager.RIPARAZIONE_VUOTO;
 		//classi di equivalenza per il codice:
-		//EC032 - valori interi appartenenti a [0, 999999]
-		//EC033 - valori interi non appartenenti a [0, 999999]
+		//EC034 - valori interi appartenenti a [0, 999999]
+		//EC035 - valori interi non appartenenti a [0, 999999]
 		
-		//test EC032
+		//test EC034
 		r = rm.cercaRiparazione(1);
 		assertEquals(r.getTelaio(), "Y");
 		
-		//test EC033
+		//test EC035
 		r = rm.cercaRiparazione(-1);
 		assertEquals(r, RiparazioneManager.RIPARAZIONE_VUOTO);
 	}

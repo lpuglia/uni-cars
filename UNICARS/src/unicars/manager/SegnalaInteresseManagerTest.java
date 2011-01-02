@@ -12,60 +12,60 @@ public class SegnalaInteresseManagerTest {
 		AppuntamentoManager am = new AppuntamentoManager();
 		Appuntamento a;
 		//classi equivalenza per nome:
-		//EC034 - stringa composta di sole lettere <= 30
-		//EC035 - qualsiasi altro tipo di stringa
-		//EC036 - null
+		//EC036 - stringa composta di sole lettere <= 30
+		//EC037 - qualsiasi altro tipo di stringa
+		//EC038 - null
 		
-		//test EC034
+		//test EC036
 		assertTrue(sim.segnalaInteresse("Danilo", "Grieco", "12345", "CD003EF"));
 		a = am.cercaAppuntamento(4);
 		assertEquals(a.getNome(), "Danilo");
 		assertEquals(a.getCognome(), "Grieco");
 		assertEquals(a.getContatto(), "12345");
 		
-		//test EC035
+		//test EC037
 		assertFalse(sim.segnalaInteresse("234tyrhg", "Grieco", "12345", "CD003EF"));
 		
-		//test EC036
+		//test EC038
 		assertFalse(sim.segnalaInteresse(null, "Grieco", "12345", "CD003EF"));
 		
 		//classi equivalenza per cognome:
-		//EC037 - stringa composta di sole lettere <= 30
-		//EC038 - qualsiasi altro tipo di stringa
-		//EC039 - null
+		//EC039 - stringa composta di sole lettere <= 30
+		//EC040 - qualsiasi altro tipo di stringa
+		//EC041 - null
 		
-		//il test per EC037 è stato già effettuato nel test EC034
+		//il test per EC039 è stato già effettuato nel test EC036
 		
-		//test EC038
+		//test EC040
 		assertFalse(sim.segnalaInteresse("Danilo", "6g4tf.55", "12345", "CD003EF"));
 		
-		//EC039
+		//EC041
 		assertFalse(sim.segnalaInteresse("Danilo", null, "12345", "CD003EF"));
 
 		//classi equivalenza per contatto:
-		//EC040 - qualsiasi stringa alfanumerica inclusi gli spazi
-		//EC041 - qualsiasi altro tipo di stringa
-		//EC042 - null
+		//EC042 - qualsiasi stringa alfanumerica inclusi gli spazi
+		//EC043 - qualsiasi altro tipo di stringa
+		//EC044 - null
 		
-		//il test per EC040 è stato già effettuato nel test EC034
+		//il test per EC042 è stato già effettuato nel test EC036
 		
-		//test EC041
+		//test EC043
 		assertFalse(sim.segnalaInteresse("Danilo", "Grieco", "21eFRG$&£/", "CD003EF"));
 		
-		//test EC042
+		//test EC044
 		assertFalse(sim.segnalaInteresse("Danilo", "Grieco", null, "CD003EF"));
 
 		//Classi di equivalenza per il campo descrizione (assume i valori di una targa):
-		//EC043 - Stringa alfanumerica di 8 caratteri
-		//EC044 - Qualsiasi altro tipo di stringa
-		//EC045 - null
+		//EC045 - Stringa alfanumerica di 8 caratteri
+		//EC046 - Qualsiasi altro tipo di stringa
+		//EC047 - null
 		
-		//il test per EC043 è stato già effettuato nel test EC034
+		//il test per EC045 è stato già effettuato nel test EC036
 		
-		//test EC044
+		//test EC046
 		assertFalse(sim.segnalaInteresse("Danilo", "Grieco", "12345", "435g34£$%"));
 		
-		//test EC045
+		//test EC047
 		assertFalse(sim.segnalaInteresse("Danilo", "Grieco", "12345", null));
 
 
