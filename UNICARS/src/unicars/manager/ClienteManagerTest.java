@@ -45,11 +45,11 @@ public class ClienteManagerTest {
 		
 		//test EC024
 		c = cm.cercaCliente("non è un codice fiscale valido !!!");
-		assertEquals(c, null);
+		assertEquals(c, ClienteManager.CLIENTE_VUOTO);
 		
 		//test EC025
 		c = cm.cercaCliente(null);
-		assertEquals(c, null);
+		assertEquals(c, ClienteManager.CLIENTE_VUOTO);
 	}
 
 }

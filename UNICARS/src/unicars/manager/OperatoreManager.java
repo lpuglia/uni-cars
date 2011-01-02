@@ -59,7 +59,10 @@ public class OperatoreManager implements IOperatoreManager{
 		ResultSet rs;
 		String query = "SELECT * FROM operatore";
 		
-		if(!isConnected) return null;
+		if(!isConnected) {
+			System.err.println("OperatoreManager.listaOperatori() - nessuna connessione al db attiva!");
+			return null;
+		}
 		
 		try {
 			stmt = conn.createStatement();
@@ -93,12 +96,24 @@ public class OperatoreManager implements IOperatoreManager{
 		Statement stmt;
 		ResultSet rs;
 		String query = "SELECT * FROM operatore WHERE username='" + username + "'";
-		Pattern p = Pattern.compile("[a-z]{3,20}");
+		Pattern p = Pattern.compile("[a-zA-Z0-9!_-]{3,20}");
 		Matcher m;
 		
+		if(!isConnected) {
+			System.err.println("OperatoreManager.cercaOperatore() - nessuna connessione al db attiva!");
+			return null;
+		}
+		
+		if(username == null) {
+			System.err.println("OperatoreManager.cercaOperatore() - username nullo non valido");
+			return OPERATORE_VUOTO;
+		}
+		
 		m = p.matcher(username);
-		if(!m.matches()) return null;
-		if(!isConnected) return null;
+		if(!m.matches()) {
+			System.err.println("OperatoreManager.cercaOperatore() - username non valido: \"" + username + "\"");
+			return OPERATORE_VUOTO;
+		}
 		
 		try {
 			stmt = conn.createStatement();
@@ -131,15 +146,27 @@ public class OperatoreManager implements IOperatoreManager{
 		Statement stmt;
 		ResultSet rs;
 		String query = "SELECT * FROM operatore WHERE username='" + username + "' AND password='" + password + "'";
-		Pattern userP = Pattern.compile("[a-zA-Z]{3,20}");
+		Pattern userP = Pattern.compile("[a-zA-Z0-9!_-]{3,20}");
 		Pattern passP = Pattern.compile("[a-zA-Z0-9!_-]{6,10}");
 		Matcher userM, passM;
+				
+		if(!isConnected) {
+			System.err.println("OperatoreManager.loginOperatore() - nessuna connessione al db attiva!");
+			return null;
+		}
+		
+		if((username == null) || (password == null)) {
+			System.err.println("OperatoreManager.loginOperatore() - valori nulli non ammessi per username o password");
+			return OPERATORE_VUOTO;
+		}
 		
 		userM = userP.matcher(username);
 		passM = passP.matcher(password);
 		
-		if((!userM.matches()) || (!passM.matches())) return o;
-		if(!isConnected) return null;
+		if((!userM.matches()) || (!passM.matches())) {
+			System.err.println("OperatoreManager.loginOperatore() - username o password non corretti!");
+			return OPERATORE_VUOTO;
+		}
 		
 		try {
 			stmt = conn.createStatement();

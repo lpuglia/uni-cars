@@ -56,7 +56,10 @@ public class RiparazioneManager implements IRiparazioneManager{
 		ResultSet rs;
 		String query = "SELECT * FROM riparazione";
 		
-		if(!isConnected) return null;
+		if(!isConnected) {
+			System.err.println("RiparazioneManager.listaRiparazioni() - nessuna connessione al db attiva!");
+			return null;
+		}
 		
 		try {
 			lista = new ArrayList<Riparazione>();
@@ -91,8 +94,15 @@ public class RiparazioneManager implements IRiparazioneManager{
 		ResultSet rs;
 		String query = "SELECT * FROM riparazione WHERE codice='" + codice + "'";
 		
-		if((codice < 0) || (codice > 999999)) return null;
-		if(!isConnected) return null;
+		if(!isConnected) {
+			System.err.println("RiparazioneManager.cercaRiparazione() - nessuna connessione al db attiva!");
+			return null;
+		}
+		
+		if((codice < 0) || (codice > 999999)) {
+			System.err.println("RiparazioneManager.cercaRiparazione() - codice non valido: \"" + codice + "\"");
+			return RIPARAZIONE_VUOTO;
+		}
 		
 		try {
 			stmt = conn.createStatement();

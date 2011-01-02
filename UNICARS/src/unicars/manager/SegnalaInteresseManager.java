@@ -69,14 +69,28 @@ public class SegnalaInteresseManager implements ISegnalaInteresseManager{
 													"'0'" + ")";
 		Pattern nomeP = Pattern.compile("[a-zA-Z]{1,30}");
 		Pattern cognomeP = Pattern.compile("[a-zA-Z]{1,30}");
-		Pattern contattoP = Pattern.compile("[a-zA-Z0-9]{1,40}");
+		Pattern contattoP = Pattern.compile("[a-zA-Z0-9 ]{1,40}");
 		Matcher nomeM, cognomeM, contattoM;
+		
+		if(!isConnected) {
+			System.err.println("SegnalaInteresseManager.segnalaInteresse() - nessuna connessione al db attiva!");
+			return false;
+		}
+		
+		if(	(nome 		== null) ||
+			(cognome 	== null) ||
+			(contatto 	== null)) {
+			System.err.println("SegnalaInteresseManager.segnalaInteresse() - valori nulli non ammessi");
+			return false;
+		}
 		
 		nomeM = nomeP.matcher(nome);
 		cognomeM = cognomeP.matcher(cognome);
 		contattoM = contattoP.matcher(contatto);
-		if((!nomeM.matches()) || (!cognomeM.matches()) || (!contattoM.matches())) return false;
-		if(!isConnected) return false;
+		if((!nomeM.matches()) || (!cognomeM.matches()) || (!contattoM.matches())) {
+			System.err.println("SegnalaInteresseManager.segnalaInteresse() - fallita validazione dati");
+			return false;
+		}
 		
 		try {
 			stmt = conn.createStatement();

@@ -108,13 +108,13 @@ public class ClienteManager implements IClienteManager{
 		
 		if(codFis == null) {
 			System.err.println("ClienteManager.cercaAppuntamento() - Codice Fiscale null non valido!");
-			return null;
+			return CLIENTE_VUOTO;
 		}
 		
 		m = p.matcher(codFis);
 		if(!m.matches()) {
 			System.err.println("ClienteManager.cercaAppuntamento() - Codice Fiscale non valido: \"" + codFis + "\"");
-			return null;
+			return CLIENTE_VUOTO;
 		}
 		
 		try {

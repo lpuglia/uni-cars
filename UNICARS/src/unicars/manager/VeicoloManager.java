@@ -59,7 +59,10 @@ public class VeicoloManager implements IVeicoloManager{
 		ResultSet rs;
 		String query = "SELECT * FROM veicolo";
 		
-		if(!isConnected) return null;
+		if(!isConnected) {
+			System.err.println("VeicoloManager.cercaVeicolo() - nessuna connessione al db attiva!");
+			return null;
+		}
 		
 		try {
 			stmt = conn.createStatement();
@@ -98,9 +101,22 @@ public class VeicoloManager implements IVeicoloManager{
 		Pattern p = Pattern.compile("[A-Z0-9]{1,8}");
 		Matcher m;
 		
+		if(!isConnected) {
+			System.err.println("VeicoloManager.cercaVeicolo() - nessuna connessione al db attiva!");
+			return null;
+		}
+		
+		if(targa == null) {
+			System.err.println("VeicoloManager.cercaVeicolo() - targa nulla non valida");
+			return VEICOLO_VUOTO;
+		}
+		
 		m = p.matcher(targa);
-		if(!m.matches()) return null;
-		if(!isConnected) return null;
+		if(!m.matches()) {
+			System.err.println("VeicoloManager.cercaVeicolo() - targa non ammessa: \"" + targa + "\"");
+			return VEICOLO_VUOTO;
+		}
+		
 		
 		try {
 			stmt = conn.createStatement();
