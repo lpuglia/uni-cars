@@ -51,7 +51,7 @@ public class SegnalaInteresseManager implements ISegnalaInteresseManager{
 	 * @param contatto Il contatto dell'utente che segnala interesse.
 	 * @return Restituisce true in caso di esito positivo, false altrimenti.
 	 */
-	public boolean segnalaInteresse(String nome, String cognome, String contatto) {
+	public boolean segnalaInteresse(String nome, String cognome, String contatto, String descrizione) {
 		boolean ret = false;
 		Statement stmt;
 		String query = "INSERT INTO appuntamento (	nome, " +
@@ -59,27 +59,31 @@ public class SegnalaInteresseManager implements ISegnalaInteresseManager{
 													"contatto, " +
 													"data, " +
 													"ora, " +
+													"descrizione, " +
 													"stato) " +
 													"VALUES (" +
 													"'" + nome + "', " +
 													"'" + cognome + "', " +
 													"'" + contatto + "', " +
-													"'0', " +
-													"'0', " +
+													"'', " +
+													"'', " +
+													"'" + descrizione + "', " +
 													"'0'" + ")";
 		Pattern nomeP = Pattern.compile("[a-zA-Z]{1,30}");
 		Pattern cognomeP = Pattern.compile("[a-zA-Z]{1,30}");
 		Pattern contattoP = Pattern.compile("[a-zA-Z0-9 ]{1,40}");
-		Matcher nomeM, cognomeM, contattoM;
+		Pattern descrizioneP = Pattern.compile("[A-Z0-9]{1,8}");
+		Matcher nomeM, cognomeM, contattoM, descrizioneM;
 		
 		if(!isConnected) {
 			System.err.println("SegnalaInteresseManager.segnalaInteresse() - nessuna connessione al db attiva!");
 			return false;
 		}
 		
-		if(	(nome 		== null) ||
-			(cognome 	== null) ||
-			(contatto 	== null)) {
+		if(	(nome 			== null) ||
+			(cognome 		== null) ||
+			(contatto 		== null) ||
+			(descrizione 	== null)) {
 			System.err.println("SegnalaInteresseManager.segnalaInteresse() - valori nulli non ammessi");
 			return false;
 		}
@@ -87,7 +91,8 @@ public class SegnalaInteresseManager implements ISegnalaInteresseManager{
 		nomeM = nomeP.matcher(nome);
 		cognomeM = cognomeP.matcher(cognome);
 		contattoM = contattoP.matcher(contatto);
-		if((!nomeM.matches()) || (!cognomeM.matches()) || (!contattoM.matches())) {
+		descrizioneM = descrizioneP.matcher(descrizione);
+		if((!nomeM.matches()) || (!cognomeM.matches()) || (!contattoM.matches()) || (!descrizioneM.matches())) {
 			System.err.println("SegnalaInteresseManager.segnalaInteresse() - fallita validazione dati");
 			return false;
 		}
