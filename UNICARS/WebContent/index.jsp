@@ -14,6 +14,8 @@
 	ImageName.src = ImageFile;
 	}
 	</script>
+	<script type="text/javascript" language="Javascript" src="js/validaAppuntamento.js"></script>
+	<script type="text/javascript" language="Javascript" src="js/validaVendita.js"></script>
 
 </head>
 <body>
