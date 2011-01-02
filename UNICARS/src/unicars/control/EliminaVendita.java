@@ -12,8 +12,13 @@ import unicars.manager.VenditaManager;
 import unicars.utility.Messaggio;
 
 /**
- * Servlet implementation class EliminaVendita
+ * Implementazione della servlet EliminaVendita
+ * Questa servlet elimina una vendita all'interno del database dato un codice 
+ * sfruttando la classe VenditaManager.
+ * 
+ * @author Gianluigi Avella
  */
+
 public class EliminaVendita extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

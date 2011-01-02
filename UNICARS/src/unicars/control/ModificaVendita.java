@@ -13,8 +13,13 @@ import unicars.manager.VenditaManager;
 import unicars.utility.Messaggio;
 
 /**
- * Servlet implementation class ModificaVendita
+ * Implementazione della servlet ModificaVendita
+ * Questa servlet modifica una vendita all'interno del database 
+ * sfruttando la classe VenditaManager.
+ * 
+ * @author Gianluigi Avella
  */
+
 public class ModificaVendita extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

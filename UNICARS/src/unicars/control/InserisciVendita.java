@@ -13,8 +13,13 @@ import unicars.manager.VenditaManager;
 import unicars.utility.Messaggio;
 
 /**
- * Servlet implementation class InserisciVendita
+ * Implementazione della servlet InserisciVendita
+ * Questa servlet inserisce una vendita all'interno del database 
+ * sfruttando la classe VenditaManager.
+ * 
+ * @author Gianluigi Avella
  */
+
 public class InserisciVendita extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

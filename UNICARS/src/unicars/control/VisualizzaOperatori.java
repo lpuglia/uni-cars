@@ -14,8 +14,13 @@ import unicars.manager.OperatoreManager;
 import unicars.utility.Messaggio;
 
 /**
- * Servlet implementation class VisualizzaOperatori
+ * Implementazione della servlet VisualizzaOperatori
+ * Questa servlet restituisce la lista di operatori da visualizzare
+ * sfruttando la classe OperatoreManager.
+ * 
+ * @author Gianluigi Avella
  */
+
 public class VisualizzaOperatori extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

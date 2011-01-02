@@ -14,8 +14,13 @@ import unicars.manager.VenditaManager;
 import unicars.utility.Messaggio;
 
 /**
- * Servlet implementation class VisualizzaVendite
+ * Implementazione della servlet VisualizzaVendite
+ * Questa servlet restituisce la lista di vendite da visualizzare
+ * sfruttando la classe VenditaManager.
+ * 
+ * @author Gianluigi Avella
  */
+
 public class VisualizzaVendite extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

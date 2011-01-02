@@ -13,7 +13,11 @@ import unicars.manager.AppuntamentoManager;
 import unicars.utility.Messaggio;
 
 /**
- * Servlet implementation class CercaAppuntamento
+ * Implementazione della servlet CercaAppuntamento
+ * Questa servlet cerca un appuntamento all'interno del database dato un codice 
+ * sfruttando la classe AppuntamentoManager.
+ * 
+ * @author Gianluigi Avella
  */
 public class CercaAppuntamento extends HttpServlet {
 	private static final long serialVersionUID = 1L;

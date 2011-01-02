@@ -14,8 +14,13 @@ import unicars.manager.AppuntamentoManager;
 import unicars.utility.Messaggio;
 
 /**
- * Servlet implementation class VisualizzaAppuntamenti
+ * Implementazione della servlet VisualizzaAppuntamenti
+ * Questa servlet restituisce la lista di appuntamenti da visualizzare
+ * sfruttando la classe AppuntamentoManager.
+ * 
+ * @author Gianluigi Avella
  */
+
 public class VisualizzaAppuntamenti extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

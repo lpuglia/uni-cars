@@ -14,8 +14,13 @@ import unicars.manager.RiparazioneManager;
 import unicars.utility.Messaggio;
 
 /**
- * Servlet implementation class VisualizzaRiparazioni
+ * Implementazione della servlet VisualizzaRiparazioni
+ * Questa servlet restituisce la lista di riparazioni da visualizzare
+ * sfruttando la classe RiparazioniManager.
+ * 
+ * @author Gianluigi Avella
  */
+
 public class VisualizzaRiparazioni extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
