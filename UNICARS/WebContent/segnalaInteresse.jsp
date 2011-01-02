@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina viene visualizzata la lista delle macchine di cui si può segnalare interesse %>
 <%@page import="unicars.bean.Veicolo" %>
 <%@page import="unicars.utility.StampaVeicolo" %>
 <%@page import="java.util.ArrayList" %>

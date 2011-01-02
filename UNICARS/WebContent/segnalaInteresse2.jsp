@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina viene visualizzata la schermata in cui inserire i propri dati %>
 <div style="text-align:center; width:90%; margin-left:auto; margin-right:auto;">
 <h1>Segnala Interesse</h1>
 Inserisci i tuoi dati per segnalare il tuo interesse su questo modello.

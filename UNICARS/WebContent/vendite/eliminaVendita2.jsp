@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina è possibile confermare l'eliminazione di una vendita %>
 <%@page import="unicars.bean.Vendita" %>
 <%@page import="unicars.utility.StampaVendita" %>
 

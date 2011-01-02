@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina vengono visualizzati i vari contenuti del sito %>
 <%
 boolean check=false;
 String id = request.getParameter("id");

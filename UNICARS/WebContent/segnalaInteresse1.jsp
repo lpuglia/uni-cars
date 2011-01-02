@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina viene visualizzata la scheda relativa al veicolo scelto %>
 <%@page import="unicars.bean.Veicolo" %>
 
 <%	Veicolo veicolo = (Veicolo) request.getAttribute("veicolo"); %>

@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina è possibile confermare l'eliminazione di un appuntamento %>
 <%@page import="unicars.bean.Appuntamento" %>
 <%@page import="unicars.utility.StampaAppuntamento" %>
 

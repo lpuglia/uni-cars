@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina è possibile visualizzare la lista degli appuntamenti %>
 <%@page import="unicars.bean.Appuntamento" %>
 <%@page import="unicars.utility.StampaAppuntamento" %>
 <%@page import="java.util.ArrayList" %>

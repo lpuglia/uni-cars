@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina è possibile inserire un appuntamento %>
 <div style="padding-bottom:20px; margin:10px">
 <h1>Inserisci Appuntamento</h1>
 In questa Schermata è possibile inserire un nuovo appuntamento nel database.<br><br>
