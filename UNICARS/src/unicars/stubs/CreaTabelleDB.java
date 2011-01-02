@@ -7,9 +7,12 @@ import unicars.manager.DBConnection;
 
 public class CreaTabelleDB {
 
-	/**
-	 * @param args
+	/** 
+	 * Classe stub che crea le tabelle per il database 'unicarsdb' al primo utilizzo del programma
+	 * 
+	 * @author Gianluigi Avella
 	 */
+	
 	public static void main(String[] args) {
 
 		DBConnection db;
@@ -25,19 +28,44 @@ public class CreaTabelleDB {
 			Statement stmt;
 			String query = "";
 
-			System.out.println("Tabelle create.");
+			System.out.println("Creazione tabelle in corso ...");
 
 			if(!isConnected) 
 				System.out.println("Ci sono problemi di connessione al database");
+			char a;
+			boolean goOn = false;
+
+			while (!goOn) {
+				System.out.println("Vuoi creare le tabelle per il database?");
+				System.out.println("Premi S per procedere o N per uscire");
+				System.out.println("ATTENZIONE:se esiste gia un Database i record saranno azzerati");
+				a = (char) System.in.read();
+				switch(a) {
+				case 's' :
+				case 'S' :
+					goOn= true;
+					break;
+
+				case 'n' :
+				case 'N' :
+					return;
+
+				default :
+					goOn = false;
+					break;
+				}
+
+			}
+
 
 			stmt = conn.createStatement();
-			
+
 			query = "SET FOREIGN_KEY_CHECKS=0;";
 			stmt.executeUpdate(query);
-			
+
 			query = "DROP TABLE IF EXISTS appuntamento;";
 			stmt.executeUpdate(query);
-			
+
 			query = "CREATE TABLE appuntamento (" +
 			"  codice int(10) unsigned zerofill NOT NULL AUTO_INCREMENT," +
 			"  nome varchar(30) NOT NULL," +
@@ -50,10 +78,10 @@ public class CreaTabelleDB {
 			"  PRIMARY KEY (codice)" +
 			") ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;";
 			stmt.executeUpdate(query);
-			
+
 			query = "DROP TABLE IF EXISTS cliente;";
 			stmt.executeUpdate(query);
-			
+
 			query = "CREATE TABLE cliente (" +
 			"  nome varchar(30) NOT NULL," +
 			"  cognome varchar(30) NOT NULL," +
@@ -66,10 +94,10 @@ public class CreaTabelleDB {
 			"  PRIMARY KEY (codFis)" +
 			") ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 			stmt.executeUpdate(query);
-			
+
 			query = "DROP TABLE IF EXISTS operatore;";
 			stmt.executeUpdate(query);
-			
+
 			query = "CREATE TABLE operatore (" +
 			"  username varchar(20) NOT NULL," +
 			"  password varchar(10) NOT NULL," +
@@ -80,7 +108,7 @@ public class CreaTabelleDB {
 			"  PRIMARY KEY (username)" +
 			") ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 			stmt.executeUpdate(query);
-			
+
 			query = "DROP TABLE IF EXISTS riparazione;";
 			stmt.executeUpdate(query);
 
@@ -99,7 +127,7 @@ public class CreaTabelleDB {
 
 			query = "DROP TABLE IF EXISTS veicolo;";
 			stmt.executeUpdate(query);
-			
+
 			query = "CREATE TABLE veicolo (" +
 			"  telaio varchar(25) NOT NULL," +
 			"  targa varchar(8) NOT NULL," +
@@ -113,10 +141,10 @@ public class CreaTabelleDB {
 			"  PRIMARY KEY (telaio)" +
 			") ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 			stmt.executeUpdate(query);
-			
+
 			query = "DROP TABLE IF EXISTS vendita;";
 			stmt.executeUpdate(query);
-			
+
 			query = "CREATE TABLE vendita (" +
 			"  codice int(10) unsigned zerofill NOT NULL AUTO_INCREMENT," +
 			"  codFis char(16) NOT NULL," +
@@ -130,6 +158,8 @@ public class CreaTabelleDB {
 			"  CONSTRAINT telaio_constr FOREIGN KEY (telaio) REFERENCES veicolo (telaio) ON UPDATE CASCADE" +
 			") ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;";
 			stmt.executeUpdate(query);
+
+			System.out.println("Le tabelle sono state create correttamente");
 		}
 		catch(Exception ex) {
 			System.err.print("Exception: ");

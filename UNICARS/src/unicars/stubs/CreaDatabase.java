@@ -2,7 +2,19 @@ package unicars.stubs;
 
 import java.sql.*;
 
+/** 
+ * Classe Stub che crea il database 'unicarsdb' per prima istanza dell'applicazione.
+ * 
+ * @author Gianluigi Avella
+ */
+
 import unicars.manager.DBConnection;
+
+/** 
+ * Classe stub che crea il database 'unicarsdb' al primo utilizzo del programma
+ * 
+ * @author Gianluigi Avella
+ */
 
 public class CreaDatabase {
 
@@ -11,9 +23,7 @@ public class CreaDatabase {
 	private static String nomeDB = "";
 	private static String usr="";
 	private static String pwd="";
-	/**
-	 * @param args
-	 */
+
 	public static void main(String[] args) {
 
 		DBConnection DB = new DBConnection();
@@ -43,7 +53,6 @@ public class CreaDatabase {
 			connection.close();
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
 	}
