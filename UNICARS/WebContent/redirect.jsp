@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina viene visualizzata la pagina di redirect %>
 <%@page import="unicars.utility.Messaggio" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>

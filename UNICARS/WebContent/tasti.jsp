@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina vengono visualizzati i bottoni della navigazione %>
 <div style="margin-left:15px; margin-top:-5px;">
 
 <a href="index.jsp" onMouseOver="cambia(home,'image/tasti/homeH.png')" onMouseOut="cambia(home,'image/tasti/home.png')"><img

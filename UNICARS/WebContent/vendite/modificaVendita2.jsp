@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina è possibile editare i campi di una vendita %>
 <%@page import="unicars.bean.Vendita" %>
 <%@page import="unicars.utility.StampaVendita" %>
 

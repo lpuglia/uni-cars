@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina viene visualizzata la lista delle opzioni Utente %>
 <img src="image/label/indiceContenuti.png">
 <ul>
 <li><a class="silver" href="index.jsp?id=accessoAreaWeb">Accesso Area Web</a></li>

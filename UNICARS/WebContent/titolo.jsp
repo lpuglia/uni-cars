@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina viene settato il titolo della pagina %>
 <%
 String id1 = request.getParameter("id");
 if(id1!=null){

@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina viene visualizzata la pagina che descrive l'autosalone %>
 <div style="text-align:center"><h1><b>AUTOSALONE UNICARS</b></h1></div>
 <div style="text-align:center"><img src="image/foto.jpg"></div>
 <div style="padding:20px; text-align:justify; font-size: 16px; line-height: 1,1em;font-family: Calibri;">

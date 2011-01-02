@@ -25,7 +25,8 @@
 		<%@ include file="/tasti.jsp" %>
 	</div>
 	<div class="site">
-		<% if(session.getAttribute("operatore")!=null){%>
+		<% //Menu laterale destro
+		if(session.getAttribute("operatore")!=null){%>
 			<div class="corniceMenu" style="height:436px">
 			<div id="menu" class="celle">
 			<%@ include file="/opzioniOperatore.jsp"%>
@@ -40,11 +41,13 @@
 		<br>
 		<img src="image/contenuti.png">
 		<br><br>
+		<%//Contenitore principale del sito %>
 		<%@ include file="/contenuti.jsp"%>
 		</div>
 		<div class="corniceLogin">
 		<div id="login" class="celle" >
-		<% if(session.getAttribute("operatore")==null){%>
+		<% //Menu di login a destra
+		if(session.getAttribute("operatore")==null){%>
 			<img src="image/accessoOperatori.png">
 			<%@ include file="/accesso.jsp"%>
 		<%}else{%>

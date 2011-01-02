@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina viene visualizzata la pagina che presenta il gruppo del progetto %>
 <h1>Progetto Unicars (Il Gruppo)</h1>
 <div style="font-size: 15px;">
 <div style="text-align:center; background-color:#606060; color:black; width:88%; margin-left:auto; margin-right:auto; -moz-border-radius: 15px; -webkit-border-radius: 15px; padding:2px 20px 15px 20px">

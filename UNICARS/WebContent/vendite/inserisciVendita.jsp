@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina è possibile inserire una vendita %>
 <div style="padding-bottom:20px; margin:10px">
 <h1>Inserisci Vendita</h1>
 In questa Schermata è possibile inserire una nuova vendita nel database.<br><br>

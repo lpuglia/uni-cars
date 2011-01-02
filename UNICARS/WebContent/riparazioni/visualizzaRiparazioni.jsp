@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina è possibile visualizzare la lista delle riparazioni %>
 <%@page import="unicars.bean.Riparazione" %>
 <%@page import="unicars.utility.StampaRiparazione" %>
 <%@page import="java.util.ArrayList" %>

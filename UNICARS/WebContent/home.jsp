@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina viene visualizzata la home del sito %>
 <div style="text-align:center; background-color:white; font-size: 16px; color: black; width:88%; margin-left:auto; margin-right:auto; -moz-border-radius: 15px; -webkit-border-radius: 15px; padding:2px 20px 15px 20px">
 <h2>Home</h2>
 <img src="image/marchi/alfa.jpg"><img src="image/marchi/audi.jpg"><img src="image/marchi/bmw.jpg"><img src="image/marchi/citroen.jpg"><img src="image/marchi/fiat.jpg">

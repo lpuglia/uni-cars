@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina viene visualizzata la lista delle opzioni Operatore %>
 <img src="image/label/gestioneVeicoli.png">
 <ul>
 	<li><a class="silver" href="index.jsp?id=inserisciVeicolo">Inserisci</a></li>

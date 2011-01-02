@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina è possibile selezionare una vendita per modificarla %>
 <%@page import="unicars.bean.Vendita" %>
 <%@page import="unicars.utility.StampaVendita" %>
 <%@page import="java.util.ArrayList" %>

@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina è possibile editare i campi di un appuntamento %>
 <%@page import="unicars.bean.Appuntamento" %>
 
 <%	Appuntamento appuntamento = (Appuntamento) request.getAttribute("appuntamento"); %>

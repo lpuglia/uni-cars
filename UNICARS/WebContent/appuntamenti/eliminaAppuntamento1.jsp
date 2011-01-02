@@ -1,3 +1,4 @@
+<%//Richiamando questa pagina è possibile selezionare un appuntamento per eliminarlo %>
 <%@page import="unicars.bean.Appuntamento" %>
 <%@page import="unicars.utility.StampaAppuntamento" %>
 <%@page import="java.util.ArrayList" %>
