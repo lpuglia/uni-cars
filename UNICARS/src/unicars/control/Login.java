@@ -14,10 +14,15 @@ import unicars.bean.Operatore;
 import unicars.manager.OperatoreManager;
 import unicars.utility.Messaggio;
 
-
 /**
- * Servlet implementation class Login
+ * Implementazione della servlet Login
+ * Questa consente il login dell'operatore confrontando i dati registrati
+ * nel database sfruttando la classe OperatoreManager.
+ * Se l'operatore esiste lo salva in sessione.
+ * 
+ * @author Gianluigi Avella
  */
+
 @SuppressWarnings("serial")
 public class Login extends HttpServlet {
 
@@ -28,6 +33,7 @@ public class Login extends HttpServlet {
 		
 		OperatoreManager op = new OperatoreManager();
 		Operatore operatore = op.loginOperatore(login, password);
+		operatore.setPassword("nascosta");
 		String address;
 		String not_found ="Utente non riconosciuto.";
 		String found ="Benvenuto " + login;

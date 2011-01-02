@@ -14,8 +14,13 @@ import unicars.manager.VeicoloManager;
 import unicars.utility.Messaggio;
 
 /**
- * Servlet implementation class VisualizzaVeicoli
+ * Implementazione della servlet VisualizzaVeicoli
+ * Questa servlet restituisce la lista di veicoli da visualizzare
+ * sfruttando la classe VeicoloManager.
+ * 
+ * @author Gianluigi Avella
  */
+
 public class VisualizzaVeicoli extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

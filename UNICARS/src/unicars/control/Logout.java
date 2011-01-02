@@ -12,8 +12,13 @@ import javax.servlet.http.HttpSession;
 import unicars.utility.*;
 
 /**
- * Servlet che effettua il Logout
+ * Implementazione della servlet Logout
+ * Questa servlet rimuove tutto dalla sessione permettendo la disconnessione 
+ * dell'utente che la invoca.
+ * 
+ * @author Gianluigi Avella
  */
+
 public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

@@ -13,8 +13,13 @@ import unicars.manager.AppuntamentoManager;
 import unicars.utility.Messaggio;
 
 /**
- * Servlet implementation class InserisciAppuntamento
+ * Implementazione della servlet InserisciAppuntamento
+ * Questa servlet inserisce un appuntamento all'interno del database 
+ * sfruttando la classe AppuntamentoManager.
+ * 
+ * @author Gianluigi Avella
  */
+
 public class InserisciAppuntamento extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

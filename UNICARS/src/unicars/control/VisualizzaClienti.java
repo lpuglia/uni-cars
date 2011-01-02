@@ -14,8 +14,13 @@ import unicars.manager.ClienteManager;
 import unicars.utility.Messaggio;
 
 /**
- * Servlet implementation class VisualizzaClienti
+ * Implementazione della servlet VisualizzaClienti
+ * Questa servlet restituisce la lista di clienti da visualizzare
+ * sfruttando la classe ClienteManager.
+ * 
+ * @author Gianluigi Avella
  */
+
 public class VisualizzaClienti extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

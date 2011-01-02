@@ -13,8 +13,13 @@ import unicars.manager.VeicoloManager;
 import unicars.utility.Messaggio;
 
 /**
- * Servlet implementation class CercaAppuntamento
+ * Implementazione della servlet CercaVeicolo
+ * Questa servlet cerca un veicolo all'interno del database dato un codice 
+ * sfruttando la classe VeicoloManager.
+ * 
+ * @author Gianluigi Avella
  */
+
 public class CercaVeicolo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

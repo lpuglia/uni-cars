@@ -13,8 +13,13 @@ import unicars.manager.VenditaManager;
 import unicars.utility.Messaggio;
 
 /**
- * Servlet implementation class CercaVendita
+ * Implementazione della servlet CercaVendita
+ * Questa servlet cerca una vendita all'interno del database dato un codice 
+ * sfruttando la classe VenditaManager.
+ * 
+ * @author Gianluigi Avella
  */
+
 public class CercaVendita extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

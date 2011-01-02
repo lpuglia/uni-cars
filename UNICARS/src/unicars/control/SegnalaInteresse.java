@@ -13,8 +13,13 @@ import unicars.manager.AppuntamentoManager;
 import unicars.utility.Messaggio;
 
 /**
- * Servlet implementation class SegnalaInteresse
+ * Implementazione della servlet SegnalaInteresse
+ * Questa servlet segnala un interesse e lo memorizza all'interno del database 
+ * sfruttando la classe AppuntamentoManager.
+ * 
+ * @author Gianluigi Avella
  */
+
 public class SegnalaInteresse extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
