@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import unicars.bean.Appuntamento;
 import unicars.manager.AppuntamentoManager;
+import unicars.manager.SegnalaInteresseManager;
 import unicars.utility.Messaggio;
 
 /**
@@ -27,16 +28,18 @@ public class SegnalaInteresse extends HttpServlet {
 		
 		String nome = request.getParameter("nome");
 		String cognome = request.getParameter("cognome");
-		int codice = 0;
-		String data = "";
-		String ora = "";
+		//int codice = 0;
+		//String data = "";
+		//String ora = "";
 		String descrizione = request.getParameter("descrizione");
 		String contatto = request.getParameter("contatto");
-		int stato = 0;
+		//int stato = 0;
 		
-		Appuntamento appuntamento = new Appuntamento(nome, cognome, codice, data, ora, descrizione, contatto, stato);
-		AppuntamentoManager ap = new AppuntamentoManager();
-		boolean inserito = ap.inserisciAppuntamento(appuntamento);
+		//Appuntamento appuntamento = new Appuntamento(nome, cognome, codice, data, ora, descrizione, contatto, stato);
+		//AppuntamentoManager ap = new AppuntamentoManager();
+		//boolean inserito = ap.inserisciAppuntamento(appuntamento);
+		SegnalaInteresseManager sim = new SegnalaInteresseManager();
+		boolean inserito = sim.segnalaInteresse(nome, cognome, contatto, descrizione);
 		String address;
 		String not_found ="Impossibile segnalare interesse";
 		String found ="Interesse segnalato";
