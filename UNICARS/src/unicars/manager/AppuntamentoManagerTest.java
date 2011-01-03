@@ -64,7 +64,7 @@ public class AppuntamentoManagerTest {
 		assertEquals(am.cercaAppuntamento(4).getCodice(), 4);
 		
 		//test EC004
-		a = new Appuntamento("df132sdf156-sdf1sd65f13s2df1e65t-1sf32sd1f", "Grieco", -1, "04/04/2004", "16:00", "prova4", "Via xyz 11", 0);
+		a = new Appuntamento("-sdf1sd65f13s2df1e65t-", "Grieco", -1, "04/04/2004", "16:00", "prova4", "Via xyz 11", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
@@ -81,7 +81,7 @@ public class AppuntamentoManagerTest {
 		//il test per EC006 è stato già effettuato nel test EC003
 		
 		////test EC007
-		a = new Appuntamento("Danilo", "df132sdf156-sdf1sd3s2df1e65t-1sf32sd1f", -1, "04/04/2004", "16:00", "prova4", "Via xyz 11", 0);
+		a = new Appuntamento("Danilo", "-sdf1sd3s2df1e65t-", -1, "04/04/2004", "16:00", "prova4", "Via xyz 11", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
@@ -98,7 +98,7 @@ public class AppuntamentoManagerTest {
 		//il test per EC009 è stato già effettuato nel test EC003
 		
 		//test EC010
-		a = new Appuntamento("Danilo", "Grieco", -1, "data non valida 123", "16:00", "prova4", "Via xyz 11", 0);
+		a = new Appuntamento("Danilo", "Grieco", -1, "asd123", "16:00", "prova4", "Via xyz 11", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
@@ -115,7 +115,7 @@ public class AppuntamentoManagerTest {
 		//il test per EC012 è stato già effettuato nel test EC003
 		
 		//test EC013
-		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", "ora non valida 321", "prova4", "Via xyz 11", 0);
+		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", "asd123", "prova4", "Via xyz 11", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
@@ -132,7 +132,7 @@ public class AppuntamentoManagerTest {
 		//il test per EC016 è stato già effettuato nel test EC003
 		
 		//test EC016
-		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", "16:00", "stringa non valida!-.-", "Via xyz 11", 0);
+		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", "16:00", "stringa!-.-", "Via xyz 11", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
@@ -149,7 +149,7 @@ public class AppuntamentoManagerTest {
 		//il test per EC018 è stato già effettuato nel test EC003
 		
 		//test EC019
-		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", "16:00", "prova4", "stringa non valida!-.-", 0);
+		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", "16:00", "prova4", "", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
