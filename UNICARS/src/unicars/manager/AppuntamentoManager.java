@@ -21,7 +21,7 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 
 	private DBConnection db;
 	private Connection conn;
-	private boolean isConnected;
+	private boolean isConnected = false;
 	public static final Appuntamento APPUNTAMENTO_VUOTO = new Appuntamento(null, null, -1, null, null, null, null, -1); 
 
 	

@@ -17,7 +17,7 @@ public class SegnalaInteresseManager implements ISegnalaInteresseManager{
 
 	private DBConnection db;
 	private Connection conn;
-	private boolean isConnected;
+	private boolean isConnected = false;
 	
 	/**Costruttore della classe.
 	 * 

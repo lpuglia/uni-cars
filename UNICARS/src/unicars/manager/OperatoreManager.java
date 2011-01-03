@@ -21,7 +21,7 @@ public class OperatoreManager implements IOperatoreManager{
 
 	private DBConnection db;
 	private Connection conn;
-	private boolean isConnected;
+	private boolean isConnected = false;
 	public static final Operatore OPERATORE_VUOTO = new Operatore(null, null, null, null, null, null); 
 	
 	/**Costruttore della classe.

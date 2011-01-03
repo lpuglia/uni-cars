@@ -21,7 +21,7 @@ public class VeicoloManager implements IVeicoloManager{
 
 	private DBConnection db;
 	private Connection conn;
-	private boolean isConnected;
+	private boolean isConnected = false;
 	public static final Veicolo VEICOLO_VUOTO = new Veicolo(null, null, null, null, null, null, null, null, null); 
 	
 	/**Costruttore della classe.
