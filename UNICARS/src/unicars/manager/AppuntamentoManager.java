@@ -35,7 +35,8 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 		try {
 			db = new DBConnection();
 			conn = db.connetti();
-			isConnected = true;
+			if(conn != null)
+				isConnected = true;
 		}
 		catch(java.lang.ClassNotFoundException err) {
 			System.err.print("ClassNotFoundException: ");
