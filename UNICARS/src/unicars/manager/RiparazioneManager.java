@@ -31,7 +31,8 @@ public class RiparazioneManager implements IRiparazioneManager{
 		try {
 			db = new DBConnection();
 			conn = db.connetti();
-			isConnected = true;
+			if(conn != null)
+				isConnected = true;
 		}
 		catch(java.lang.ClassNotFoundException err) {
 			System.err.print("ClassNotFoundException: ");
