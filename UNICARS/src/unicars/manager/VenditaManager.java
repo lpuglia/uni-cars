@@ -18,7 +18,7 @@ public class VenditaManager implements IVenditaManager{
 	
 	private DBConnection db;
 	private Connection conn;
-	private boolean isConnected;
+	private boolean isConnected = false;
 	public static final Vendita VENDITA_VUOTO = new Vendita(-1, null, null, null, null); 
 	
 	/**Costruttore della classe.

@@ -18,7 +18,7 @@ public class RiparazioneManager implements IRiparazioneManager{
 
 	private DBConnection db;
 	private Connection conn;
-	private boolean isConnected;
+	private boolean isConnected = false;
 	public static final Riparazione RIPARAZIONE_VUOTO = new Riparazione(-1, null, null, -1, null, null);
 	
 	/**Costruttore della classe.

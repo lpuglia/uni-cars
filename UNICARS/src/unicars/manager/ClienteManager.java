@@ -21,7 +21,7 @@ public class ClienteManager implements IClienteManager{
 
 	private DBConnection db;
 	private Connection conn;
-	private boolean isConnected;
+	private boolean isConnected = false;
 	public static final Cliente CLIENTE_VUOTO = new Cliente(null, null, null, null, null, null, null, null); 
 
 	
