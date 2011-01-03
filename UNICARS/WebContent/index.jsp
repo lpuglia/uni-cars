@@ -14,8 +14,16 @@
 	ImageName.src = ImageFile;
 	}
 	</script>
+	<script type="text/javascript">
+ 	 var stile = "top=10, left=10, width=250, height=200, status=no, menubar=no, toolbar=no scrollbar=no";
+     function Popup(apri) {
+        window.open(apri, "", stile);
+     }
+ 	</script>
+	
 	<script type="text/javascript" language="Javascript" src="js/validaAppuntamento.js"></script>
 	<script type="text/javascript" language="Javascript" src="js/validaVendita.js"></script>
+	<script type="text/javascript" language="Javascript" src="js/validaInteresse.js"></script>
 
 </head>
 <body>
@@ -27,14 +35,14 @@
 	<div class="site">
 		<% //Menu laterale destro
 		if(session.getAttribute("operatore")!=null){%>
-			<div class="corniceMenu" style="height:436px">
+			<div class="corniceMenu" style="height:530px">
 			<div id="menu" class="celle">
 			<%@ include file="/opzioniOperatore.jsp"%>
 			</div></div>
 		<%}else{%>
 			<div class="corniceMenu" style="height:310px">
 			<div id="menu" class="celle" style="padding-left:20px;">
-			<br><br><br><br>
+			<br><br>
 			<%@ include file="/opzioniUtente.jsp"%>
 			</div></div>
 		<%}%><div id="container" class="celle">

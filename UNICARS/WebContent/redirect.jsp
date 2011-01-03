@@ -16,11 +16,11 @@
 		}
 	</script>
 </head>
-<body onload="timer=setTimeout('move()',5000)">
+<body onload="timer=setTimeout('move()',3000)">
 <div class="corniceRedirect">
 	<div class="redirect">
 		<br><h1>${msg.messaggio}</h1><br><br>
-		Tra 5 secondi sarai<br>reindirizzato alla index del sito.<br>
+		Stai per essere reindirizzato alla index del sito.<br><br>
 		Se nn vuoi attendere oltre clicca <a class="black" href="index.jsp">qui</a>.
 	</div>
 </div>

@@ -1,11 +1,12 @@
 <%//Richiamando questa pagina viene visualizzata la lista delle opzioni Utente %>
 <img src="image/label/indiceContenuti.png">
 <ul>
-<li><a class="silver" href="index.jsp?id=accessoAreaWeb">Accesso Area Web</a></li>
-<li><a class="silver" onMouseClick="cambia(home,'image/accessoOperatori.png')">Accesso Clienti</a></li>
-<li><a class="silver" onMouseClick="cambia(home,'image/accessoClienti.png')">Accesso Operatori</a></li>
-<li><a class="silver" href="VisualizzaVeicoli">Visualizza Parco Vicoli</a></li>
-</ul>
+<li><a class="silver" href="index.jsp?id=registrazioneCliente">Registrazione cliente</a></li>
+<li><a class="silver" href="index.jsp?id=visualizzazioneDati">Visualizzazione Dati</a></li>
+<li><a class="silver" href="index.jsp?id=modificaDati">Modifica Dati</a></li>
+<li><a class="silver" href="index.jsp?id=ricercaVettura">Ricerca Vettura</a></li>
+<li><a class="silver" href="VisualizzaVeicoli">Segnala Interesse</a></li>
+</ul><br>
 <img src="image/label/menuSemplificato.png">
 <ul>
 <li><a class="silver" href="index.jsp">Home</a></li>
