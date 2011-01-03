@@ -11,7 +11,7 @@
       </td>
     </tr>
     <tr>
-    <td><img src="aa" width="250px"></td>
+    <td><img src="image/veicoli/<%=veicolo.getTarga()%>.jpg" width="250px"></td>
     <td>
     Numero di Telaio: <%=veicolo.getTelaio()%><br>
     Numero di Targa: <%=veicolo.getTarga()%><br>

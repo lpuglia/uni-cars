@@ -5,5 +5,7 @@
 name="home" src="image/tasti/home.png"></a><a href="index.jsp?id=chiSiamo" onMouseOver="cambia(chiSiamo,'image/tasti/chiSiamoH.png')" onMouseOut="cambia(chiSiamo,'image/tasti/chiSiamo.png')"><img
 name="chiSiamo" src="image/tasti/chiSiamo.png"></a><a href="index.jsp?id=doveSiamo" onMouseOver="cambia(doveSiamo,'image/tasti/doveSiamoH.png')" onMouseOut="cambia(doveSiamo,'image/tasti/doveSiamo.png')"><img
 name="doveSiamo" src="image/tasti/doveSiamo.png"></a><a href="index.jsp?id=ilGruppo" onMouseOver="cambia(ilGruppo,'image/tasti/ilGruppoH.png')" onMouseOut="cambia(ilGruppo,'image/tasti/ilGruppo.png')"><img
-name="ilGruppo" src="image/tasti/ilGruppo.png"></a><img src="image/tasti/blank.png">
+name="ilGruppo" src="image/tasti/ilGruppo.png"></a><% if(session.getAttribute("operatore")!=null){%><a onMouseOver="cambia(help,'image/tasti/helpH.png')" onMouseOut="cambia(help,'image/tasti/help.png')" onClick="Popup('ok')"><img
+name="help" src="image/tasti/help.png"></a><img src="image/tasti/blank.png">
+		<%}else{%><img src="image/tasti/blank2.png"><%}%>
 </div>

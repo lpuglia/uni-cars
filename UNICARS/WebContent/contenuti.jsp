@@ -12,9 +12,13 @@ if(id!=null){
 		<%@ include file="doveSiamo.jsp" %>
 <%	}else if (id.equals("ilGruppo")){ %>
 		<%@ include file="ilGruppo.jsp" %>
-<%	}else if (id.equals("accessoAreaWeb")){ %>
+<%	}else if (id.equals("registrazioneCliente")){ %>
 		<%@ include file="notImplementedYet.jsp" %>
-<%	}else if (id.equals("accessoUtenti")){ %>
+<%	}else if (id.equals("modificaDati")){ %>
+		<%@ include file="notImplementedYet.jsp" %>
+<%	}else if (id.equals("ricercaVettura")){ %>
+		<%@ include file="notImplementedYet.jsp" %>
+<%	}else if (id.equals("visualizzazioneDati")){ %>
 		<%@ include file="notImplementedYet.jsp" %>
 <%	}else if (id.equals("visualizzaVeicoli")){ %>
 		<%@ include file="segnalaInteresse.jsp" %>

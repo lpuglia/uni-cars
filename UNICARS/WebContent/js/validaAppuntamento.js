@@ -1,5 +1,5 @@
 /**
- * 
+ *  JavaScript che controlla l'inserimento di tutti i campi
  */
 
 function validaAppuntamento() {
@@ -51,8 +51,8 @@ function validaAppuntamento() {
             return false;
          }
      	//Effettua il controllo sul campo DESCRIZIONE
-        else if (descrizione == null || descrizione == "" || !contatto_reg_exp.test(descrizione) ) {
-            alert("Il campo Descrizione è obbligatorio.");
+        else if (descrizione == null || !contatto_reg_exp.test(descrizione) ) {
+            alert("Il campo Descrizione deve contenere solo caratteri.");
             document.appuntamento.descrizione.focus();
             return false;
          }

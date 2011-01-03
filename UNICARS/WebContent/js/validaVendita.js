@@ -1,5 +1,5 @@
 /**
- * 
+ *  JavaScript che controlla l'inserimento di tutti i campi
  */
 
 function validaVendita() {
@@ -36,11 +36,11 @@ function validaVendita() {
             return false;
          }
      	//Effettua il controllo sul campo NOTE
-        else if (note == null || note == "" || !note_reg_exp.test(note) ) {
-            alert("Il campo Note è obbligatorio.");
+        else if (data == null || !note_reg_exp.test(note) ) {
+            alert("Il campo Note deve contenere solo Caratteri.");
             document.vendita.note.focus();
             return false;
-         }
+        }
         if(string[0] == "inserisciVendita"){
 	       	 document.vendita.action = "InserisciVendita";
 	       	 document.vendita.submit();
