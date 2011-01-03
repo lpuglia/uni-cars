@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import unicars.bean.Appuntamento;
-import unicars.manager.AppuntamentoManager;
 import unicars.manager.SegnalaInteresseManager;
 import unicars.utility.Messaggio;
 
