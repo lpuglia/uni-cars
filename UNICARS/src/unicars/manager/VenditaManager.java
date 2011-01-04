@@ -237,6 +237,12 @@ public class VenditaManager implements IVenditaManager{
 		return ret;
 	}
 	
+	/**
+	 * Metodo che verifica la validità della Vendita passato in input
+	 * 
+	 * @param v Vendita da verificare
+	 * @return true se la Vendita è valida, false altrimenti
+	 */
 	private boolean verificaVendita(Vendita v) {
 		Pattern p;
 		Matcher m;
