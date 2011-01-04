@@ -4,8 +4,7 @@
 <li><a class="silver" href="index.jsp?id=registrazioneCliente">Registrazione cliente</a></li>
 <li><a class="silver" href="index.jsp?id=visualizzazioneDati">Visualizzazione Dati</a></li>
 <li><a class="silver" href="index.jsp?id=modificaDati">Modifica Dati</a></li>
-<li><a class="silver" href="index.jsp?id=ricercaVettura">Ricerca Vettura</a></li>
-<li><a class="silver" href="VisualizzaVeicoli">Segnala Interesse</a></li>
+<li><a class="silver" href="VisualizzaVeicoli">Visualizza Parco</a></li>
 </ul><br>
 <img src="image/label/menuSemplificato.png">
 <ul>
