@@ -1,5 +1,13 @@
 package unicars.unitTest;
 
+/**
+ * Classe di test per la classe SegnalaInteresseManager
+ * NOTA: per l'esecuzione della classe di test il database deve trovarsi nella sua istanza iniziale
+ * ripristinato tramite l'esecuzione della classe PoplaDB contenuto nel package unicars.stub
+ * 
+ * @author Michele Fratello
+ */
+
 import static org.junit.Assert.*;
 import org.junit.Test;
 import unicars.bean.Appuntamento;
@@ -15,9 +23,9 @@ public class SegnalaInteresseManagerTest {
 		Appuntamento a;
 		
 		//TC017 – testSegnalaInteresseOK
-		assertEquals(am.cercaAppuntamento(4), AppuntamentoManager.APPUNTAMENTO_VUOTO);
+		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertTrue(sim.segnalaInteresse("Danilo", "Grieco", "12345", "CD003EF"));
-		a = am.cercaAppuntamento(4);
+		a = am.cercaAppuntamento(5);
 		assertEquals(a.getNome(), "Danilo");
 		assertEquals(a.getCognome(), "Grieco");
 		assertEquals(a.getContatto(), "12345");

@@ -2,12 +2,13 @@ package unicars.unitTest;
 
 /**
  * Classe di test per la classe AppuntamentoManager
+ * NOTA: per l'esecuzione della classe di test il database deve trovarsi nella sua istanza iniziale
+ * ripristinato tramite l'esecuzione della classe PoplaDB contenuto nel package unicars.stub
  * 
  * @author Michele Fratello
  */
 
 import static org.junit.Assert.*;
-import java.util.ArrayList;
 import org.junit.Test;
 import unicars.bean.Appuntamento;
 import unicars.manager.AppuntamentoManager;
@@ -90,7 +91,7 @@ public class AppuntamentoManagerTest {
 		assertFalse(am.inserisciAppuntamento(a));
 		
 		//TC009 – testInserisciAppuntamentoContattoNotOK
-		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", "16:00", "prova4", "", 0);
+		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", "16:00", "prova4", "stringa!-.-", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
