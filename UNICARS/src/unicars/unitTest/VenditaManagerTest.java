@@ -15,40 +15,6 @@ import unicars.manager.VenditaManager;
 public class VenditaManagerTest {
 
 	@Test
-	public void testListaVendite() {
-		//Dato che questo metodo non richiede dati di input in questo test 
-		//si verifica il solo corretto funzionamento del metodo 
-		VenditaManager vm = new VenditaManager();
-		ArrayList<Vendita> lista = vm.listaVendite();
-		
-		int contatore = 0;
-		int i = 0;
-		for(Vendita v : lista)
-		{
-			assertEquals(v.getCodice(), i++);
-			contatore++;
-		}
-		assertEquals(contatore, 3);
-	}
-
-	@Test
-	public void testCercaVendita() {
-		VenditaManager vm = new VenditaManager();
-		Vendita v = null;
-		//classi di equivalenza per il codice:
-		//EC051 - valori interi non appartenenti a [0, 999999]
-		//EC052 - valori interi appartenenti a [0, 999999]
-		
-		//test EC051
-		v = vm.cercaVendita(-1);
-		assertEquals(v, VenditaManager.VENDITA_VUOTO);
-		
-		//test EC052
-		v = vm.cercaVendita(0);
-		assertEquals(v.getCodice(), 0);
-	}
-
-	@Test
 	public void testInserisciVendita() {
 		VenditaManager vm = new VenditaManager();
 		Vendita v;
@@ -150,17 +116,4 @@ public class VenditaManagerTest {
 		v = vm.cercaVendita(0);
 		assertEquals(v.getTelaio(), "W");
 	}
-
-	@Test
-	public void testEliminaVendita() {
-		//Dato che le classi di equivalenza dell input di questo metodo sono esattamente le stesse
-		//del metodo cercaVendita in questo test si verifica il solo corretto funzionamento del metodo 
-		//nel caso di input valido
-		VenditaManager vm = new VenditaManager();
-		Vendita v = vm.cercaVendita(3);
-		assertNotSame(v, VenditaManager.VENDITA_VUOTO);
-		assertTrue(vm.eliminaVendita(3));
-		assertEquals(vm.cercaVendita(3), VenditaManager.VENDITA_VUOTO);
-	}
-
 }
