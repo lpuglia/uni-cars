@@ -15,36 +15,15 @@ import unicars.manager.AppuntamentoManager;
 public class AppuntamentoManagerTest {
 
 	@Test
-	public void testListaAppuntamenti() {
-		//Dato che questo metodo non richiede dati di input in questo test 
-		//si verifica il solo corretto funzionamento del metodo 
-		
-		AppuntamentoManager am = new AppuntamentoManager();
-		ArrayList<Appuntamento> lista = am.listaAppuntamenti();
-		
-		int contatore = 0;
-		int i = 1;
-		for(Appuntamento a : lista)
-		{
-			assertEquals(a.getCodice(), i++);
-			contatore++;
-		}
-		assertEquals(contatore, 3);
-	}
-
-	@Test
 	public void testCercaAppuntamento() {
 		AppuntamentoManager am = new AppuntamentoManager();
 		Appuntamento a = null;
-		//classi di equivalenza per il codice:
-		//EC001 - valori interi non appartenenti a [0, 999999]
-		//EC002 - valori interi appartenenti a [0, 999999]
-		
-		//test EC001
+
+		//TC001 – testCercaAppuntamentoCodiceNotOK
 		a = am.cercaAppuntamento(-1);
 		assertEquals(a, AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		
-		//test EC002
+		//TC002 – testCercaAppuntamentoCodiceOK
 		a = am.cercaAppuntamento(1);
 		assertEquals(a.getCodice(), 1);
 	}
@@ -53,52 +32,34 @@ public class AppuntamentoManagerTest {
 	public void testInserisciAppuntamento() {
 		AppuntamentoManager am = new AppuntamentoManager();
 		Appuntamento a;
-		//classi equivalenza per nome:
-		//EC003 - stringa composta di sole lettere <= 30
-		//EC004 - qualsiasi altro tipo di stringa
-		//EC005 - null
-		
-		//test EC003
+				
+		//TC003 – testInserisciAppuntamentoOK
 		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", "16:00", "prova4", "Via xyz 11", 0);
 		assertEquals(am.cercaAppuntamento(4), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertTrue(am.inserisciAppuntamento(a));
 		assertEquals(am.cercaAppuntamento(4).getCodice(), 4);
 		
-		//test EC004
+		//TC004 – testInserisciAppuntamentoNomeNotOK
 		a = new Appuntamento("-sdf1sd65f13s2df1e65t-", "Grieco", -1, "04/04/2004", "16:00", "prova4", "Via xyz 11", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
-		//test EC005
+		//TC011 – testInserisciAppuntamentoNomeNull
 		a = new Appuntamento(null, "Grieco", -1, "04/04/2004", "16:00", "prova4", "Via xyz 11", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
-		//classi equivalenza per cognome:
-		//EC006 - stringa composta di sole lettere <= 30
-		//EC007 - qualsiasi altro tipo di stringa
-		//EC008 - null
-		
-		//il test per EC006 è stato già effettuato nel test EC003
-		
-		////test EC007
+		//TC005 – testInserisciAppuntamentoCognomeNotOK
 		a = new Appuntamento("Danilo", "-sdf1sd3s2df1e65t-", -1, "04/04/2004", "16:00", "prova4", "Via xyz 11", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
-		//test EC008
+		//TC012 – testInserisciAppuntamentoCognomeNull
 		a = new Appuntamento("Danilo", null, -1, "04/04/2004", "16:00", "prova4", "Via xyz 11", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
-		//classi equivalenza per data:
-		//EC009 - stringa con formato gg/mm/aaaa
-		//EC010 - qualsiasi altro tipo di stringa
-		//EC011 - null
-		
-		//il test per EC009 è stato già effettuato nel test EC003
-		
-		//test EC010
+		//
 		a = new Appuntamento("Danilo", "Grieco", -1, "asd123", "16:00", "prova4", "Via xyz 11", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
