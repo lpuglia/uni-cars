@@ -59,114 +59,49 @@ public class AppuntamentoManagerTest {
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
-		//
+		//TC006 – testInserisciAppuntamentoDataNotOK
 		a = new Appuntamento("Danilo", "Grieco", -1, "asd123", "16:00", "prova4", "Via xyz 11", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
-		//test EC011
+		//TC013 – testInserisciAppuntamentoDataNull
 		a = new Appuntamento("Danilo", "Grieco", -1, null, "16:00", "prova4", "Via xyz 11", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
-		//classi equivalenza per ora:
-		//EC012 - stringa con formato hh:mm
-		//EC013 - qualsiasi altro tipo di stringa
-		//EC014 - null
-		
-		//il test per EC012 è stato già effettuato nel test EC003
-		
-		//test EC013
+		//TC007 – testInserisciAppuntamentoOraNotOK
 		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", "asd123", "prova4", "Via xyz 11", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
-		//test EC014
+		//TC014 – testInserisciAppuntamentoOraNull
 		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", null, "prova4", "Via xyz 11", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
-		//classi equivalenza per descrizione:
-		//EC015 - qualsiasi stringa alfanumerica inclusi gli spazi
-		//EC016 - qualsiasi altro tipo di stringa
-		//EC017 - null
-		
-		//il test per EC016 è stato già effettuato nel test EC003
-		
-		//test EC016
+		//TC008 – testInserisciAppuntamentoDescrizioneNotOK
 		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", "16:00", "stringa!-.-", "Via xyz 11", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
-		//test EC017
+		//TC015 – testInserisciAppuntamentoDescrizioneNull
 		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", "16:00", null, "Via xyz 11", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
-		//classi equivalenza per contatto:
-		//EC018 - qualsiasi stringa alfanumerica inclusi gli spazi
-		//EC019 - qualsiasi altro tipo di stringa
-		//EC020 - null
-		
-		//il test per EC018 è stato già effettuato nel test EC003
-		
-		//test EC019
+		//TC009 – testInserisciAppuntamentoContattoNotOK
 		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", "16:00", "prova4", "", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
-		//test EC020
+		//TC016 – testInserisciAppuntamentoContattoNull
 		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", "16:00", "prova4", null, 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
-		//classi equivalenza per stato:
-		//EC021 - intero appartenente all'intervallo [0, 2]
-		//EC022 - intero non appartenente all'intervallo [0,2]
-		
-		//il test per EC021 è stato già effettuato nel test EC03
-		
-		//test EC022
+		//TC010 – testInserisciAppuntamentoStatoNotOK
 		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", "16:00", "prova4", "Via xyz 11", -7);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
-	}
-
-	@Test
-	public void testModificaAppuntamento() {
-		//Dato che le classi di equivalenza degli input di questo metodo sono esattamente le stesse
-		//del metodo inserisciAppuntamento ad eccezione del codice che in questo caso deve essere validato
-		//in questo test si verificano solo tali classi
-		AppuntamentoManager am = new AppuntamentoManager();
-		Appuntamento a;
-		
-		//classi di equivalenza per il codice:
-		//EC023 - valori interi non appartenenti a [0, 999999]
-		//EC024 - valori interi appartenenti a [0, 999999]
-		
-		//test EC023
-		a = am.cercaAppuntamento(0);
-		a.setCodice(-1);//assegno all'appuntamento valido un codice non valido
-		assertFalse(am.modificaAppuntamento(a));
-		
-		//test EC024
-		a = am.cercaAppuntamento(1);
-		assertEquals(a.getStato(), 0);
-		a.setStato(2);
-		assertTrue(am.modificaAppuntamento(a));
-		a = am.cercaAppuntamento(1);
-		assertEquals(a.getStato(), 2);
-	}
-
-	@Test
-	public void testEliminaAppuntamento() {
-		//Dato che le classi di equivalenza dell input di questo metodo sono esattamente le stesse
-		//del metodo cercaAppuntamento in questo test si verifica il solo corretto funzionamento del metodo 
-		//nel caso di input valido
-		AppuntamentoManager am = new AppuntamentoManager();
-		Appuntamento a = am.cercaAppuntamento(4);
-		assertNotSame(a, AppuntamentoManager.APPUNTAMENTO_VUOTO);
-		assertTrue(am.eliminaAppuntamento(4));
-		assertEquals(am.cercaAppuntamento(4), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 	}
 }
