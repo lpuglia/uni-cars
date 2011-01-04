@@ -1,7 +1,7 @@
 package unicars.bean;
 
 /**
- * Classe Bean che gestisce i dati relativi all'entità Riparazione
+ * Classe Bean che gestisce i dati relativi all'entita' Riparazione
  * I metodi get e set servono per avere il valore e settare un nuovo valore per le variabili indicate
  *
  * @author Gianluigi Avella

@@ -143,7 +143,7 @@ public class VenditaManager implements IVenditaManager{
 		}
 		
 		if(v == null || v == VENDITA_VUOTO || !verificaVendita(v)) {
-			System.err.println("VenditaManager.inserisciVendita() - la Vendita passata non è valida");
+			System.err.println("VenditaManager.inserisciVendita() - la Vendita passata non ï¿½ valida");
 			return false;
 		}
 		
@@ -180,7 +180,7 @@ public class VenditaManager implements IVenditaManager{
 		}
 
 		if(v == null || v == VENDITA_VUOTO || !verificaVendita(v)) {
-			System.err.println("VenditaManager.modificaVendita() - la Vendita passata non è valida");
+			System.err.println("VenditaManager.modificaVendita() - la Vendita passata non ï¿½ valida");
 			return false;
 		}
 		
@@ -236,10 +236,10 @@ public class VenditaManager implements IVenditaManager{
 	}
 	
 	/**
-	 * Metodo che verifica la validità della Vendita passato in input
+	 * Metodo che verifica la validita' della Vendita passato in input
 	 * 
 	 * @param v Vendita da verificare
-	 * @return true se la Vendita è valida, false altrimenti
+	 * @return true se la Vendita e' valida, false altrimenti
 	 */
 	private boolean verificaVendita(Vendita v) {
 		Pattern p;

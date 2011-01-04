@@ -20,12 +20,12 @@ public class VenditaManagerTest {
 		VenditaManager vm = new VenditaManager();
 		Vendita v;
 		
-		//TC026 – testModificaVenditaCodiceNotOK
+		//TC026 - testModificaVenditaCodiceNotOK
 		v = vm.cercaVendita(1);
 		v.setCodice(-1);
 		assertFalse(vm.modificaVendita(v));
 		
-		//TC027 – testModificaVenditaOK
+		//TC027 - testModificaVenditaOK
 		v = vm.cercaVendita(1);
 		assertEquals(v.getTelaio(), "Y");
 		v.setTelaio("W");
@@ -33,42 +33,42 @@ public class VenditaManagerTest {
 		v = vm.cercaVendita(1);
 		assertEquals(v.getTelaio(), "W");
 		
-		//TC028 – testModificaVenditaCodFisNotOK
+		//TC028 - testModificaVenditaCodFisNotOK
 		v = vm.cercaVendita(1);
 		v.setCodFis("stringa non valid@!");
 		assertFalse(vm.modificaVendita(v));
 		
-		//TC029 – testModificaVenditaCodFisNull
+		//TC029 - testModificaVenditaCodFisNull
 		v = vm.cercaVendita(1);
 		v.setCodFis(null);
 		assertFalse(vm.modificaVendita(v));
 		
-		//TC030 – testModificaVenditaTelaioNotOK
+		//TC030 - testModificaVenditaTelaioNotOK
 		v = vm.cercaVendita(1);
 		v.setTelaio("stringa non valid@!");
 		assertFalse(vm.modificaVendita(v));
 		
-		//TC031 – testModificaVenditaTelaioNull
+		//TC031 - testModificaVenditaTelaioNull
 		v = vm.cercaVendita(1);
 		v.setTelaio(null);
 		assertFalse(vm.modificaVendita(v));
 		
-		//TC032 – testModificaVenditaDataNotOK
+		//TC032 - testModificaVenditaDataNotOK
 		v = vm.cercaVendita(1);
 		v.setData("asdasdasd");
 		assertFalse(vm.modificaVendita(v));
 		
-		//TC033 – testModificaVenditaDataNull
+		//TC033 - testModificaVenditaDataNull
 		v = vm.cercaVendita(1);
 		v.setData(null);
 		assertFalse(vm.modificaVendita(v));
 		
-		//TC034 – testModificaVenditaNoteNotOK
+		//TC034 - testModificaVenditaNoteNotOK
 		v = vm.cercaVendita(1);
-		v.setNote("asd!$£V£%V");
+		v.setNote("asd!$-V-%V");
 		assertFalse(vm.modificaVendita(v));
 		
-		//TC035 – testModificaVenditaNoteNull
+		//TC035 - testModificaVenditaNoteNull
 		v = vm.cercaVendita(1);
 		v.setNote(null);
 		assertFalse(vm.modificaVendita(v));
