@@ -306,7 +306,7 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 			return false;
 		}
 		
-		p = Pattern.compile("[a-zA-Z0-9@., ]*");
+		p = Pattern.compile("[a-zA-Z0-9.@,:;\"'-_ ]*");
 		m = p.matcher(a.getContatto());
 		if(!m.matches()) {
 			System.err.println("AppuntamentoManager.verificaAppuntamento - fallita validazione contatto: " + a.getContatto());
