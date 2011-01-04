@@ -21,7 +21,7 @@
 	<div class="redirect">
 		<br><h1>${msg.messaggio}</h1><br><br>
 		Stai per essere reindirizzato alla index del sito.<br><br>
-		Se nn vuoi attendere oltre clicca <a class="black" href="index.jsp">qui</a>.
+		Se non vuoi attendere oltre clicca <a class="black" href="index.jsp">qui</a>.
 	</div>
 </div>
 </body>
