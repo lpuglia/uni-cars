@@ -5,14 +5,14 @@ import java.sql.Statement;
 
 import unicars.manager.DBConnection;
 
+/** 
+ * Classe stub che crea i record per le tabelle nel database 'unicarsdb' al primo utilizzo del programma
+ * 
+ * @author Gianluigi Avella
+ */
+
 public class PopolaDB {
 
-	/** 
-	 * Classe stub che crea i record per le tabelle nel database 'unicarsdb' al primo utilizzo del programma
-	 * 
-	 * @author Gianluigi Avella
-	 */
-	
 	public static void main(String[] args) {
 		
 		DBConnection db;

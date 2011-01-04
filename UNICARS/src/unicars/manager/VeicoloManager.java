@@ -24,10 +24,8 @@ public class VeicoloManager implements IVeicoloManager{
 	private boolean isConnected = false;
 	public static final Veicolo VEICOLO_VUOTO = new Veicolo(null, null, null, null, null, null, null, null, null); 
 	
-	/**Costruttore della classe.
-	 * 
-	 * @param c Oggetto DBConnection in cui sono memorizzati tutti i dati necessari
-	 * per stabilire una connessione con il database.
+	/**
+	 * Costruttore della classe.
 	 */
 	public VeicoloManager()
 	{
@@ -91,7 +89,7 @@ public class VeicoloManager implements IVeicoloManager{
 	/**
 	 * Effettua una ricerca all'interno del database per uno specifico Veicolo.
 	 * 
-	 * @param codice Stringa contenete il codice del Veicolo.
+	 * @param targa Stringa contenete il codice del Veicolo.
 	 * @return L'oggetto Veicolo in caso di esito positivo, null altrimenti.
 	 */
 	public Veicolo cercaVeicolo(String targa) {
