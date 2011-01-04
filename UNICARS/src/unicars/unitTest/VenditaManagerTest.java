@@ -1,13 +1,14 @@
 package unicars.unitTest;
 
 /**
- * Caso di test per la classe VenditaManager
+ * Classe di test per la classe VenditaManager
+ * NOTA: per l'esecuzione della classe di test il database deve trovarsi nella sua istanza iniziale
+ * ripristinato tramite l'esecuzione della classe PoplaDB contenuto nel package unicars.stub
  * 
  * @author Michele Fratello
  */
 
 import static org.junit.Assert.*;
-import java.util.ArrayList;
 import org.junit.Test;
 import unicars.bean.Vendita;
 import unicars.manager.VenditaManager;
@@ -15,105 +16,61 @@ import unicars.manager.VenditaManager;
 public class VenditaManagerTest {
 
 	@Test
-	public void testInserisciVendita() {
-		VenditaManager vm = new VenditaManager();
-		Vendita v;
-		//Classi di Equivalenza del Codice Fiscale
-		//EC053 - Stringa di 16 caratteri alfanumerici definita secondo determinati criteri (maggiori info!!!)
-		//EC054 - Qualsiasi altro tipo di stringa
-		//EC055 - null
-		
-		//test EC053
-		v = new Vendita(-1, "MARTRA89C14T123F", "W", "18/01/2011", "test inserimento");
-		assertEquals(vm.cercaVendita(3), VenditaManager.VENDITA_VUOTO);
-		assertTrue(vm.inserisciVendita(v));
-		assertEquals(vm.cercaVendita(3).getCodice(), 3);
-		
-		//test EC054
-		v = new Vendita(-1, "stringa non valid@!", "W", "18/01/2011", "test inserimento");
-		assertEquals(vm.cercaVendita(4), VenditaManager.VENDITA_VUOTO);
-		assertFalse(vm.inserisciVendita(v));
-		
-		//test EC055
-		v = new Vendita(-1, null, "W", "18/01/2011", "test inserimento");
-		assertEquals(vm.cercaVendita(4), VenditaManager.VENDITA_VUOTO);
-		assertFalse(vm.inserisciVendita(v));
-		
-		//Classi di Equivalenza del Telaio
-		//EC056 - stringa alfanumerica di massimo 17 caratteri (maggiori info!!!)
-		//EC057 - Qualsiasi altro tipo di stringa
-		//EC058 - null
-		
-		//il test per EC056 è stato già effettuato nel test EC053
-		
-		//test EC057
-		v = new Vendita(-1, "MARTRA89C14T123F", "stringa non valid@!", "18/01/2011", "test inserimento");
-		assertEquals(vm.cercaVendita(4), VenditaManager.VENDITA_VUOTO);
-		assertFalse(vm.inserisciVendita(v));
-		
-		//test EC058
-		v = new Vendita(-1, "MARTRA89C14T123F", null, "18/01/2011", "test inserimento");
-		assertEquals(vm.cercaVendita(4), VenditaManager.VENDITA_VUOTO);
-		assertFalse(vm.inserisciVendita(v));
-		
-		//classi equivalenza per data:
-		//EC059 - stringa con formato gg/mm/aaaa
-		//EC060 - qualsiasi altro tipo di stringa
-		//EC061 - null
-		
-		//il test per EC059 è stato già effettuato nel test EC053
-		
-		//test EC060
-		v = new Vendita(-1, "MARTRA89C14T123F", "W", "asdasdasd", "test inserimento");
-		assertEquals(vm.cercaVendita(4), VenditaManager.VENDITA_VUOTO);
-		assertFalse(vm.inserisciVendita(v));
-		
-		//test EC061
-		v = new Vendita(-1, "MARTRA89C14T123F", "W", null, "test inserimento");
-		assertEquals(vm.cercaVendita(4), VenditaManager.VENDITA_VUOTO);
-		assertFalse(vm.inserisciVendita(v));
-		
-		//classi equivalenza per descrizione:
-		//EC062 - qualsiasi stringa alfanumerica inclusi gli spazi
-		//EC063 - qualsiasi altro tipo di stringa
-		//EC064 - null
-		
-		//il test per EC062 è stato già effettuato nel test EC053
-		
-		//test EC063
-		v = new Vendita(-1, "MARTRA89C14T123F", "W", "18/01/2011", "asd!$£V£%V");
-		assertEquals(vm.cercaVendita(4), VenditaManager.VENDITA_VUOTO);
-		assertFalse(vm.inserisciVendita(v));
-		
-		//test EC064
-		v = new Vendita(-1, "MARTRA89C14T123F", "W", "18/01/2011", null);
-		assertEquals(vm.cercaVendita(4), VenditaManager.VENDITA_VUOTO);
-		assertFalse(vm.inserisciVendita(v));
-	}
-
-	@Test
 	public void testModificaVendita() {
-		//Dato che le classi di equivalenza degli input di questo metodo sono esattamente le stesse
-		//del metodo inserisciVendita ad eccezione del codice che in questo caso deve essere validato
-		//in questo test si verificano solo tali classi
 		VenditaManager vm = new VenditaManager();
 		Vendita v;
 		
-		//classi di equivalenza per il codice:
-		//EC065 - valori interi non appartenenti a [0, 999999]
-		//EC066 - valori interi appartenenti a [0, 999999]
-		
-		//test EC065
-		v = vm.cercaVendita(0);
+		//TC026 – testModificaVenditaCodiceNotOK
+		v = vm.cercaVendita(1);
 		v.setCodice(-1);
 		assertFalse(vm.modificaVendita(v));
 		
-		//test EC066
-		v = vm.cercaVendita(0);
+		//TC027 – testModificaVenditaOK
+		v = vm.cercaVendita(1);
 		assertEquals(v.getTelaio(), "Y");
 		v.setTelaio("W");
 		assertTrue(vm.modificaVendita(v));
-		v = vm.cercaVendita(0);
+		v = vm.cercaVendita(1);
 		assertEquals(v.getTelaio(), "W");
+		
+		//TC028 – testModificaVenditaCodFisNotOK
+		v = vm.cercaVendita(1);
+		v.setCodFis("stringa non valid@!");
+		assertFalse(vm.modificaVendita(v));
+		
+		//TC029 – testModificaVenditaCodFisNull
+		v = vm.cercaVendita(1);
+		v.setCodFis(null);
+		assertFalse(vm.modificaVendita(v));
+		
+		//TC030 – testModificaVenditaTelaioNotOK
+		v = vm.cercaVendita(1);
+		v.setTelaio("stringa non valid@!");
+		assertFalse(vm.modificaVendita(v));
+		
+		//TC031 – testModificaVenditaTelaioNull
+		v = vm.cercaVendita(1);
+		v.setTelaio(null);
+		assertFalse(vm.modificaVendita(v));
+		
+		//TC032 – testModificaVenditaDataNotOK
+		v = vm.cercaVendita(1);
+		v.setData("asdasdasd");
+		assertFalse(vm.modificaVendita(v));
+		
+		//TC033 – testModificaVenditaDataNull
+		v = vm.cercaVendita(1);
+		v.setData(null);
+		assertFalse(vm.modificaVendita(v));
+		
+		//TC034 – testModificaVenditaNoteNotOK
+		v = vm.cercaVendita(1);
+		v.setNote("asd!$£V£%V");
+		assertFalse(vm.modificaVendita(v));
+		
+		//TC035 – testModificaVenditaNoteNull
+		v = vm.cercaVendita(1);
+		v.setNote(null);
+		assertFalse(vm.modificaVendita(v));
 	}
 }
