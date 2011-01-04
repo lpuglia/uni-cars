@@ -11,16 +11,16 @@ Pasquale Pio Francavilla<br>
 <b><h3>PROJECT TEAM:</h3></b>
 <table style="margin:auto;">
 	<tr>
-		<td colspan="2">Gianluigi Avella<br>(Giannino)
-		<td colspan="2">Michele Fratello<br>(Mbronto)
-		<td colspan="2">Danilo Grieco<br>(Mr. I.U.M.)
+		<td colspan="2">Gianluigi Avella
+		<td colspan="2">Michele Fratello
+		<td colspan="2">Danilo Grieco
 	<tr>
 		<td colspan="2"><img src="image/foto/giaave.png">
 		<td colspan="2"><img src="image/foto/micfra.png">
 		<td colspan="2"><img src="image/foto/dangri.png">
 	<tr>
-		<td colspan="3">Luca Puglia<br>(Reginaldo)
-		<td colspan="3">Marco Tranfaglia<br>(Tranfix)
+		<td colspan="3">Luca Puglia
+		<td colspan="3">Marco Tranfaglia
 	<tr>
 		<td align="right" colspan="3"><img src="image/foto/lucpug.png">
 		<td align="left" colspan="3"><img src="image/foto/martra.png">
