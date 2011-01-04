@@ -66,6 +66,8 @@ public class PopolaDB {
 			stmt.executeQuery(query);
 			query = "DELETE FROM appuntamento";
 			stmt.executeUpdate(query);
+			query = "ALTER TABLE appuntamento AUTO_INCREMENT=1";
+			stmt.executeUpdate(query);
 			query = "INSERT INTO appuntamento VALUES ('0000000001', 'mario', 'rossi', '01/01/2000', '09:00', 'prova1', 'via xxx 10', '0');" ;
 			stmt.executeUpdate(query);
 			query = "INSERT INTO appuntamento VALUES ('0000000002', 'gianni', 'bianchi', '02/02/2002', '11:00', 'prova2', 'via yyy 20', '0');" ;
