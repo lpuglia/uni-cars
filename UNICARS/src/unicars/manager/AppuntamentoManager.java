@@ -160,7 +160,7 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 		}
 		
 		if(a == null || a == APPUNTAMENTO_VUOTO || !verificaAppuntamento(a)) {
-			System.err.println("AppuntamentoManager.inserisciAppuntamento() - l'Appuntamento passato non è valido.");
+			System.err.println("AppuntamentoManager.inserisciAppuntamento() - l'Appuntamento passato non ï¿½ valido.");
 			return false;
 		}
 		
@@ -200,7 +200,7 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 		}
 
 		if(a == null || a == APPUNTAMENTO_VUOTO || !verificaAppuntamento(a)) {
-			System.err.println("AppuntamentoManager.modificaAppuntamento() - l'Appuntamento passato non è valido.");
+			System.err.println("AppuntamentoManager.modificaAppuntamento() - l'Appuntamento passato non ï¿½ valido.");
 			return false;
 		}
 		
@@ -255,10 +255,10 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 	}
 
 	/**
-	 * Metodo che verifica la validità dell'Appuntamento passato in input
+	 * Metodo che verifica la validita' dell'Appuntamento passato in input
 	 * 
 	 * @param a Appuntamento da verificare
-	 * @return true se l'Appuntamento è valido, false altrimenti
+	 * @return true se l'Appuntamento e' valido, false altrimenti
 	 */
 	private boolean verificaAppuntamento(Appuntamento a) {
 		Pattern p;

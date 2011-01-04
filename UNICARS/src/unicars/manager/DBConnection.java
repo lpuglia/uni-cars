@@ -3,7 +3,7 @@ package unicars.manager;
 import java.sql.*;
 
 /**
- * Classe di utilità per dare modularità al database.
+ * Classe di utilita' per dare modularita' al database.
  * Contiene tutti i parametri di configurazione del nostro DB.
  * I nomi delle variabili sono esplicativi ed indicano quale parametro del DB configurano.
  * 
@@ -29,8 +29,8 @@ public class DBConnection {
 	 * Metodo principale della classe. Effettua una connessione al database utilizzando i dati
 	 * memorizzati nelle variabili di istanza.
 	 * 
-	 * @return Un oggetto Connection tramite il quale è possibile eseguire comandi SQL .
-	 * @throws ClassNotFoundException quando il driver scelto non è disponibile.
+	 * @return Un oggetto Connection tramite il quale e' possibile eseguire comandi SQL .
+	 * @throws ClassNotFoundException quando il driver scelto non e' disponibile.
 	 * @throws SQLException quando la connessione non va a buon fine.
 	 */
 	public Connection connetti() throws ClassNotFoundException, SQLException {
@@ -58,7 +58,7 @@ public class DBConnection {
 
 	/**
 	 * Restituisce il nome del database.
-	 * @return una stringa in cui è contenuto il nome del database.
+	 * @return una stringa in cui e' contenuto il nome del database.
 	 */
 	public String getNome() {
 		return nome;
