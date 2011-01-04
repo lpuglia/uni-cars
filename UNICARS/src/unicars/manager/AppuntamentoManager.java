@@ -257,6 +257,12 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 		return ret;
 	}
 
+	/**
+	 * Metodo che verifica la validità dell'Appuntamento passato in input
+	 * 
+	 * @param a Appuntamento da verificare
+	 * @return true se l'Appuntamento è valido, false altrimenti
+	 */
 	private boolean verificaAppuntamento(Appuntamento a) {
 		Pattern p;
 		Matcher m;
