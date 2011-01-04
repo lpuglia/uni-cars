@@ -72,7 +72,7 @@ public class SegnalaInteresseManager implements ISegnalaInteresseManager{
 													"'0'" + ")";
 		Pattern nomeP = Pattern.compile("[a-zA-Z]{1,30}");
 		Pattern cognomeP = Pattern.compile("[a-zA-Z]{1,30}");
-		Pattern contattoP = Pattern.compile("[a-zA-Z0-9 ]{1,40}");
+		Pattern contattoP = Pattern.compile("[a-zA-Z0-9@., ]*");
 		Pattern descrizioneP = Pattern.compile("[A-Z0-9]{1,8}");
 		Matcher nomeM, cognomeM, contattoM, descrizioneM;
 		
