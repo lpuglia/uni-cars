@@ -1,5 +1,10 @@
 package unicars.unitTest;
 
+import static org.junit.Assert.*;
+import org.junit.Test;
+import unicars.bean.Vendita;
+import unicars.manager.VenditaManager;
+
 /**
  * Classe di test per la classe VenditaManager
  * NOTA: per l'esecuzione della classe di test il database deve trovarsi nella sua istanza iniziale
@@ -7,11 +12,6 @@ package unicars.unitTest;
  * 
  * @author Michele Fratello
  */
-
-import static org.junit.Assert.*;
-import org.junit.Test;
-import unicars.bean.Vendita;
-import unicars.manager.VenditaManager;
 
 public class VenditaManagerTest {
 

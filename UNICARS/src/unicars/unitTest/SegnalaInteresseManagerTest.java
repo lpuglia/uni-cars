@@ -1,5 +1,11 @@
 package unicars.unitTest;
 
+import static org.junit.Assert.*;
+import org.junit.Test;
+import unicars.bean.Appuntamento;
+import unicars.manager.AppuntamentoManager;
+import unicars.manager.SegnalaInteresseManager;
+
 /**
  * Classe di test per la classe SegnalaInteresseManager
  * NOTA: per l'esecuzione della classe di test il database deve trovarsi nella sua istanza iniziale
@@ -7,12 +13,6 @@ package unicars.unitTest;
  * 
  * @author Michele Fratello
  */
-
-import static org.junit.Assert.*;
-import org.junit.Test;
-import unicars.bean.Appuntamento;
-import unicars.manager.AppuntamentoManager;
-import unicars.manager.SegnalaInteresseManager;
 
 public class SegnalaInteresseManagerTest {
 
