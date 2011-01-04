@@ -91,7 +91,7 @@ public class AppuntamentoManagerTest {
 		assertFalse(am.inserisciAppuntamento(a));
 		
 		//TC009 – testInserisciAppuntamentoContattoNotOK
-		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", "16:00", "prova4", "stringa!-.-", 0);
+		a = new Appuntamento("Danilo", "Grieco", -1, "04/04/2004", "16:00", "prova4", "$%stringa!-.-", 0);
 		assertEquals(am.cercaAppuntamento(5), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertFalse(am.inserisciAppuntamento(a));
 		
