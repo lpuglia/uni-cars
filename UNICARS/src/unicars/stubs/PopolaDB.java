@@ -51,15 +51,15 @@ public class PopolaDB {
 			
 			System.out.println("Record appuntamento inseriti");
 			
-			query = "INSERT INTO cliente VALUES ('Danilo', 'Grieco', '19/09/1989', 'Battipaglia', 'DANGRI89A19F654H', 'Via Contursi', 'dan@live.it', '54321');";
+			query = "INSERT INTO `cliente` VALUES ('Danilo', 'Grieco', '19/09/1989', 'Battipaglia', 'GRCDNL89P19A717D', 'Via Contursi', 'dan@live.it', '54321');";
 			stmt.executeUpdate(query);
-			query = "INSERT INTO cliente VALUES ('Gianluigi', 'Avella', '15/08/1988', 'Salerno', 'GIAAVE88H15O159P', 'Via San Giorgio', 'gian@live.it', '54789');";
+			query = "INSERT INTO cliente VALUES ('Gianluigi', 'Avella', '15/08/1988', 'Salerno', 'VLLGNL83C20F913Z', 'Via San Giorgio', 'gian@live.it', '54789');";
 			stmt.executeUpdate(query);
-			query = "INSERT INTO cliente VALUES ('Luca', 'Puglia', '01/07/1989', 'Salerno', 'LUCPUG89B01E357T', 'Via Pastena', 'luke@live.it', '98765');";
+			query = "INSERT INTO cliente VALUES ('Luca', 'Puglia', '01/07/1989', 'Salerno', 'PGLLCU89L01H703I', 'Via Pastena', 'luke@live.it', '98765');";
 			stmt.executeUpdate(query);
-			query = "INSERT INTO cliente VALUES ('Marco', 'Tranfaglia', '16/04/1990', 'Salerno', 'MARTRA89C14T123F', 'Via Torrione', 'mark@live.it', '14785');";
+			query = "INSERT INTO cliente VALUES ('Marco', 'Tranfaglia', '16/04/1990', 'Salerno', 'TRNMRC90D16H703S', 'Via Torrione', 'mark@live.it', '14785');";
 			stmt.executeUpdate(query);
-			query = "INSERT INTO cliente VALUES ('Michele', 'Fratello', '02/04/1989', 'Avellino', 'MICFRA89D02A587G', 'Via Montella', 'mike@live.it', '12345');";
+			query = "INSERT INTO cliente VALUES ('Michele', 'Fratello', '02/04/1989', 'Avellino', 'FRTMHL89D02A509C', 'Via Montella', 'mike@live.it', '12345');";
 			stmt.executeUpdate(query);
 			
 			System.out.println("Record cliente inseriti");
