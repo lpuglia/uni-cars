@@ -25,7 +25,7 @@ function validaVendita() {
         }
         //Effettua il controllo sul campo TELAIO
         else if (telaio == null || telaio == "" || !telaio_reg_exp.test(telaio) ) {
-           alert("Il campo Telaio deve avere il formato del telaio e<br>deve essere già presente.");
+           alert("Il campo Telaio deve avere il formato del telaio e deve essere già presente.");
            document.vendita.telaio.focus();
            return false;
         }
