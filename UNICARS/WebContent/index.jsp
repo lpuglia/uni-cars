@@ -27,6 +27,7 @@
 
 </head>
 <body>
+<!-- <div style="position:absolute; width:100%; height:100%; background-color:black; opacity:0.4;"></div> -->
 	<div class="mainT">
 		<a href="index.jsp"><img src="image/banner.jpg"></a>
 		
