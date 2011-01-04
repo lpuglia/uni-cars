@@ -17,6 +17,7 @@ public class SegnalaInteresseManagerTest {
 		//EC038 - null
 		
 		//test EC036
+		assertEquals(am.cercaAppuntamento(4), AppuntamentoManager.APPUNTAMENTO_VUOTO);
 		assertTrue(sim.segnalaInteresse("Danilo", "Grieco", "12345", "CD003EF"));
 		a = am.cercaAppuntamento(4);
 		assertEquals(a.getNome(), "Danilo");
