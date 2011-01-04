@@ -24,10 +24,8 @@ public class OperatoreManager implements IOperatoreManager{
 	private boolean isConnected = false;
 	public static final Operatore OPERATORE_VUOTO = new Operatore(null, null, null, null, null, null); 
 	
-	/**Costruttore della classe.
-	 * 
-	 * @param c Oggetto DBConnection in cui sono memorizzati tutti i dati necessari
-	 * per stabilire una connessione con il database.
+	/**
+	 * Costruttore della classe.
 	 */
 	public OperatoreManager()
 	{
@@ -140,7 +138,7 @@ public class OperatoreManager implements IOperatoreManager{
 	 * Effettua l'operazione di login per un Operatore.
 	 * 
 	 * @param username Username dell'Operatore che tenta il login
-	 * @param passowrd Password dell'Operatore che tenta il login
+	 * @param password Password dell'Operatore che tenta il login
 	 */
 	public Operatore loginOperatore(String username, String password) {
 		Operatore o = OPERATORE_VUOTO;

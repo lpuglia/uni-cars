@@ -21,10 +21,8 @@ public class VenditaManager implements IVenditaManager{
 	private boolean isConnected = false;
 	public static final Vendita VENDITA_VUOTO = new Vendita(-1, null, null, null, null); 
 	
-	/**Costruttore della classe.
-	 * 
-	 * @param c Oggetto DBConnection in cui sono memorizzati tutti i dati necessari.
-	 * per stabilire una connessione con il database.
+	/**
+	 * Costruttore della classe.
 	 */
 	public VenditaManager() {
 		try {

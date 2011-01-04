@@ -21,10 +21,8 @@ public class RiparazioneManager implements IRiparazioneManager{
 	private boolean isConnected = false;
 	public static final Riparazione RIPARAZIONE_VUOTO = new Riparazione(-1, null, null, -1, null, null);
 	
-	/**Costruttore della classe.
-	 * 
-	 * @param c Oggetto DBConnection in cui sono memorizzati tutti i dati necessari
-	 * per stabilire una connessione con il database.
+	/**
+	 * Costruttore della classe.
 	 */
 	public RiparazioneManager()
 	{

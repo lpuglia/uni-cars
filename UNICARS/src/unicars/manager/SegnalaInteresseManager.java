@@ -19,10 +19,8 @@ public class SegnalaInteresseManager implements ISegnalaInteresseManager{
 	private Connection conn;
 	private boolean isConnected = false;
 	
-	/**Costruttore della classe.
-	 * 
-	 * @param c Oggetto DBConnection in cui sono memorizzati tutti i dati necessari
-	 * per stabilire una connessione con il database.
+	/**
+	 * Costruttore della classe.
 	 */
 	public SegnalaInteresseManager()
 	{

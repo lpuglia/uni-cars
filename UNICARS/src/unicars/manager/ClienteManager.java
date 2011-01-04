@@ -25,10 +25,8 @@ public class ClienteManager implements IClienteManager{
 	public static final Cliente CLIENTE_VUOTO = new Cliente(null, null, null, null, null, null, null, null); 
 
 	
-	/**Costruttore della classe.
-	 * 
-	 * @param c Oggetto DBConnection in cui sono memorizzati tutti i dati necessari
-	 * per stabilire una connessione con il database.
+	/**
+	 * Costruttore della classe.
 	 */
 	public ClienteManager()
 	{

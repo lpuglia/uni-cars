@@ -27,9 +27,6 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 	
 	/**
 	 * Costruttore della classe.
-	 * 
-	 * @param c Oggetto DBConnection in cui sono memorizzati tutti i dati necessari
-	 * per stabilire una connessione con il database.
 	 */
 	public AppuntamentoManager() {
 		try {
@@ -182,7 +179,7 @@ public class AppuntamentoManager implements IAppuntamentoManager{
 	/**
 	 * Modifica i dati di un Appuntamento memorizzato nel database.
 	 * 
-	 * @param v L'Appuntamento contenente i dati modificati.
+	 * @param a L'Appuntamento contenente i dati modificati.
 	 * @return Restituisce true in caso di esito positivo, false altrimenti.
 	 */
 	public boolean modificaAppuntamento(Appuntamento a) {
