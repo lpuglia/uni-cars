@@ -11,7 +11,7 @@
       </td>
     </tr>
     <tr>
-    <td><img src="image/veicoli/<%=veicolo.getTarga()%>.jpg" width="250px"></td>
+    <td style="padding-left:20px;"><img src="image/veicoli/<%=veicolo.getTarga()%>.jpg" width="250px"></td>
     <td>
     Numero di Telaio: <%=veicolo.getTelaio()%><br>
     Numero di Targa: <%=veicolo.getTarga()%><br>
@@ -24,7 +24,7 @@
 	</td>
     </tr>
     <tr>
-    <td colspan="2">
+    <td colspan="2"><br>
     	<div style="text-align:center;"><a class="black" href="index.jsp?id=segnalaInteresse2&code=<%=veicolo.getTarga()%>">Segnala Interesse</a></div>
       </td>
     </tr>
