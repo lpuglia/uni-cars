@@ -15,8 +15,7 @@
 	}
 	</script>
 	<script type="text/javascript">
-	
- 	 var stile = "";
+	 var stile = "top=10, left=10, width=800, height=500, status=no";
      function Popup(apri) {
         window.open(apri, "", stile);
      }
