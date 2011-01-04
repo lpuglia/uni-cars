@@ -82,13 +82,13 @@ public class PopolaDB {
 			
 			System.out.println("Record riparazione inseriti");
 			
-			query = "INSERT INTO veicolo VALUES ('W', 'GH004TY', 'Auto', 'Audi', 'A5', '40000', '70000', '3.0 DLX', 'bianco per');";
+			query = "INSERT INTO veicolo VALUES ('W', 'GH004TY', 'Auto', 'Audi', 'A5', '40000', '70000', '3.0 DLX', 'nero');";
 			stmt.executeUpdate(query);
-			query = "INSERT INTO veicolo VALUES ('X', 'AB001BC', 'Auto', 'Fiat', 'Punto', '10530', '12400', '1.4 TDI', 'viola');";
+			query = "INSERT INTO veicolo VALUES ('X', 'AB001BC', 'Auto', 'Fiat', 'Punto', '10530', '12400', '1.4 TDI', 'blu');";
 			stmt.executeUpdate(query);
-			query = "INSERT INTO veicolo VALUES ('Y', 'BC002CD', 'Camion', 'Scania', 'Optimus Prime', '150000', '200000', '7.0', 'rosso');";
+			query = "INSERT INTO veicolo VALUES ('Y', 'BC002CD', 'Camion', 'Scania', 'Optimus Prime', '150000', '200000', '7.0', 'rosso blu');";
 			stmt.executeUpdate(query);
-			query = "INSERT INTO veicolo VALUES ('Z', 'CD003EF', 'Camper', 'Viaggia Allegro', 'All night long', '60000', '80000', '2.5', 'giallo');";
+			query = "INSERT INTO veicolo VALUES ('Z', 'CD003EF', 'Camper', 'Volkswagen', 'All night long', '60000', '80000', '2.5', 'giallo');";
 			stmt.executeUpdate(query);
 			
 			System.out.println("Record veicolo inseriti");
