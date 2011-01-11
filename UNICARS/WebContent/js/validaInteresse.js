@@ -9,7 +9,7 @@ function validaInteresse() {
      var contatto = document.interesse.contatto.value;
      
      var nome_reg_exp = /^[a-zA-Z]{3,30}$/;
-     var contatto_reg_exp = /^[a-zA-Z0-9 ]*$/;
+     var contatto_reg_exp = /^[a-zA-Z0-9.@,:;\"'-_ ]*$/;
     	 //Effettua il controllo sul campo NOME
         if (nome == null || nome == "" || !nome_reg_exp.test(nome) ) {
            alert("Il campo Nome deve avere almeno 3 lettere e non contenere numeri.");

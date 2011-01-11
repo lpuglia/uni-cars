@@ -12,10 +12,8 @@ function validaVendita() {
      var string = String (document.location).split('=');
      var string = string[1].split('&');
      //alert(string[0]);
-     // Espressione regolare dell'email
      var codFis_reg_exp = /^[A-Z]{6}[0-9]{2}[ABCDEHLMPRST]{1}[0-9]{2}([A-Z]{1}[0-9]{3})[A-Z]{1}$/;
      var telaio_reg_exp = /^[A-Z0-9]{1,17}$/;
-     var data_reg_exp = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)[0-9]{2}$/;
      var note_reg_exp = /^[a-zA-Z0-9 ]*$/;
     	 //Effettua il controllo sul campo CODFIS
         if (codFis == null || codFis == "" || !codFis_reg_exp.test(codFis) ) {
@@ -30,8 +28,9 @@ function validaVendita() {
            return false;
         }
         //Effettua il controllo sul campo DATA
-        else if (data == null || data == "" || !data_reg_exp.test(data) ) {
-            alert("Il formato del campo Data deve essere gg/mm/aaaa.");
+        else if (!verif_date(data)) {
+            alert("Il formato del campo Data deve essere gg/mm/aaaa -" +
+            		"\nAttenzione alle date bisestili.");
             document.vendita.data.focus();
             return false;
          }
