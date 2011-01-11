@@ -15,20 +15,20 @@ function validaAppuntamento() {
      var string = string[1].split('&');
      //alert(string[0]);
      // Espressione regolare dell'email
-     var nome_reg_exp = /[a-zA-Z]{3,30}/;
+     var nome_reg_exp = /^[a-zA-Z]{3,30}$/;
      var email_reg_exp = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-]{2,})+\.)+([a-zA-Z0-9]{2,})+$/;
      var data_reg_exp = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/(19|20)[0-9]{2}$/;
      var ora_reg_exp = /^([0-1][0-9]|2[0-3]):([0-5][0-9])$/;
-     var contatto_reg_exp = /[a-zA-Z0-9 ]*/;
+     var contatto_reg_exp = /^[a-zA-Z0-9 ]*$/;
     	 //Effettua il controllo sul campo NOME
         if (nome == null || nome == "" || !nome_reg_exp.test(nome) ) {
-           alert("Il campo Nome deve avere almeno 3 caratteri.");
+           alert("Il campo Nome deve avere almeno 3 lettere e non contenere numeri.");
            document.appuntamento.nome.focus();
            return false;
         }
         //Effettua il controllo sul campo COGNOME
         else if (cognome == null || cognome == "" || !nome_reg_exp.test(cognome) ) {
-           alert("Il campo Cognome deve avere almeno 3 caratteri.");
+           alert("Il campo Cognome deve avere almeno 3 lettere e non contenere numeri.");
            document.appuntamento.cognome.focus();
            return false;
         }
