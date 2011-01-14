@@ -23,6 +23,7 @@
 	<script type="text/javascript" language="Javascript" src="js/validaAppuntamento.js"></script>
 	<script type="text/javascript" language="Javascript" src="js/validaVendita.js"></script>
 	<script type="text/javascript" language="Javascript" src="js/validaInteresse.js"></script>
+	<script type="text/javascript" language="Javascript" src="js/validaData.js"></script>
 
 </head>
 <body>
